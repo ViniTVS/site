@@ -26,7 +26,7 @@
 		}
 	];
 	let menus: {ref: string, option: string}[] = [
-		{ref: "#about", option: "Sobre"},
+		{ref: "#about", option: "Sobre mim"},
 		{ref: "#experience", option: "Experiência"},
 		{ref: "#contact", option: "Contato"},
 	];
@@ -95,21 +95,21 @@
 	</svelte:fragment>
 	<!-- Menu no mobile -->
 	{#if showMenu}
-		<div transition:slide class="teste" style="height: {tamTela}">
+		<div transition:slide class="teste" style="height: {tamTela} md:hidden">
 			<div class="container mx-auto px-4" style="height: 100%;">
-				<div  style="margin: auto; height: 100%;" class="flex flex-col mx-auto place-content-evenly mx-auto">
+				<div  style="margin: auto; height: 100%;" class="flex flex-col mx-auto place-content-evenly">
 					{#each menus as menuopt }
-						<a transition:slide href={menuopt.ref}> <h1> {menuopt.option} </h1> </a>
+						<a transition:slide href={menuopt.ref} class=" mx-auto"> <h1> {menuopt.option} </h1> </a>
 					{/each}
-					<LightSwitch on:click={()=> menuColor = menuColor == "black" ? "white" : "black" }/>
+					<div class="mx-auto"> <LightSwitch on:click={()=> menuColor = menuColor == "black" ? "white" : "black" }/> </div>
 				</div>
 			</div>
 		</div>
 	{/if}
 	<!-- Conteúdo -->
-		<div class="container mx-auto">
-			<slot tamTela={tamTela}/>
-		</div>
+	<div class="container mx-auto">
+		<slot tamTela={tamTela}/>
+	</div>
 	<!-- {/if} -->
 </AppShell>
 

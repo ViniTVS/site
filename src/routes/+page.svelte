@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { GradientHeading } from "@skeletonlabs/skeleton";
     import {onMount} from 'svelte';
 
     export let tamTela: String = "calc(100vh - 78px)";
@@ -9,13 +8,24 @@
 
 
 <div class="grid grid-cols-3 gap-4 mx-auto heading content-center" style="height: {tamTela};">
-    <div class="col-span-3 lg:col-span-2" style="margin: 5vh;">
+    <div class="col-span-3 lg:col-span-2">
         <h1> Olá, mundo. <br> Eu sou o Vini. </h1>
         <p> Estudante de Ciência da Computação, sou desenvolvedor backend
             com um pouco de conhecimento em desenvolvimento mobile e páginas web. </p>
     </div>
-    <div class="hidden lg:block">teste</div>
-</div> &nbsp 
+    <div class="hidden lg:block">
+        
+    </div>
+</div>
+
+<div class="grid mx-auto content-center" id="about" style="height: {tamTela};">
+    <h2> Sobre mim </h2>
+    <p> Eu sou o Vinícius, um estudante de Ciência da Computação e estagiário trabalhando com PHP, MySQL e FLutter.
+        Normalmente passo meu tempo lendo, jogando, ouvindo música e, como todo bom programador, 
+        criando algum novo projeto que nunca será finalizado. </p>
+</div>
+
+&nbsp 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dapibus magna a lacinia tincidunt. Nunc a libero a turpis convallis imperdiet. Nullam gravida felis nec neque pretium, eget semper metus vulputate. Donec vel maximus dolor. Ut laoreet laoreet lacus, nec ornare erat euismod vel. In sed ligula vel elit ornare molestie. Sed bibendum nisl orci, at cursus augue pretium ut. Cras auctor lacus a turpis imperdiet ullamcorper.
 <br>
 Nulla tincidunt venenatis finibus. In tristique viverra augue, non fermentum neque auctor sit amet. Aenean consectetur diam nibh, nec dignissim arcu porttitor at. Pellentesque vitae elementum est. Nunc quis posuere nisl, quis pretium magna. Mauris ultrices maximus mauris id tempor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Mauris vel arcu eget nibh suscipit cursus vel ac erat. Duis tincidunt tristique est, vel laoreet nibh auctor sed.
@@ -44,6 +54,9 @@ Suspendisse potenti. Mauris turpis nibh, iaculis in urna ut, imperdiet laoreet l
         font-size: 20vw;
         font-weight: bolder;
         line-height: 1;
+    }
+
+    .heading{
         text-align: center;
     }
     @media (min-width: 600px) {
