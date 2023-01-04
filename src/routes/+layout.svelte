@@ -67,7 +67,7 @@
 		<!-- App Bar -->
 		<AppBar background="transparent" shadow="shadow-lg">
 			<svelte:fragment slot="lead">
-				<img alt="Íconde site" src="favicon.png" height="36" width="36" />
+				<a href="/#"> <img alt="Íconde site" src="favicon.png" height="36" width="36"/> </a>
 			</svelte:fragment>
 
 			<svelte:fragment slot="default">
@@ -81,13 +81,13 @@
 			</svelte:fragment>
 			
 			<svelte:fragment slot="trail">
-				<button on:click={updMenu} class="md:hidden block btn btn-ghost-primary btn-base">
+				<button on:click={updMenu} class="md:hidden block btn btn-base ring-2 ring-secondary-500 ring-inset text-secondary-500">
 					<div class="icon">
 						<MdMenu/>
 					</div>
 				</button>
 				<div class="hidden md:block">					
-					<LightSwitch on:click={()=> menuColor = menuColor == "black" ? "white" : "black" }/>
+					<LightSwitch />
 				</div>
 				
 			</svelte:fragment>
@@ -118,7 +118,7 @@
 
 <style>
 	.icon {
-		color: var(menuColor);
+		/* color: var(menuColor); */
 		width: 24px;
 		height: 24px;
 	}

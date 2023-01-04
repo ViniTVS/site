@@ -1,20 +1,71 @@
 <script lang="ts">
     import {onMount} from 'svelte';
+    import hljs from 'highlight.js';
+    import 'highlight.js/styles/github-dark.css';
+    import { CodeBlock, ProgressRadial, storeHighlightJs } from '@skeletonlabs/skeleton';
 
-    export let tamTela: String = "calc(100vh - 78px)";
+    storeHighlightJs.set(hljs);
+    
+    let y: number = 0;
+    let tamTela: String = "calc(100vh - 78px)";
+    let code: string = "";
+    let codeDone: boolean = false;
+    let loadingDone: boolean = false;
+    let buttonStyle: string = "";
+    let fullCode: String = `
+<div id="curriculum">
+    <button class="btn btn-ringed-error btn-base ring-2 ring-primary-500 ring-inset text-primary-500">
+        Curriculum Vitae
+    </button>
+</div>`;
+    
+    function updateCode(i: number){
+        if (i >= fullCode.length){
+            setTimeout(() => {
+                codeDone = true;
+                setTimeout(() => {
+                    buttonStyle = "margin:auto;";
+                    loadingDone = true;
+                }, 1000);
+            }, 1000);
+            return;
+        }
+        code = code + fullCode[i];
+        setTimeout(() => {
+            updateCode(i+1)
+        },70);
+    }
+
+
     onMount(() => {
+        setTimeout(() => {
+            updateCode(0);
+        }, 1000);
     });
 </script>
 
-
-<div class="grid grid-cols-3 gap-4 mx-auto heading content-center" style="height: {tamTela};">
-    <div class="col-span-3 lg:col-span-2">
+<div style="height: {tamTela}; --customGradient: {y}%;" class="grid grid-cols-3 gap-4 mx-auto heading content-center">
+    <div class="col-span-3 lg:col-span-2" id="intro">
         <h1> Olá, mundo. <br> Eu sou o Vini. </h1>
         <p> Estudante de Ciência da Computação, sou desenvolvedor backend
             com um pouco de conhecimento em desenvolvimento mobile e páginas web. </p>
     </div>
-    <div class="hidden lg:block">
-        
+    <div class="col hidden lg:block" style="{buttonStyle}">
+        {#if codeDone}
+            {#if loadingDone}
+                <div id="curriculum">
+                    <button class="btn btn-ringed-error btn-base ring-2 ring-primary-500 ring-inset text-primary-500">
+                        Curriculum Vitae
+                    </button>
+                </div>
+            {:else}
+                <div style="width: 20vh; margin: auto;">
+                    <ProgressRadial stroke={50}></ProgressRadial>
+                </div>
+            {/if}
+        {:else}
+            <CodeBlock language="html" code={code}></CodeBlock>
+        {/if}
     </div>
 </div>
 
@@ -45,9 +96,14 @@ Phasellus tincidunt feugiat dolor quis consequat. Vivamus venenatis leo ut conse
 <br>
 Suspendisse potenti. Mauris turpis nibh, iaculis in urna ut, imperdiet laoreet lorem. Pellentesque feugiat rutrum risus at convallis. Mauris iaculis, quam et sollicitudin aliquam, lectus urna cursus mi, sit amet eleifend augue risus nec erat. Aenean laoreet est id massa aliquet tempus. Etiam gravida mattis massa et ornare. Aliquam erat volutpat. 
 
+
 <style>
+    .heading #intro{
+        text-align: center;
+    }
     .heading h1 {
-        background: linear-gradient(to bottom right, theme('colors.primary.500'), theme('colors.secondary.500') );
+        /* background: var(--customGradient); */
+        background: linear-gradient(to bottom right, theme('colors.primary.500') var(--customGradient), theme('colors.secondary.500') 100%);
         background-clip: text;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
@@ -55,9 +111,11 @@ Suspendisse potenti. Mauris turpis nibh, iaculis in urna ut, imperdiet laoreet l
         font-weight: bolder;
         line-height: 1;
     }
-
-    .heading{
-        text-align: center;
+    .code-ex {
+        background-color: theme('colors.surface.500');
+        height: 80%;
+        color: white;
+        border-radius: 16px;
     }
     @media (min-width: 600px) {
         .heading h1 {
