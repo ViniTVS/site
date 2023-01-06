@@ -1,6 +1,6 @@
 <script lang="ts">
-    import {onMount} from 'svelte';
-    import hljs from 'highlight.js';
+    import {beforeUpdate} from 'svelte';
+     import hljs from 'highlight.js';
     import 'highlight.js/styles/github-dark.css';
     import { CodeBlock, ProgressRadial, storeHighlightJs } from '@skeletonlabs/skeleton';
 
@@ -9,13 +9,15 @@
     let y: number = 0;
     let tamTela: String = "calc(100vh - 78px)";
     let code: string = "";
+    let animationStarted: boolean = false;
     let codeDone: boolean = false;
     let loadingDone: boolean = false;
     let buttonStyle: string = "";
+    let screenWidth: number = 0;
     let fullCode: String = `
 <div id="curriculum">
-    <button class="btn btn-ringed-error btn-base ring-2 ring-primary-500 ring-inset text-primary-500">
-        Curriculum Vitae
+    <button class="btn btn-filled-primary btn-xl text-white">
+        Currículo
     </button>
 </div>`;
     
@@ -33,16 +35,21 @@
         code = code + fullCode[i];
         setTimeout(() => {
             updateCode(i+1)
-        },70);
+        },30);
     }
 
 
-    onMount(() => {
-        setTimeout(() => {
-            updateCode(0);
-        }, 1000);
+    beforeUpdate(() => {
+        if (screenWidth >= 1024 && !animationStarted){
+            animationStarted = true;
+            setTimeout(() => {
+                updateCode(0);
+            }, 1000);
+        }
     });
 </script>
+
+<svelte:window bind:innerWidth={screenWidth}/>
 
 <div style="height: {tamTela}; --customGradient: {y}%;" class="grid grid-cols-3 gap-4 mx-auto heading content-center">
     <div class="col-span-3 lg:col-span-2" id="intro">
@@ -54,8 +61,8 @@
         {#if codeDone}
             {#if loadingDone}
                 <div id="curriculum">
-                    <button class="btn btn-ringed-error btn-base ring-2 ring-primary-500 ring-inset text-primary-500">
-                        Curriculum Vitae
+                    <button class="btn btn-filled-primary btn-xl text-white">
+                        Currículo
                     </button>
                 </div>
             {:else}
@@ -103,7 +110,7 @@ Suspendisse potenti. Mauris turpis nibh, iaculis in urna ut, imperdiet laoreet l
     }
     .heading h1 {
         /* background: var(--customGradient); */
-        background: linear-gradient(to bottom right, theme('colors.primary.500') var(--customGradient), theme('colors.secondary.500') 100%);
+        background: linear-gradient(to bottom right, theme('colors.secondary.500') var(--customGradient), theme('colors.primary.500') 100%);
         background-clip: text;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;

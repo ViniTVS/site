@@ -130,4 +130,11 @@
 		height: 80vh;
 		width: 100vw;
 	}
+
+    @media (max-width: 768px) {
+		.container {
+			padding-left: 10vw;
+			padding-right: 10vw;
+		}
+    }
 </style>
