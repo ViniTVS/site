@@ -1,10 +1,15 @@
 <script lang="ts">
     import {beforeUpdate} from 'svelte';
-     import hljs from 'highlight.js';
+    import { Highlight } from "svelte-highlight";
+    import vbscriptHtml from "svelte-highlight/languages/vbscript-html";
     import 'highlight.js/styles/github-dark.css';
-    import { CodeBlock, ProgressRadial, storeHighlightJs } from '@skeletonlabs/skeleton';
 
-    storeHighlightJs.set(hljs);
+	let socials: { alt: string, src: string, link: string}[] = [
+		{ alt: "Github logo", src: "github.svg", link: "" },
+		{ alt: "LinkedIn logo", src: "linkedin.svg", link: "" },
+		{ alt: "Twitter logo", src: "twitter.svg", link: "" }
+	];
+	
     
     let y: number = 0;
     let tamTela: String = "calc(100vh - 78px)";
@@ -16,7 +21,7 @@
     let screenWidth: number = 0;
     let fullCode: String = `
 <div id="curriculum">
-    <button class="btn btn-filled-primary btn-xl text-white">
+    <button class="btn btn-primary btn-lg">
         Currículo
     </button>
 </div>`;
@@ -57,22 +62,27 @@
         <p> Estudante de Ciência da Computação, sou desenvolvedor backend
             com um pouco de conhecimento em desenvolvimento mobile e páginas web. </p>
     </div>
-    <div class="col hidden lg:block" style="{buttonStyle}">
+    <div class="col hidden lg:block" style="border-radius: 16px; {buttonStyle}">
+        <a href="newsletter_01.pdf" target="_blank" style="text-decoration:none" >
         {#if codeDone}
             {#if loadingDone}
                 <div id="curriculum">
-                    <button class="btn btn-filled-primary btn-xl text-white">
+                    <button class="btn btn-primary btn-lg">
                         Currículo
                     </button>
                 </div>
             {:else}
                 <div style="width: 20vh; margin: auto;">
-                    <ProgressRadial stroke={50}></ProgressRadial>
+                    <!-- <ProgressRadial stroke={50}></ProgressRadial> -->
                 </div>
             {/if}
         {:else}
-            <CodeBlock language="html" code={code}></CodeBlock>
+        <div style="border-radius: 16px;" >
+            <Highlight language={vbscriptHtml} {code} />
+        </div>
+            <!-- <CodeBlock language="html" code={code}></CodeBlock> -->
         {/if}
+        </a>
     </div>
 </div>
 
@@ -101,7 +111,7 @@ Donec ac quam ante. Donec facilisis non risus quis iaculis. Vestibulum eget blan
 <br>
 Phasellus tincidunt feugiat dolor quis consequat. Vivamus venenatis leo ut consectetur commodo. Quisque varius consequat nisl, sit amet ultrices arcu tincidunt nec. Aliquam posuere interdum arcu. Suspendisse vehicula, elit vel accumsan consectetur, justo neque commodo magna, sit amet ullamcorper quam lacus nec ligula. Cras dignissim malesuada metus eu fringilla. Interdum et malesuada fames ac ante ipsum primis in faucibus. Vestibulum id scelerisque turpis. Donec vel ornare risus. Maecenas facilisis elementum nulla, id vestibulum eros gravida ut. Sed suscipit nisi odio, et lobortis lacus suscipit et. In at lectus sit amet sem elementum semper. In lacus enim, eleifend id elit eget, feugiat vehicula felis. Nullam interdum fermentum augue. Vestibulum facilisis blandit turpis, non elementum odio eleifend at.
 <br>
-Suspendisse potenti. Mauris turpis nibh, iaculis in urna ut, imperdiet laoreet lorem. Pellentesque feugiat rutrum risus at convallis. Mauris iaculis, quam et sollicitudin aliquam, lectus urna cursus mi, sit amet eleifend augue risus nec erat. Aenean laoreet est id massa aliquet tempus. Etiam gravida mattis massa et ornare. Aliquam erat volutpat. 
+Suspendisse potenti. Mauris turpis nibh, iaculis in urna ut, imperdiet laoreet lorem. Pellentesque feugiat rutrum risus at convallis. Mauris iaculis, quam et sollicitudin aliquam, lectus urna cursus mi, sit amet eleifend augue risus nec erat. Aenean laoreet est id massa aliquet tempus. Etiam gravida mattis massa et ornare. Aliquam erat volutpat.  
 
 
 <style>
@@ -109,20 +119,14 @@ Suspendisse potenti. Mauris turpis nibh, iaculis in urna ut, imperdiet laoreet l
         text-align: center;
     }
     .heading h1 {
-        /* background: var(--customGradient); */
-        background: linear-gradient(to bottom right, theme('colors.secondary.500') var(--customGradient), theme('colors.primary.500') 100%);
+        /* background: theme('colors.secondary.500'); */
+        background: linear-gradient(to bottom right, hsl(var(--s)) var(--customGradient), hsl(var(--p)) 100%);
         background-clip: text;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         font-size: 20vw;
         font-weight: bolder;
         line-height: 1;
-    }
-    .code-ex {
-        background-color: theme('colors.surface.500');
-        height: 80%;
-        color: white;
-        border-radius: 16px;
     }
     @media (min-width: 600px) {
         .heading h1 {

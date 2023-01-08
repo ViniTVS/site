@@ -1,136 +1,103 @@
 <script lang="ts">
-	import '@skeletonlabs/skeleton/themes/theme-skeleton.css';
-	import '@skeletonlabs/skeleton/styles/all.css';
-	import '../theme.postcss'; // <--
 	import '../app.postcss';
-	import { AppShell, AppBar, LightSwitch } from '@skeletonlabs/skeleton';
 	import MdMenu from 'svelte-icons/md/MdMenu.svelte';
 	import { slide } from 'svelte/transition';
-	import {afterUpdate} from 'svelte';
+	import {onMount, afterUpdate} from 'svelte';
+    import { themeChange } from 'theme-change';
+	import FaSun from 'svelte-icons/fa/FaSun.svelte';
+	import FaMoon from 'svelte-icons/fa/FaMoon.svelte';
 
-	let socials: { alt: string, src: string, link: string}[] = [
-		{
-			alt: "Github logo",
-			src: "github.svg",
-			link: ""
-		},
-		{
-			alt: "LinkedIn logo",
-			src: "linkedin.svg",
-			link: ""
-		},
-		{
-			alt: "Twitter logo",
-			src: "twitter.svg",
-			link: ""
-		}
-	];
 	let menus: {ref: string, option: string}[] = [
 		{ref: "#about", option: "Sobre mim"},
 		{ref: "#experience", option: "Experiência"},
 		{ref: "#contact", option: "Contato"},
 	];
 
-	var screenWidth: number;
-	var menuColor: string = "white";
-	var showMenu: boolean = false;
-	var bgColor: string = "white";
-	let tamTela = "calc(100vh - 78px);";
+	var isDark: boolean = false;
 
-	$: {
-		if (screenWidth >= 768)
-			showMenu = false;
-	}
-
-	function updMenu(){
-		showMenu = !showMenu;
-		// document.getElementsByClassName('teste').style['background']  = 'red';
-	}
-
-	afterUpdate(() => {
-		if(showMenu){
-			bgColor = getComputedStyle(document.getElementsByTagName("body")[0]).backgroundColor;
-			document.getElementsByClassName('teste')[0].style['background'] = bgColor;
-			document.getElementById("shell-header").style.zIndex = "1001"; 
-		}
-	});
-
+    onMount(() => {
+        themeChange(false);
+		let start_theme = document.documentElement.getAttribute("data-theme");
+		isDark = start_theme == "dark_theme";
+    })
 
 
 </script>
 
-<svelte:window bind:innerWidth={screenWidth}/>
-
-<!-- App Shell -->
-<AppShell slotHeader="visible custom-header" slotSidebarLeft="place-content-center">
-	<svelte:fragment slot="header">
-		<!-- App Bar -->
-		<AppBar background="transparent" shadow="shadow-lg">
-			<svelte:fragment slot="lead">
+<div class="drawer drawer-end">
+	<input id="my-drawer-3" type="checkbox" class="drawer-toggle" /> 
+	<div class="drawer-content flex flex-col">
+	  <!-- Navbar -->
+		<div class="w-full navbar bg-base-200">
+			<div class="flex-none">
 				<a href="/#"> <img alt="Íconde site" src="favicon.png" height="36" width="36"/> </a>
-			</svelte:fragment>
-
-			<svelte:fragment slot="default">
-				<div class="hidden md:block">
-					<div class="flex flex-row place-content-evenly">
-						{#each menus as menuopt }
-							<a href={menuopt.ref}> <h3> {menuopt.option} </h3> </a>
-						{/each}	
-					</div>
-				</div>
-			</svelte:fragment>
-			
-			<svelte:fragment slot="trail">
-				<button on:click={updMenu} class="md:hidden block btn btn-base ring-2 ring-secondary-500 ring-inset text-secondary-500">
+			</div> 
+			<div class="flex-1 px-2 mx-2"></div>
+			<div class="flex-2 hidden md:block">
+				{#each menus as menuopt }
+					<a class="btn btn-ghost normal-case text-xl" href={menuopt.ref}> <h3> {menuopt.option} </h3> </a>
+				{/each}	
+			</div>
+			<div class="flex-1 px-2 mx-2 flex-row-reverse">
+				<label for="my-drawer-3" class="btn btn-square btn-ghost md:hidden">
 					<div class="icon">
 						<MdMenu/>
 					</div>
+				</label>
+				<button on:click={() => isDark = !isDark} class="btn btn-primary btn-sm btn-square hidden btn-ghost btn-active md:block" data-toggle-theme="dark_theme,light_theme" data-act-class="ACTIVECLASS">
+					<div class="icon" style="width: 24px; height: 24px;">
+						{#if isDark}
+							<FaSun/>
+						{:else}
+							<FaMoon/>
+						{/if}
+					</div>
 				</button>
-				<div class="hidden md:block">					
-					<LightSwitch />
-				</div>
-				
-			</svelte:fragment>
-		</AppBar>
-	</svelte:fragment>
-	<!-- Menu no mobile -->
-	{#if showMenu}
-		<div transition:slide class="teste" style="height: {tamTela} md:hidden">
-			<div class="container mx-auto px-4" style="height: 100%;">
-				<div  style="margin: auto; height: 100%;" class="flex flex-col mx-auto place-content-evenly">
-					{#each menus as menuopt }
-						<a transition:slide href={menuopt.ref} class=" mx-auto"> <h1> {menuopt.option} </h1> </a>
-					{/each}
-					<div class="mx-auto"> <LightSwitch on:click={()=> menuColor = menuColor == "black" ? "white" : "black" }/> </div>
-				</div>
 			</div>
 		</div>
-	{/if}
 	<!-- Conteúdo -->
 	<div class="container mx-auto">
-		<slot tamTela={tamTela}/>
+		<slot/>
 	</div>
-	<!-- {/if} -->
-</AppShell>
 
-
+	</div> 
+	<!-- Sidebar content here -->
+	<div class="drawer-side md:hidden">
+		<label for="my-drawer-3" class="drawer-overlay"></label> 
+		<ul class="menu p-4 w-3/4 bg-base-100 flex justify-center">
+			{#each menus as menuopt }
+				<li>	
+					<a class="normal-case text-xl my-10 mx-auto" href={menuopt.ref}> <h3> {menuopt.option} </h3> </a>
+				</li>
+			{/each}	
+			<li>
+				<button on:click={() => isDark = !isDark} class="btn btn-primary btn-square mx-auto" data-toggle-theme="dark_theme,light_theme" data-act-class="ACTIVECLASS">
+					<div>
+						{#if isDark}
+							<FaSun/>
+						{:else}
+							<FaMoon/>
+						{/if}
+					</div>
+				</button>
+			</li>
+		</ul>
+	  
+	</div>
+</div>
 
 
 <style>
 	.icon {
-		/* color: var(menuColor); */
-		width: 24px;
-		height: 24px;
-	}
-	.teste {
-		z-index: 1000;
-		/* background: fixed; */
-		/* background-color: var(bgColor); */
-		position: absolute;
-		height: 80vh;
-		width: 100vw;
+		width: 30px;
+		height: 30px;
+		margin: auto;
 	}
 
+	.btn-sm {
+		height: 2.5rem; 
+		width: 2.5rem;
+	}
     @media (max-width: 768px) {
 		.container {
 			padding-left: 10vw;
