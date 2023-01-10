@@ -12,7 +12,7 @@
 	
     
     let y: number = 0;
-    let tamTela: String = "calc(100vh - 78px)";
+    let tamTela: String = "calc(100vh - 64px)";
     let code: string = "";
     let animationStarted: boolean = false;
     let codeDone: boolean = false;
@@ -39,7 +39,7 @@
         }
         code = code + fullCode[i];
         setTimeout(() => {
-            updateCode(i+1)
+            updateCode(i+1);
         },30);
     }
 
@@ -80,17 +80,22 @@
         <div style="border-radius: 16px;" >
             <Highlight language={vbscriptHtml} {code} />
         </div>
-            <!-- <CodeBlock language="html" code={code}></CodeBlock> -->
         {/if}
         </a>
     </div>
 </div>
 
-<div class="grid mx-auto content-center" id="about" style="height: {tamTela};">
+<div class="grid content-center" id="about">
     <h2> Sobre mim </h2>
     <p> Eu sou o Vinícius, um estudante de Ciência da Computação e estagiário trabalhando com PHP, MySQL e FLutter.
+        Durante a graduação tive a oportunidade de aprender programação desde de C e C++ a Java e Python.
+        Fazendo minha Iniciação Científica em robótica, também passei a conhecer melhor sobre Arduino e alguns 
+        dispositivos de IoT.
+    </p>
+    <p>
         Normalmente passo meu tempo lendo, jogando, ouvindo música e, como todo bom programador, 
-        criando algum novo projeto que nunca será finalizado. </p>
+        criando algum novo projeto que nunca será finalizado.
+    </p> 
 </div>
 
 &nbsp 
@@ -128,6 +133,11 @@ Suspendisse potenti. Mauris turpis nibh, iaculis in urna ut, imperdiet laoreet l
         font-weight: bolder;
         line-height: 1;
     }
+
+    #about {
+        height: 100vh;
+    }
+
     @media (min-width: 600px) {
         .heading h1 {
             font-size: 5rem;
