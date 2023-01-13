@@ -109,18 +109,13 @@
         background-clip: text;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
-        font-size: 20vw;
-        font-weight: bolder;
-        line-height: 1;
+        font-size: 5em;
+        font-weight: 500;
+        /* line-height: 1; */
     }
 
     #about {
         height: 100vh;
     }
 
-    @media (min-width: 600px) {
-        .heading h1 {
-            font-size: 5rem;
-        }
-    }
 </style>
