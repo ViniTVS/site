@@ -79,7 +79,7 @@
 				</div>
 				<div class="flex flex-col justify-between">
 					{#each menus as menuopt }
-						<a class="normal-case text-xl my-10 mx-auto" href={menuopt.ref}> <h1> {menuopt.option} </h1> </a>
+						<a class="normal-case text-xl my-10 mx-auto btn btn-ghost normal-case text-xl" href={menuopt.ref}> <h1> {menuopt.option} </h1> </a>
 					{/each}
 				</div>	
 				<!-- <li> -->
