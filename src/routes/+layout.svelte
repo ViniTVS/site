@@ -32,7 +32,7 @@
 	  <!-- Navbar -->
 		<div class="w-full navbar bg-base-200">
 			<div class="flex-none">
-				<a href="/#"> <img alt="Íconde site" src="favicon.png" height="36" width="36"/> </a>
+				<a href="/"> <img alt="Íconde site" src="favicon.png" height="36" width="36"/> </a>
 			</div> 
 			<div class="flex-1 px-2 mx-2"></div>
 			<div class="flex-2 hidden md:block">
