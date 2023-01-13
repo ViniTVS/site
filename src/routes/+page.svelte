@@ -9,9 +9,6 @@
 		{ alt: "LinkedIn logo", src: "linkedin.svg", link: "" },
 		{ alt: "Twitter logo", src: "twitter.svg", link: "" }
 	];
-	
-    
-    let y: number = 0;
     let tamTela: String = "calc(100vh - 78px)";
     let code: string = "";
     let animationStarted: boolean = false;

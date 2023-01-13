@@ -1,11 +1,13 @@
 <script lang="ts">
 	import '../app.postcss';
-	import MdMenu from 'svelte-icons/md/MdMenu.svelte';
 	import { slide } from 'svelte/transition';
 	import {onMount, afterUpdate} from 'svelte';
     import { themeChange } from 'theme-change';
 	import FaSun from 'svelte-icons/fa/FaSun.svelte';
 	import FaMoon from 'svelte-icons/fa/FaMoon.svelte';
+	import MdMenu from 'svelte-icons/md/MdMenu.svelte';
+	import MdClose from 'svelte-icons/md/MdClose.svelte'
+
 
 	let menus: {ref: string, option: string}[] = [
 		{ref: "#about", option: "Sobre mim"},
@@ -44,7 +46,7 @@
 						<MdMenu/>
 					</div>
 				</label>
-				<button on:click={() => isDark = !isDark} class="btn btn-primary btn-sm btn-square hidden btn-ghost btn-active md:block" data-toggle-theme="dark_theme,light_theme" data-act-class="ACTIVECLASS">
+				<button on:click={() => isDark = !isDark} class="btn btn-sm btn-square btn-outline hidden md:block" data-toggle-theme="dark_theme,light_theme" data-act-class="ACTIVECLASS">
 					<div class="icon" style="width: 24px; height: 24px;">
 						{#if isDark}
 							<FaSun/>
@@ -63,16 +65,26 @@
 	</div> 
 	<!-- Sidebar content here -->
 	<div class="drawer-side md:hidden">
-		<label for="my-drawer-3" class="drawer-overlay"></label> 
-		<ul class="menu p-4 w-3/4 bg-base-100 flex justify-center">
-			{#each menus as menuopt }
-				<li>	
-					<a class="normal-case text-xl my-10 mx-auto" href={menuopt.ref}> <h3> {menuopt.option} </h3> </a>
-				</li>
-			{/each}	
-			<li>
-				<button on:click={() => isDark = !isDark} class="btn btn-primary btn-square mx-auto" data-toggle-theme="dark_theme,light_theme" data-act-class="ACTIVECLASS">
-					<div>
+		<label for="my-drawer-3" class="drawer-overlay" style="background-color: black;
+		opacity: 0.4;"></label>
+		<div class="menu px-4 py-2 w-3/4 bg-base-100 ">
+			<div class="flex flex-col justify-between" style="height: 100%;">
+				<!-- Close button -->
+				<div class="flex flex-row justify-end">
+					<label for="my-drawer-3" class="btn btn-square btn-ghost md:hidden" style="margin-right: 8px;">
+						<div class="icon">
+							<MdClose/>
+						</div>
+					</label>
+				</div>
+				<div class="flex flex-col justify-between">
+					{#each menus as menuopt }
+						<a class="normal-case text-xl my-10 mx-auto" href={menuopt.ref}> <h1> {menuopt.option} </h1> </a>
+					{/each}
+				</div>	
+				<!-- <li> -->
+				<button on:click={() => isDark = !isDark} class="btn btn-bg btn-square btn-outline mx-auto mb-20" data-toggle-theme="dark_theme,light_theme" data-act-class="ACTIVECLASS">
+					<div class="icon">
 						{#if isDark}
 							<FaSun/>
 						{:else}
@@ -80,9 +92,9 @@
 						{/if}
 					</div>
 				</button>
-			</li>
-		</ul>
-	  
+				<!-- </li> -->
+			</div>
+		</div>
 	</div>
 </div>
 
