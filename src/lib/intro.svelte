@@ -3,7 +3,7 @@
     import FaLinkedin from 'svelte-icons/fa/FaLinkedin.svelte';
     import FaGithubSquare from 'svelte-icons/fa/FaGithubSquare.svelte';
     
-	let socials: { alt: string, src: any, link: string}[] = [
+	let socials: { alt: string, src: ConstructorOfATypedSvelteComponent, link: string }[] = [
 		{ alt: "Github logo", src: FaGithubSquare, link: "https://github.com/ViniTVS" },
 		{ alt: "LinkedIn logo", src: FaLinkedin, link: "https://www.linkedin.com/in/vin%C3%ADcius-teixiera-vieira-dos-santos-6494201b6" },
 		{ alt: "Twitter logo", src: FaTwitterSquare, link: "https://twitter.com/vine_tvs" }
@@ -12,7 +12,6 @@
 
 
 <div class="grid mx-4 content-center heading">
-
     <div class="flex flex-row justify-center mt-2">
         <div class="flex flex-col justify-center mt-2 hidden md:invisible">
             {#each socials as social}
