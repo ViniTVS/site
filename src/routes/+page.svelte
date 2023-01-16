@@ -1,11 +1,6 @@
 <script lang="ts">
     import Intro from '$lib/intro.svelte';
 
-	let socials: { alt: string, src: string, link: string}[] = [
-		{ alt: "Github logo", src: "github.svg", link: "" },
-		{ alt: "LinkedIn logo", src: "linkedin.svg", link: "" },
-		{ alt: "Twitter logo", src: "twitter.svg", link: "" }
-	];
 
 
 </script>
@@ -59,10 +54,4 @@
         max-width: 250px;
 
     }
-    /* .stacked {
-        width: 50vw;
-        max-width: 250px;
-        background: hsl(var(--a));
-    } */
-
 </style>
