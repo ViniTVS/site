@@ -4,22 +4,43 @@
     import FaGithubSquare from 'svelte-icons/fa/FaGithubSquare.svelte';
     
 	let socials: { alt: string, src: any, link: string}[] = [
-		{ alt: "Github logo", src: FaGithubSquare, link: "" },
-		{ alt: "LinkedIn logo", src: FaLinkedin, link: "" },
-		{ alt: "Twitter logo", src: FaTwitterSquare, link: "" }
+		{ alt: "Github logo", src: FaGithubSquare, link: "https://github.com/ViniTVS" },
+		{ alt: "LinkedIn logo", src: FaLinkedin, link: "https://www.linkedin.com/in/vin%C3%ADcius-teixiera-vieira-dos-santos-6494201b6" },
+		{ alt: "Twitter logo", src: FaTwitterSquare, link: "https://twitter.com/vine_tvs" }
 	];
 </script>
 
 
-<div class="grid mx-auto content-center heading">
-    <div class="prose md:prose-lg mx-auto" id="intro" style="width: calc(100%-36px);">
-        <h1> Olá, mundo. <br> Eu sou o Vini. </h1>
-        <p> Estudante de Ciência da Computação, sou desenvolvedor backend
-            com um pouco de conhecimento em desenvolvimento mobile e páginas web. 
-        </p>
-        <div class="flex flex-row">
+<div class="grid mx-4 content-center heading">
+
+    <div class="flex flex-row justify-center mt-2">
+        <div class="flex flex-col justify-center mt-2 hidden md:invisible">
             {#each socials as social}
-                <a href="{social.link}" >
+                <a href="{social.link}" class="mx-2">
+                    <div class="icon">
+                        <svelte:component this={social.src}/> 
+                    </div>
+                </a>
+            {/each}
+        </div>
+        <div class="prose md:prose-lg mx-auto" id="intro" >
+            <h1> Olá, mundo. <br> Eu sou o Vini. </h1>
+            <p> Estudante de Ciência da Computação, sou desenvolvedor backend
+                com um pouco de conhecimento em desenvolvimento mobile e páginas web. 
+            </p>
+            <div class="flex flex-row justify-center md:hidden">
+                {#each socials as social}
+                    <a href="{social.link}" class="mx-2">
+                        <div class="icon">
+                            <svelte:component this={social.src}/> 
+                        </div>
+                    </a>
+                {/each}
+            </div>
+        </div>
+        <div class="hidden md:flex flex-col justify-start">
+            {#each socials as social}
+                <a href="{social.link}" class="mb-5">
                     <div class="icon">
                         <svelte:component this={social.src}/> 
                     </div>
@@ -32,6 +53,8 @@
 <style>
     .heading {
         height: calc(100vh - 64px);
+        /* margin-left: 20px;
+        margin-right: 20px; */
     }
 
     .heading #intro{
@@ -50,5 +73,12 @@
 		width: 40px;
 		height: 40px;
 		margin: auto;
+	}
+
+	@media (max-width: 700px) {
+		.heading h1 {
+            /* font-size: 4em; */
+            margin-bottom: 0px;
+		}
 	}
 </style>

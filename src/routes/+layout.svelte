@@ -131,14 +131,16 @@
 		height: 2.5rem;
 		width: 2.5rem;
 	}
+
+	.custom-background {
+		background: radial-gradient(at 100% 0vh, hsl(var(--p)/0.2) 0px, transparent 30%),
+			radial-gradient(ellipse at 10% 200vh, hsl(var(--p)/0.2) 0px, transparent 30%);
+	}
+	
 	@media (max-width: 768px) {
 		.container {
 			padding-left: 10vw;
 			padding-right: 10vw;
 		}
-	}
-	.custom-background {
-		background: radial-gradient(at 100% -20vh, hsl(var(--p)/0.2) 0px, transparent 30%),
-			radial-gradient(ellipse at 0px 130%, hsla(240, 73%, 56%, 0.25) 0px, transparent 30%);
 	}
 </style>
