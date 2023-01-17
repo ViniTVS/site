@@ -134,7 +134,7 @@
 
 	.custom-background {
 		background: radial-gradient(at 100% 0vh, hsl(var(--p)/0.3) 0px, transparent 30%),
-			radial-gradient(ellipse at 10% 200vh, hsl(var(--p)/0.2) 0px, transparent 30%);
+			radial-gradient(ellipse at 0% 160vh, hsl(var(--s)/0.1) 0px, transparent 30%);
 	}
 	
 	@media (max-width: 768px) {
