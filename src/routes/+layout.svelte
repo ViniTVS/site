@@ -49,6 +49,7 @@
 					class="btn btn-sm btn-square btn-outline hidden md:block"
 					data-toggle-theme="dark_theme,light_theme"
 					data-act-class="ACTIVECLASS"
+					aria-label="Alterar tema"
 				>
 					<div class="icon" style="width: 24px; height: 24px;">
 						{#if isDark}
@@ -105,6 +106,7 @@
 					class="btn btn-bg btn-square btn-outline mx-auto mb-20"
 					data-toggle-theme="dark_theme,light_theme"
 					data-act-class="ACTIVECLASS"
+					aria-label="Alterar tema"
 				>
 					<div class="icon">
 						{#if isDark}
@@ -134,7 +136,7 @@
 
 	.custom-background {
 		background: radial-gradient(at 100% 0vh, hsl(var(--p)/0.3) 0px, transparent 30%),
-			radial-gradient(ellipse at 0% 160vh, hsl(var(--s)/0.1) 0px, transparent 30%);
+			radial-gradient(ellipse at 0 180vh, hsl(var(--s)/0.2) 0px, transparent 30%);
 	}
 	
 	@media (max-width: 768px) {

@@ -21,43 +21,34 @@
 </div>
 
 <div class="grid mx-4 mb-10" id="estudos">
-	<div>
-		<div class="prose md:prose-lg teste">
-			<h2>Estudos</h2>
-		</div>
+	<div class="prose md:prose-lg teste">
+		<h2>Formação</h2>
+	</div>
 
-		<div class="flex flex-row">
-			<div class="mr-4 my-2 transition" />
+	<div class="flex flex-row">
+		<div class="mr-4 my-2 transition" />
+		<div>
+			<div class="flex flex-col sm:flex-row justify-between">
+				<div class="prose md:prose-lg"><h3>Ciência da Computação</h3></div>
+				<div class="prose md:prose-lg"><h3>2018 - Atualmente</h3></div>
+			</div>
 			<div>
-				<div class="flex flex-row justify-between">
-					<div class="prose md:prose-lg"><h3>Ciência da Computação</h3></div>
-					<div class="prose md:prose-lg"><h3>2018 - Atualmente</h3></div>
-				</div>
+				Estudante do sétimo período de Bacharelado em Ciência da Computação pela Universidade
+				Federal do Paraná.
+			</div>
+			<div class="flex flex-row mt-5">
+				<div class="mr-4 my-2 transition transition-2" />
 				<div class="">
-					<div>
-						<p>
-							Estudante do sétimo período de Bacharelado em Ciência da Computação pela Universidade
-							Federal do Paraná.
-						</p>
+					<div
+						class="flex flex-col sm:flex-row justify-between"
+						style="font-size: 1.25rem; font-weight: 500;"
+					>
+						<div>Iniciação Científica</div>
+						<div>Fev - Nov 2019</div>
 					</div>
-					<div class="flex flex-row mt-5">
-						<div
-							class="mr-4 my-2 transition"
-							style="background: linear-gradient(180deg, hsl(var(--s)) 0%, hsl(var(--b1)/0.3) 100%);"
-						/>
-						<div class="">
-							<div
-								class="flex flex-row justify-between"
-								style="font-size: 1.25rem; font-weight: 500;"
-							>
-								<div>Iniciação Científica</div>
-								<div>Fev - Nov 2019</div>
-							</div>
-							Com o objetivo de desenvolver um novo firmware para o robô de competição da equipe de robótica
-							da UFPR, programei juntamente com colegas da matéria de Robótica da universidade tanto
-							o robô quanto sua base de transmissão de comandos.
-						</div>
-					</div>
+					Com o objetivo de desenvolver um novo firmware para o robô de competição da equipe de robótica
+					da UFPR, programei juntamente com colegas da matéria de Robótica da universidade tanto o robô
+					quanto sua base de transmissão de comandos.
 				</div>
 			</div>
 		</div>
@@ -72,9 +63,7 @@
 	#about h2 {
 		color: hsl(var(--s));
 	}
-	#estudos {
-		/* height: 100vh; */
-	}
+
 	#estudos h2 {
 		font-size: 1.6666667em;
 	}
@@ -88,9 +77,12 @@
 		min-width: 5px;
 		width: 5px;
 	}
-	.linha {
+	/* .linha {
 		background-color: white;
 		background-color: currentColor;
 		height: 2px;
+	} */
+	.transition-2 {
+		background: linear-gradient(180deg, hsl(var(--s)) 60%, hsl(var(--b1) / 0.3) 100%);
 	}
 </style>
