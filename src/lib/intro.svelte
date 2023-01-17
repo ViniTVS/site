@@ -34,7 +34,7 @@
 	<div class="flex flex-row justify-center mt-2">
 		<div class="flex flex-col justify-center mt-2 hidden md:invisible">
 			{#each socials as social}
-				<a href={social.link} class="mx-2">
+				<a href={social.link} aria-label={social.label} class="mx-2">
 					<div class="icon">
 						<svelte:component this={social.src} />
 					</div>
@@ -49,7 +49,7 @@
 			</p>
 			<div class="flex flex-row justify-center md:hidden">
 				{#each socials as social}
-					<a href={social.link} class="mx-2">
+					<a href={social.link} aria-label={social.label} class="mx-2">
 						<div class="icon">
 							<svelte:component this={social.src} />
 						</div>
@@ -59,7 +59,7 @@
 		</div>
 		<div class="hidden md:flex flex-col justify-start">
 			{#each socials as social}
-				<a href={social.link} class="mb-5">
+				<a href={social.link} aria-label={social.label} class="mb-5">
 					<div class="icon">
 						<svelte:component this={social.src} />
 					</div>
