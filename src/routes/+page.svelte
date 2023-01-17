@@ -73,7 +73,7 @@
 	.transition {
 		background: linear-gradient(180deg, hsl(var(--p)) 60%, transparent 100%);
 		/* margin: ; */
-		height: inherit1;
+		height: inherit;
 		min-width: 5px;
 		width: 5px;
 	}
