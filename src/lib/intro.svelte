@@ -71,7 +71,7 @@
 
 <style>
 	.heading {
-		height: calc(100vh - 64px);
+		min-height: calc(100vh - 64px);
 		/* margin-left: 20px;
         margin-right: 20px; */
 	}

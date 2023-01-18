@@ -63,8 +63,8 @@
 	</div>
 </div>
 
-<div class="grid mx-4 mb-10 c-prose" id="experience">
-	<div class="" style="width: 100%;">
+<div class="grid mx-4 mb-10 c-prose" id="experience" style="margin-top: 10vh;">
+	<div>
 		<h2>Experiência</h2>
 	</div>
 
@@ -92,18 +92,9 @@
 </div>
 
 <style>
-	.icon {
-		width: 30px;
-		height: 30px;
-		margin: auto;
-	}
 	#about {
 		margin-top: 15vh;
 		margin-bottom: 15vh;
-	}
-
-	#about h2 {
-		color: hsl(var(--s));
 	}
 
 	#estudos h2 {
