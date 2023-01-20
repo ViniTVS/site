@@ -14,6 +14,11 @@
 	];
 
 	var isDark: boolean = false;
+	var openDrawer: boolean = false;
+
+	function drawerToggle() {
+		openDrawer = !openDrawer;
+	}
 
 	onMount(() => {
 		themeChange(false);
@@ -23,14 +28,23 @@
 </script>
 
 <div class="drawer drawer-end">
-	<input id="my-drawer-3" type="checkbox" class="drawer-toggle" />
+	<input id="my-drawer-3" type="checkbox" class="drawer-toggle" bind:checked={openDrawer} />
 	<div class="drawer-content flex flex-col">
 		<!-- Navbar -->
-		<div class="w-full navbar bg-base-200">
-			<div class="flex-none">
-				<a href="/"> <img alt="Íconde site" src="favicon.png" height="36" width="36" /> </a>
+		<div
+			class="sticky top-0 z-30 flex h-16 w-full 
+				bg-opacity-90 backdrop-blur transition-all duration-100 
+				shadow-sm w-full navbar bg-base-100"
+		>
+			<div
+				class="flex-none"
+				on:click={() => window.scrollTo(0, 0)}
+				on:keypress={() => window.scrollTo(0, 0)}
+			>
+				<img alt="Íconde site" src="favicon.png" height="36" width="36" />
 			</div>
 			<div class="flex-1 px-2 mx-2" />
+			<!-- menus se página for larga o bastante -->
 			<div class="flex-2 hidden md:block">
 				{#each menus as menuopt}
 					<a class="btn btn-ghost normal-case text-xl" href={menuopt.ref}>
@@ -44,6 +58,7 @@
 						<MdMenu />
 					</div>
 				</label>
+				<!-- Muda tema -->
 				<button
 					on:click={() => (isDark = !isDark)}
 					class="btn btn-sm btn-square btn-outline hidden md:block"
@@ -68,14 +83,14 @@
 			</div>
 		</div>
 	</div>
-	<!-- Sidebar content here -->
+	<!-- Sidebar content -->
 	<div class="drawer-side md:hidden">
 		<label
 			for="my-drawer-3"
 			class="drawer-overlay"
-			style="background-color: black;
-		opacity: 0.4;"
+			style="background-color: black; opacity: 0.4;"
 		/>
+		<!-- Barra lateral em si -->
 		<div class="menu px-4 py-2 w-3/4 bg-base-100 ">
 			<div class="flex flex-col justify-between" style="height: 100%;">
 				<!-- Close button -->
@@ -95,6 +110,7 @@
 						<a
 							class="normal-case text-xl my-10 mx-auto btn btn-ghost normal-case text-xl"
 							href={menuopt.ref}
+							on:click={drawerToggle}
 						>
 							<h1>{menuopt.option}</h1>
 						</a>
@@ -120,6 +136,10 @@
 			</div>
 		</div>
 	</div>
+	<!-- ! footer -->
+	<!-- <footer class="footer p-10 bg-neutral text-neutral-content">
+		<div><span class="copyleft">&copy;</span>dasdasdsa</div>
+	</footer> -->
 </div>
 
 <style>
@@ -135,10 +155,10 @@
 	}
 
 	.custom-background {
-		background: radial-gradient(at 100% 0vh, hsl(var(--p)/0.3) 0px, transparent 30%),
-			radial-gradient(ellipse at 0 180vh, hsl(var(--s)/0.2) 0px, transparent 30%);
+		background: radial-gradient(at 100% 0vh, hsl(var(--p) / 0.3) 0px, transparent 30%),
+			radial-gradient(ellipse at 0 180vh, hsl(var(--s) / 0.2) 0px, transparent 30%);
 	}
-	
+
 	@media (max-width: 768px) {
 		.container {
 			padding-left: 10vw;

@@ -7,7 +7,7 @@
 
 <Intro />
 
-<div class="grid grid-cols-1 md:grid-cols-3 gap-4 mx-4 content-center" id="about">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 content-center" id="about">
 	<div class="col md:col-span-2  c-prose">
 		<h2>Sobre mim</h2>
 		<p>
@@ -20,10 +20,12 @@
 			algum novo projeto que nunca será finalizado.
 		</p>
 	</div>
-	<div class="m-auto">finge que tem minha foto aqui kkkkkk</div>
+	<div class="m-auto">
+		<img alt="Headshot" src="eu.png" id="eu" />
+	</div>
 </div>
 
-<div class="grid mx-4 mb-10 c-prose" id="estudos">
+<div class="grid mx-4 mb-10 c-prose" id="experience">
 	<div class=" teste">
 		<h2>Formação</h2>
 	</div>
@@ -63,7 +65,7 @@
 	</div>
 </div>
 
-<div class="grid mx-4 mb-10 c-prose" id="experience" style="margin-top: 10vh;">
+<div class="grid mx-4 mb-10 c-prose" style="margin-top: 10vh;">
 	<div>
 		<h2>Experiência</h2>
 	</div>
@@ -93,13 +95,23 @@
 
 <style>
 	#about {
-		margin-top: 15vh;
-		margin-bottom: 15vh;
+		padding-top: auto;
+		padding-bottom: auto;
+		min-height: 100vh;
 	}
 
-	#estudos h2 {
+	#experience h2 {
+		padding-top: 15vh;
 		font-size: 1.6666667em;
 	}
+
+	#eu {
+		width: 100%;
+		height: auto;
+		max-width: 200px;
+		border-radius: 8px;
+	}
+
 	.teste {
 		width: 100%;
 	}
