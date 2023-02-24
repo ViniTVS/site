@@ -1,4 +1,5 @@
 <script lang="ts">
+	import About from '$lib/about.svelte';
 	import Intro from '$lib/intro.svelte';
 
 	let tech_ic: String[] = ['C++', 'Arduino'];
@@ -7,28 +8,10 @@
 
 <Intro />
 
-<div class="grid grid-cols-1 md:grid-cols-3 gap-4 content-center" id="about">
-	<div class="col md:col-span-2  c-prose">
-		<h2>Sobre mim</h2>
-		<p>
-			Eu sou o Vinícius, um estudante de Ciência da Computação e estagiário trabalhando com PHP,
-			MySQL e FLutter. Durante a graduação tive a oportunidade de aprender programação desde de C e
-			C++ a Java e Python. Fazendo minha Iniciação Científica em robótica também passei a conhecer
-			melhor sobre dispositivos IoT e especialmente Arduino.
-			<br />
-			Normalmente passo meu tempo lendo, jogando, ouvindo música e, como todo bom programador, criando
-			algum novo projeto que nunca será finalizado.
-		</p>
-	</div>
-	<div class="m-auto">
-		<img alt="Headshot" src="eu.png" id="eu" />
-	</div>
-</div>
+<About/>
 
-<div class="grid mx-4 mb-10 c-prose" id="experience">
-	<div class=" teste">
-		<h2>Formação</h2>
-	</div>
+<div class="grid mb-10 c-prose" id="experience">
+	<h2>Formação</h2>
 
 	<div class="flex flex-row">
 		<div class="mr-4 my-2 transition" />
@@ -58,17 +41,16 @@
 					</div>
 					Com o objetivo de desenvolver um novo firmware para o robô de competição da equipe de robótica
 					da UFPR, programei juntamente com colegas da matéria de Robótica da universidade tanto o robô
-					quanto sua base de transmissão de comandos.
+					quanto sua base de transmissão de comandos utilizando dispositivos Arduino, ambiente em Linux e programação em C/C++.
+
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
 
-<div class="grid mx-4 mb-10 c-prose" style="margin-top: 10vh;">
-	<div>
-		<h2>Experiência</h2>
-	</div>
+<div class="grid mb-10 c-prose" style="margin-top: 10vh;">
+	<h2>Experiência</h2>
 
 	<div class="flex flex-row">
 		<div class="mr-4 my-2 transition transition-3" />
@@ -94,27 +76,12 @@
 </div>
 
 <style>
-	#about {
-		padding-top: auto;
-		padding-bottom: auto;
-		min-height: 100vh;
-	}
 
 	#experience h2 {
 		padding-top: 15vh;
 		font-size: 1.6666667em;
 	}
 
-	#eu {
-		width: 100%;
-		height: auto;
-		max-width: 200px;
-		border-radius: 8px;
-	}
-
-	.teste {
-		width: 100%;
-	}
 	.transition {
 		background: linear-gradient(180deg, hsl(var(--p)) 60%, transparent 100%);
 		/* margin: ; */
@@ -139,11 +106,7 @@
 		line-height: 1.6;
 		font-weight: 600;
 	}
-	/* .linha {
-		background-color: white;
-		background-color: currentColor;
-		height: 2px;
-	} */
+	
 	@media (min-width: 768px) {
 		.c-prose {
 			font-size: 1.125rem;

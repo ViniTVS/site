@@ -30,7 +30,7 @@
 	];
 </script>
 
-<div class="grid mx-4 content-center heading">
+<div class="grid content-center heading">
 	<div class="flex flex-row justify-center mt-2">
 		<div class="flex flex-col justify-center mt-2 hidden md:invisible">
 			{#each socials as social}
