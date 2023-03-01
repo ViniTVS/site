@@ -2,6 +2,9 @@
 	import FaTwitterSquare from 'svelte-icons/fa/FaTwitterSquare.svelte';
 	import FaLinkedin from 'svelte-icons/fa/FaLinkedin.svelte';
 	import FaGithubSquare from 'svelte-icons/fa/FaGithubSquare.svelte';
+	import { fly, fade } from 'svelte/transition';
+	import { backOut } from 'svelte/easing';
+	import { onMount } from 'svelte';
 
 	let socials: {
 		alt: string;
@@ -28,6 +31,9 @@
 			label: 'Visite meu perfil do Twitter'
 		}
 	];
+
+	let ready = false;
+	onMount(() => (ready = true));
 </script>
 
 <div class="grid content-center heading">
@@ -43,10 +49,25 @@
 		</div>
 		<div class="prose md:prose-lg mx-auto" id="intro">
 			<h1>Olá, mundo. <br /> Eu sou o Vini.</h1>
-			<p>
-				Estudante de Ciência da Computação, sou desenvolvedor backend com um pouco de conhecimento
-				em desenvolvimento mobile e páginas web.
-			</p>
+			{#if ready}
+				<p
+					
+				>
+				<span in:fly={{
+					y: 10,
+					delay: 500,
+					easing: backOut
+				}} >Estudante, desenvolvedor backend</span>
+				
+				<span in:fly={{
+					y: 10,
+					delay: 2000,
+					easing: backOut
+				}}> e frontend nas horas vagas </span>
+					<!-- Estudante de Ciência da Computação, sou desenvolvedor backend com um pouco de conhecimento
+				em desenvolvimento mobile e páginas web. -->
+				</p>
+			{/if}
 			<div class="flex flex-row justify-center md:hidden">
 				{#each socials as social}
 					<a href={social.link} aria-label={social.label} class="mx-2">
@@ -79,12 +100,13 @@
 	.heading #intro {
 		text-align: center;
 	}
+
 	.heading h1 {
 		background: linear-gradient(to bottom right, hsl(var(--p)), hsl(var(--s)));
 		background-clip: text;
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
-		font-size: 5em;
+		font-size: 6rem;
 		font-weight: 500;
 	}
 
@@ -97,6 +119,7 @@
 	@media (max-width: 700px) {
 		.heading h1 {
 			/* font-size: 4em; */
+			font-size: 5rem;
 			margin-bottom: 0px;
 		}
 	}

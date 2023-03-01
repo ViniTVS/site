@@ -15,7 +15,7 @@
 <div class="grid mb-10 c-prose" style="margin-top: 10vh;">
 	<h2>Sobre mim</h2>
 
-	<div class="flex flex-row">
+	<div class="flex flex-row" style="height: 100vh;">
 		<div class="mr-4 my-2 transition" />
 		<div style="width: 100%;">
 			<About/>
@@ -91,19 +91,20 @@
 	}
 
 	.transition {
-		background: linear-gradient(180deg, transparent, hsl(var(--p)) 50%, transparent);
+		background: linear-gradient(180deg, white -50%, hsl(var(--p)) 20%, hsl(var(--p)) 80%, white 150%);
 		/* margin: ; */
 		height: inherit;
-		min-width: 5px;
-		width: 5px;
+		min-width: 3px;
+		width: 3px;
+		/* box-shadow: 0px 0px 10px white; */
 	}
 	
 	.transition-2 {
-		background: linear-gradient(180deg, transparent, hsl(var(--s)) 50%, transparent);
+		background: linear-gradient(180deg, white -50%, hsl(var(--s)) 20%, hsl(var(--s)) 80%, white 150%);
 	}
 
 	.transition-3 {
-		background: linear-gradient(180deg, transparent, hsl(var(--a)) 50%, transparent);
+		background: linear-gradient(180deg, white -50%, hsl(var(--a)) 20%, hsl(var(--a)) 80%, white 150%);
 	}
 
 	.c-prose h2 {

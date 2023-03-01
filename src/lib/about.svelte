@@ -4,7 +4,7 @@
 	<div class="col md:col-span-2 c-prose" style="height: fit-content;">
 		<p>
 			Eu sou o Vinícius, um estudante de Ciência da Computação e estagiário trabalhando com PHP,
-			MySQL e FLutter. Durante a graduação tive a oportunidade de aprender programação desde de C e
+			MySQL e Flutter. Durante a graduação tive a oportunidade de aprender programação desde C e
 			C++ a Java e Python. Fazendo minha Iniciação Científica em robótica também passei a conhecer
 			melhor sobre dispositivos IoT e especialmente Arduino.
 			<br />
