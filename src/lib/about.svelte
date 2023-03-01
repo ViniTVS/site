@@ -1,5 +1,5 @@
 <div class=" mt-20 md:mt-0 md:content-center" id="about">
-<h2>Sobre mim</h2>
+
 <div class="grid grid-cols-1 md:grid-cols-3 gap-4" style="height: 100%;">
 	<div class="col md:col-span-2 c-prose" style="height: fit-content;">
 		<p>
@@ -17,6 +17,7 @@
 	</div>
 </div>
 </div>
+
 <style>
 	#about {
 		padding-top: auto;

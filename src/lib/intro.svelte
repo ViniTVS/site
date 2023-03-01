@@ -80,7 +80,7 @@
 		text-align: center;
 	}
 	.heading h1 {
-		background: linear-gradient(to bottom right, hsl(var(--s)), hsl(var(--p)));
+		background: linear-gradient(to bottom right, hsl(var(--p)), hsl(var(--s)));
 		background-clip: text;
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;

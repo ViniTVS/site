@@ -8,13 +8,24 @@
 
 <Intro />
 
-<About/>
 
-<div class="grid mb-10 c-prose" id="experience">
-	<h2>Formação</h2>
+
+
+
+<div class="grid mb-10 c-prose" style="margin-top: 10vh;">
+	<h2>Sobre mim</h2>
 
 	<div class="flex flex-row">
 		<div class="mr-4 my-2 transition" />
+		<div style="width: 100%;">
+			<About/>
+		</div>
+	</div>
+
+	<h2>Formação</h2>
+
+	<div class="flex flex-row">
+		<div class="mr-4 my-2 transition transition-2" />
 		<div>
 			<div class="flex flex-col sm:flex-row justify-between">
 				<div><h3>Ciência da Computação</h3></div>
@@ -47,9 +58,6 @@
 			</div>
 		</div>
 	</div>
-</div>
-
-<div class="grid mb-10 c-prose" style="margin-top: 10vh;">
 	<h2>Experiência</h2>
 
 	<div class="flex flex-row">
@@ -83,17 +91,19 @@
 	}
 
 	.transition {
-		background: linear-gradient(180deg, hsl(var(--p)) 60%, transparent 100%);
+		background: linear-gradient(180deg, transparent, hsl(var(--p)) 50%, transparent);
 		/* margin: ; */
 		height: inherit;
 		min-width: 5px;
 		width: 5px;
 	}
+	
 	.transition-2 {
-		background: linear-gradient(180deg, hsl(var(--s)) 60%, transparent 100%);
+		background: linear-gradient(180deg, transparent, hsl(var(--s)) 50%, transparent);
 	}
+
 	.transition-3 {
-		background: linear-gradient(180deg, hsl(var(--a)) 60%, transparent 100%);
+		background: linear-gradient(180deg, transparent, hsl(var(--a)) 50%, transparent);
 	}
 
 	.c-prose h2 {

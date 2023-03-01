@@ -17,9 +17,9 @@ module.exports = {
 					"error": "#ff423d",
 				},
 				light_theme: {
-					"primary": "#B1AFFF",
-					"secondary": "#B8E8FC",
-					"accent": "#E3BDFF",
+					"primary": "#63aeff",
+					"secondary": "#b463ff",
+					"accent": "#6663ff",
 					"neutral": "#eaeaff",
 					"base-100": "#fefeff",
 					"info": "#BCC0EB",
