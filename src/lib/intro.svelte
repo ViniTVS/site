@@ -2,7 +2,7 @@
 	import FaTwitterSquare from 'svelte-icons/fa/FaTwitterSquare.svelte';
 	import FaLinkedin from 'svelte-icons/fa/FaLinkedin.svelte';
 	import FaGithubSquare from 'svelte-icons/fa/FaGithubSquare.svelte';
-	import { fly, fade } from 'svelte/transition';
+	import { fade } from 'svelte/transition';
 	import { backOut } from 'svelte/easing';
 	import { onMount } from 'svelte';
 
@@ -36,39 +36,10 @@
 	onMount(() => (ready = true));
 </script>
 
-<div class="grid content-center heading">
-	<div class="flex flex-row justify-center mt-2">
-		<div class="flex flex-col justify-center mt-2 hidden md:invisible">
-			{#each socials as social}
-				<a href={social.link} aria-label={social.label} class="mx-2">
-					<div class="icon">
-						<svelte:component this={social.src} />
-					</div>
-				</a>
-			{/each}
-		</div>
-		<div class="prose md:prose-lg mx-auto" id="intro">
-			<h1>Olá, mundo. <br /> Eu sou o Vini.</h1>
-			{#if ready}
-				<p
-					
-				>
-				<span in:fly={{
-					y: 10,
-					delay: 500,
-					easing: backOut
-				}} >Estudante, desenvolvedor backend</span>
-				
-				<span in:fly={{
-					y: 10,
-					delay: 2000,
-					easing: backOut
-				}}> e frontend nas horas vagas </span>
-					<!-- Estudante de Ciência da Computação, sou desenvolvedor backend com um pouco de conhecimento
-				em desenvolvimento mobile e páginas web. -->
-				</p>
-			{/if}
-			<div class="flex flex-row justify-center md:hidden">
+{#if ready}
+	<div class="grid content-center heading" in:fade>
+		<div class="flex flex-row justify-center mt-2">
+			<div class="flex flex-col justify-center mt-2 hidden md:invisible">
 				{#each socials as social}
 					<a href={social.link} aria-label={social.label} class="mx-2">
 						<div class="icon">
@@ -77,18 +48,48 @@
 					</a>
 				{/each}
 			</div>
-		</div>
-		<div class="hidden md:flex flex-col justify-start">
-			{#each socials as social}
-				<a href={social.link} aria-label={social.label} class="mb-5">
-					<div class="icon">
-						<svelte:component this={social.src} />
-					</div>
-				</a>
-			{/each}
+			<div class="prose md:prose-lg mx-auto" id="intro">
+				<h1>Olá, mundo. <br /> Eu sou o Vini.</h1>
+					<p>
+					<span
+						class="intro-txt"
+						in:fade={{
+						delay: 1200,
+						easing: backOut
+					}}> Estudante e desenvolvedor backend </span>
+					<br>
+					
+					<span in:fade={{
+						delay: 3000,
+						easing: backOut
+					}}> que se vira com frontend </span>
+						<!-- Estudante de Ciência da Computação, sou desenvolvedor backend com um pouco de conhecimento
+					em desenvolvimento mobile e páginas web. -->
+					</p>
+				<div class="flex flex-row justify-center md:hidden">
+					{#each socials as social}
+						<a href={social.link} aria-label={social.label} class="mx-2">
+							<div class="icon">
+								<svelte:component this={social.src} />
+							</div>
+						</a>
+					{/each}
+				</div>
+			</div>
+			<div class="hidden md:flex flex-col justify-start">
+				{#each socials as social}
+					<a href={social.link} aria-label={social.label} class="mb-5">
+						<div class="icon">
+							<svelte:component this={social.src} />
+						</div>
+					</a>
+				{/each}
+			</div>
 		</div>
 	</div>
-</div>
+{:else}
+	<div style="height: 100vh;"></div>
+{/if}
 
 <style>
 	.heading {
@@ -114,6 +115,11 @@
 		width: 40px;
 		height: 40px;
 		margin: auto;
+	}
+
+	.intro-txt{
+		font-size: 2rem;
+		font-weight: 600;
 	}
 
 	@media (max-width: 700px) {
