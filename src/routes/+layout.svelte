@@ -10,7 +10,7 @@
 	let menus: { ref: string; option: string }[] = [
 		{ ref: '#about', option: 'Sobre mim' },
 		{ ref: '#experience', option: 'Experiência' },
-		{ ref: '#contact', option: 'Contato' },
+		{ ref: '#projects', option: 'Projetos' },
 		{ ref: '#contact', option: 'Contato' }
 	];
 
@@ -78,9 +78,7 @@
 		<!-- Conteúdo -->
 		<div class="custom-background" id="intro">
 			<div class="container mx-auto">
-				<div>
-					<slot />
-				</div>
+				<slot />
 			</div>
 		</div>
 	</div>
