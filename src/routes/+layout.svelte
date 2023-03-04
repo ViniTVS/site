@@ -77,7 +77,7 @@
 		</div>
 		<!-- Conteúdo -->
 		<div class="custom-background" id="intro">
-			<div class="container mx-auto">
+			<div class="mx-4 md:mx-10">
 				<slot />
 			</div>
 		</div>
@@ -153,12 +153,5 @@
 	.custom-background {
 		background: radial-gradient(at 100% 0vh, hsl(var(--p) / 0.3) 0px, transparent 30%),
 			radial-gradient(ellipse at 0 180vh, hsl(var(--s) / 0.2) 0px, transparent 30%);
-	}
-
-	@media (max-width: 768px) {
-		.container {
-			padding-left: 10vw;
-			padding-right: 10vw;
-		}
 	}
 </style>

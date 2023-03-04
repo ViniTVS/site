@@ -5,41 +5,56 @@
 	import { fade } from 'svelte/transition';
 	import { inview } from 'svelte-inview';
 
-	let socials: {
-		alt: string;
-		src: ConstructorOfATypedSvelteComponent;
-		link: string;
-		label: string;
+	let projects: {
+		title: string;
+		desc: string;
 	}[] = [
 		{
-			alt: 'Github logo',
-			src: FaGithubSquare,
-			link: 'https://github.com/ViniTVS',
-			label: 'Visite meu perfil do Github'
+			title: 'Github logo',
+			desc: 'https://github.com/ViniTVS'
 		},
 		{
-			alt: 'LinkedIn logo',
-			src: FaLinkedin,
-			link: 'https://www.linkedin.com/in/vin%C3%ADcius-teixiera-vieira-dos-santos-6494201b6',
-			label: 'Visite meu perfil do LinkedIn'
+			title: 'Github logo',
+			desc: 'https://github.com/ViniTVShttps://github.com/ViniTVS'
 		},
 		{
-			alt: 'Twitter logo',
-			src: FaTwitterSquare,
-			link: 'https://twitter.com/vine_tvs',
-			label: 'Visite meu perfil do Twitter'
+			title: 'Github logo',
+			desc: 'https://github.com/ViniTVS'
+		},
+		{
+			title: 'Github logo',
+			desc: 'https://github.com/ViniTVS'
+		},
+		{
+			title: 'Github logo',
+			desc: 'https://github.com/ViniTVS'
 		}
 	];
 
-	let v_testes = ['a', 'b', 'c', 'd', 'e', 'f', 'g'];
-
 	let show = false;
+	let max_show = 3;
+	let w: number;
 	const options = {};
+	$: {
+		max_show = w > 944 ? 3 : 2;
+	}
+
+	function calcMargins(v: number): string{
+		var margins:string = "";
+		if (v > 0)
+			margins += "md:ml-4 lg:ml-8";
+
+		if (v < (max_show - 1))
+			margins += " md:mr-4 lg:mr-8";
+		
+		return margins;
+	}
 </script>
 
-<div class="grid content-center heading" in:fade>
-	<h2>Teste</h2>
+<div class="grid heading" in:fade  bind:clientWidth={w} >
+	<h2>Projetos</h2>
 	<div
+		class="grid md:grid-cols-2 lg:grid-cols-3"
 		use:inview={options}
 		on:enter={(event) => {
 			const { inView } = event.detail;
@@ -47,51 +62,66 @@
 		}}
 	>
 		{#if show}
-			{#each v_testes as teste, i}
-				<span in:fade={{
-                    delay: 300 * i
-                }}> {teste} </span>
+			{#each projects as projeto, i}
+				<div
+					class="project-showcase bg-{(i%5).toString()} {calcMargins(i%max_show)} mt-8 p-6"
+					in:fade={{
+						delay: 300 * i
+					}}
+				>
+					<h3>{projeto.title}</h3>
+					<p>{projeto.desc}</p>
+				</div>
 			{/each}
+		{:else}
+		{#each projects as projeto, i}
+			<div class="project-showcase mt-8 p-6 invisible">
+				<h3>{projeto.title}</h3>
+				<p>{projeto.desc}</p>
+			</div>
+		{/each}
+
 		{/if}
 	</div>
 </div>
 
 <style>
-	.heading {
-		min-height: calc(100vh - 64px);
-		/* margin-left: 20px;
-        margin-right: 20px; */
+	.project-showcase {
+		/* height: 400px;
+		max-height: 40vh; */
+		border-radius: 16px;
 	}
 
-	.heading #intro {
-		text-align: center;
+	.bg-0 {
+		background: linear-gradient(135deg,hsl(var(--p) / 0.3) 10%,hsl(var(--p)));
+	}
+	.bg-1 {
+		background: linear-gradient(135deg,hsl(var(--s) / 0.3) 10%,hsl(var(--s)));
+	}
+	.bg-2 {
+		background: linear-gradient(135deg,hsl(var(--a) / 0.3) 10%,hsl(var(--a)));
+	}
+	.bg-3 {
+		background: linear-gradient(135deg,hsl(var(--in) / 0.3) 10%,hsl(var(--in)));
+	}
+	.bg-4 {
+		background: linear-gradient(135deg,hsl(var(--su) / 0.3) 10%,hsl(var(--su)));
 	}
 
-	.heading h1 {
-		background: linear-gradient(to bottom right, hsl(var(--p)), hsl(var(--s)));
-		background-clip: text;
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		font-size: 6rem;
-		font-weight: 500;
+	/* [data-theme="light_theme"] .bg-0 {
+		background: linear-gradient(135deg,hsl(var(--p)) 50%,hsl(var(--p) / 0.3));
 	}
+	[data-theme="light_theme"] .bg-1 {
+		background: linear-gradient(135deg,hsl(var(--s)) 10%,hsl(var(--s) / 0.3));
+	}
+	[data-theme="light_theme"] .bg-2 {
+		background: linear-gradient(135deg,hsl(var(--a)) 10%,hsl(var(--a) / 0.3));
+	}
+	[data-theme="light_theme"] .bg-3 {
+		background: linear-gradient(135deg,hsl(var(--in)) 10%,hsl(var(--in) / 0.3));
+	}
+	[data-theme="light_theme"] .bg-4 {
+		background: linear-gradient(135deg,hsl(var(--su)) 10%,hsl(var(--su) / 0.3));
+	} */
 
-	.icon {
-		width: 40px;
-		height: 40px;
-		margin: auto;
-	}
-
-	.intro-txt {
-		font-size: 2rem;
-		font-weight: 600;
-	}
-
-	@media (max-width: 700px) {
-		.heading h1 {
-			/* font-size: 4em; */
-			font-size: 5rem;
-			margin-bottom: 0px;
-		}
-	}
 </style>
