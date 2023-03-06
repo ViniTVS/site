@@ -28,3 +28,36 @@ h3 {
         line-height: 1.5;
     }
 } */
+
+
+.bg-0 {
+    background: linear-gradient(135deg,hsl(var(--p) / 0.3) 10%,hsl(var(--p)));
+}
+.bg-1 {
+    background: linear-gradient(135deg,hsl(var(--s) / 0.3) 10%,hsl(var(--s)));
+}
+.bg-2 {
+    background: linear-gradient(135deg,hsl(var(--a) / 0.3) 10%,hsl(var(--a)));
+}
+.bg-3 {
+    background: linear-gradient(135deg,hsl(var(--in) / 0.3) 10%,hsl(var(--in)));
+}
+.bg-4 {
+    background: linear-gradient(135deg,hsl(var(--su) / 0.3) 10%,hsl(var(--su)));
+}
+
+[data-theme="light_theme"] .bg-0 {
+    background: linear-gradient(135deg,hsl(var(--p)) 10%, hsl(var(--s)) 150%);
+}
+[data-theme="light_theme"] .bg-1 {
+    background: linear-gradient(135deg,hsl(var(--s)) 10%, hsl(var(--a)) 150%);
+}
+[data-theme="light_theme"] .bg-2 {
+    background: linear-gradient(135deg,hsl(var(--a)) -10%, hsl(var(--in)) 150%);
+}
+[data-theme="light_theme"] .bg-3 {
+    background: linear-gradient(135deg,hsl(var(--in)) 10%, white 150%);
+}
+[data-theme="light_theme"] .bg-4 {
+    background: linear-gradient(135deg,hsl(var(--er)) 10%, white 150%);
+}
