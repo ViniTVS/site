@@ -7,6 +7,8 @@
 	import TailwindIcon from '../icons/TailwindIcon.svelte';
 	import { fade } from 'svelte/transition';
 	import { inview } from 'svelte-inview';
+	import { onMount } from 'svelte';
+	
 
 	interface Technology {
 		link: string;
@@ -33,7 +35,7 @@
 	let projects: Project[] = [
 		{
 			title: 'Github logo',
-			desc: 'https://github.com/ViniTVS <br> \
+			desc: 'https://github.com/ViniTVS <br> <br> \
 				teste',
 			tech: ['svelte', 'tailwind']
 		},
@@ -58,6 +60,7 @@
 	let max_show = 3;
 	let w: number;
 	const options = {};
+	let show_projects: string[];
 	$: {
 		max_show = w > 944 ? 3 : 2;
 	}
@@ -74,7 +77,7 @@
 			show = inView;
 		}}
 	>
-		<!-- {#if show} -->
+		{#if show}
 			{#each projects as projeto, i}
 				<div
 					in:fade={{
@@ -82,8 +85,7 @@
 					}}
 					class="
 						project-showcase bg-{(i % 5).toString()}
-						mt-8 p-6 "
-					style="width: 90%"
+						mt-8 p-6 w-full md:w-11/12"
 				>
 					<!-- texto -->
 					<div>
@@ -91,7 +93,7 @@
 						<p>{@html projeto.desc}</p>
 					</div>
 					<!-- ícones -->
-					<div class="flex flex-row justify-between mt-4">
+					<div class="flex mt-4">
 						<div class="flex flex-row justify-start">
 							{#each projeto.tech as t}
 								<div class="icon pr-2">
@@ -99,25 +101,37 @@
 								</div>
 							{/each}
 						</div>
-						<div class="icon" style="margin: 0;">
-							<GoLinkExternal />
-						</div>
 					</div>
 				</div>
 			{/each}
-		<!-- {:else}
-			{#each projects as projeto, i}
-				<div class="project-showcase mt-8 p-6 invisible">
+		{:else}
+		{#each projects as projeto, i}
+			<div
+				in:fade={{
+					delay: 300 * i
+				}}
+				class="
+					project-showcase bg-{(i % 5).toString()}
+					mt-8 p-6 w-full md:w-11/12"
+			>
+				<!-- texto -->
+				<div>
 					<h3>{projeto.title}</h3>
-					<p>{projeto.desc}</p>
-					{#each projeto.tech as t}
-						<div class="icon">
-							<svelte:component this={tech_dict[t].img} />
-						</div>
-					{/each}
+					<p>{@html projeto.desc}</p>
 				</div>
-			{/each}
-		{/if} -->
+				<!-- ícones -->
+				<div class="flex mt-4">
+					<div class="flex flex-row justify-start">
+						{#each projeto.tech as t}
+							<div class="icon pr-2">
+								<svelte:component this={tech_dict[t].img} />
+							</div>
+						{/each}
+					</div>
+				</div>
+			</div>
+		{/each}
+		{/if}
 	</div>
 </div>
 
@@ -126,10 +140,9 @@
 		/* height: 400px;
 		max-height: 40vh; */
 		border-radius: 12px;
-
 		display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+		flex-direction: column;
+		justify-content: space-between;
 	}
 
 	.icon {
