@@ -91,8 +91,8 @@
 			style="background-color: black; opacity: 0.4;"
 		/>
 		<!-- Barra lateral em si -->
-		<div class="menu px-4 py-2 w-3/4 bg-base-100 ">
-			<div class="flex flex-col justify-between" style="height: 100%;">
+		<div class="menu px-4 py-2 w-3/4 bg-base-100 " style="max-height: 100vh;">
+			<div class="flex flex-col justify-between" style="max-height: 100%;">
 				<!-- Close button -->
 				<div class="flex flex-row justify-end">
 					<label
@@ -116,7 +116,7 @@
 						</a>
 					{/each}
 				</div>
-				
+
 				<button
 					on:click={() => (isDark = !isDark)}
 					class="btn btn-bg btn-square btn-outline mx-auto mb-20"
@@ -132,7 +132,6 @@
 						{/if}
 					</div>
 				</button>
-				
 			</div>
 		</div>
 	</div>

@@ -1,14 +1,8 @@
 <script lang="ts">
-	import FaTwitterSquare from 'svelte-icons/fa/FaTwitterSquare.svelte';
-	import FaLinkedin from 'svelte-icons/fa/FaLinkedin.svelte';
-	import FaGithubSquare from 'svelte-icons/fa/FaGithubSquare.svelte';
 	import SvelteIcon from '../icons/SvelteIcon.svelte';
-	import GoLinkExternal from 'svelte-icons/go/GoLinkExternal.svelte';
 	import TailwindIcon from '../icons/TailwindIcon.svelte';
 	import { fade } from 'svelte/transition';
 	import { inview } from 'svelte-inview';
-	import { onMount } from 'svelte';
-	
 
 	interface Technology {
 		link: string;
@@ -30,89 +24,48 @@
 		title: string;
 		desc: string;
 		tech: string[];
+		link: string;
 	}
 
 	let projects: Project[] = [
 		{
-			title: 'Github logo',
-			desc: 'https://github.com/ViniTVS <br> <br> \
+			title: 'Site',
+			desc: 'O  <br> <br> \
 				teste',
+			link: 'https://github.com/ViniTVS/site',
 			tech: ['svelte', 'tailwind']
 		},
 		{
 			title: 'Github logo',
 			desc: 'https://github.com/ViniTVS',
+			link: 'https://github.com/ViniTVS',
 			tech: ['svelte', 'tailwind']
 		},
 		{
 			title: 'Github logo',
 			desc: 'https://github.com/ViniTVS',
+			link: 'https://github.com/ViniTVS',
 			tech: ['svelte', 'tailwind']
 		},
 		{
 			title: 'Github logo',
 			desc: 'https://github.com/ViniTVS',
+			link: 'https://github.com/ViniTVS',
 			tech: ['svelte', 'tailwind']
 		}
 	];
-
-	let show = false;
-	let max_show = 3;
-	let w: number;
-	const options = {};
-	let show_projects: string[];
-	$: {
-		max_show = w > 944 ? 3 : 2;
-	}
-
 </script>
 
-<div class="grid heading" in:fade bind:clientWidth={w}>
+<div class="grid heading" id="projects" style="padding-top: 68px;">
 	<h2>Projetos</h2>
-	<div
-		class="grid md:grid-cols-2 lg:grid-cols-3"
-		use:inview={options}
-		on:enter={(event) => {
-			const { inView } = event.detail;
-			show = inView;
-		}}
-	>
-		{#if show}
-			{#each projects as projeto, i}
-				<div
-					in:fade={{
-						delay: 300 * i
-					}}
-					class="
-						project-showcase bg-{(i % 5).toString()}
-						mt-8 p-6 w-full md:w-11/12"
-				>
-					<!-- texto -->
-					<div>
-						<h3>{projeto.title}</h3>
-						<p>{@html projeto.desc}</p>
-					</div>
-					<!-- ícones -->
-					<div class="flex mt-4">
-						<div class="flex flex-row justify-start">
-							{#each projeto.tech as t}
-								<div class="icon pr-2">
-									<svelte:component this={tech_dict[t].img} />
-								</div>
-							{/each}
-						</div>
-					</div>
-				</div>
-			{/each}
-		{:else}
+	<div class="flex flex-row justify-between flex-wrap">
 		{#each projects as projeto, i}
-			<div
-				in:fade={{
-					delay: 300 * i
-				}}
-				class="
-					project-showcase bg-{(i % 5).toString()}
-					mt-8 p-6 w-full md:w-11/12"
+			<a
+				href={projeto.link}
+				target="_blank"
+				rel="noreferrer"
+				class="project-showcase bg-{(i % 5).toString()}
+						mt-8 p-6"
 			>
 				<!-- texto -->
 				<div>
@@ -123,31 +76,50 @@
 				<div class="flex mt-4">
 					<div class="flex flex-row justify-start">
 						{#each projeto.tech as t}
-							<div class="icon pr-2">
-								<svelte:component this={tech_dict[t].img} />
-							</div>
+							{#if tech_dict[t].link != ''}
+								<a href={tech_dict[t].link} target="_blank" rel="noreferrer" class="icon pr-2">
+									<svelte:component this={tech_dict[t].img} />
+								</a>
+							{:else}
+								<div class="icon pr-2">
+									<svelte:component this={tech_dict[t].img} />
+								</div>
+							{/if}
 						{/each}
 					</div>
 				</div>
-			</div>
+			</a>
 		{/each}
-		{/if}
 	</div>
 </div>
 
 <style>
 	.project-showcase {
-		/* height: 400px;
-		max-height: 40vh; */
 		border-radius: 12px;
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
+		width: 100%;
 	}
 
 	.icon {
-		/* width: 30px; */
 		height: 20px;
 		margin: auto;
+	}
+
+	.icon:hover {
+		color: hsl(var(--nf));
+	}
+
+	@media (min-width: 600px) {
+		.project-showcase {
+			width: 48%;
+		}
+	}
+
+	@media (min-width: 1024px) {
+		.project-showcase {
+			width: 31%;
+		}
 	}
 </style>
