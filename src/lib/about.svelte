@@ -21,7 +21,7 @@
 
 <style>
 	#about {
-		padding-top: auto;
+		padding-top: 70px;
 		padding-bottom: auto;
 		height: 100vh;
 		max-height: 800px;

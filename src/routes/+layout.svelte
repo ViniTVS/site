@@ -77,7 +77,7 @@
 		</div>
 		<!-- Conteúdo -->
 		<div class="custom-background" id="intro">
-			<div class="mx-4 md:mx-10">
+			<div class="mx-4 md:mx-10 mb-4 md:mb-10">
 				<slot />
 			</div>
 		</div>
