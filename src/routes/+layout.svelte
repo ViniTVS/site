@@ -42,9 +42,9 @@
 					<img alt="Íconde site" src="favicon.png" height="36" width="36" />
 				</div>
 			</a>
-			<div class="flex-1 px-2 mx-2" />
+			<div class="flex-1" />
 			<!-- menus se página for larga o bastante -->
-			<div class="flex-2 hidden md:block">
+			<div class="flex-2 hidden md:block" style="overflow: hidden;">
 				{#each menus as menuopt}
 					<a class="btn btn-ghost normal-case text-xl" href={menuopt.ref}>
 						<h3>{menuopt.option}</h3>

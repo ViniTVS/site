@@ -9,12 +9,9 @@
 
 <Intro />
 
+<About />
 
-
-<About/>
-
-<Projects/>
-
+<Projects />
 
 <!-- <div class="grid mb-10 c-prose" style="margin-top: 10vh;">
 
@@ -84,10 +81,7 @@
 		</div>
 	</div>
 </div> -->
-
 <style>
-
-
 	/* .transition {
 		background: linear-gradient(180deg, white -50%, hsl(var(--p)) 20%, hsl(var(--p)) 80%, white 150%);
 		height: inherit;

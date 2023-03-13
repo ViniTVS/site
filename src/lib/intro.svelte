@@ -39,33 +39,30 @@
 {#if ready}
 	<div class="grid content-center heading" in:fade>
 		<div class="flex flex-row justify-center mt-2">
-			<div class="flex flex-col justify-center mt-2 hidden md:invisible">
-				{#each socials as social}
-					<a href={social.link} aria-label={social.label} class="mx-2">
-						<div class="icon">
-							<svelte:component this={social.src} />
-						</div>
-					</a>
-				{/each}
-			</div>
 			<div class="prose md:prose-lg mx-auto" id="intro">
-				<h1>Olá, mundo. <br /> Eu sou o Vini.</h1>
-					<p>
+				<h1>Olá, mundo. <br/> Eu sou o Vini.</h1>
+				<p>
 					<span
 						class="intro-txt"
 						in:fade={{
-						delay: 1200,
-						easing: backOut
-					}}> Estudante e desenvolvedor backend </span>
-					<br>
-					
-					<span in:fade={{
-						delay: 3000,
-						easing: backOut
-					}}> que se vira com frontend </span>
-						<!-- Estudante de Ciência da Computação, sou desenvolvedor backend com um pouco de conhecimento
-					em desenvolvimento mobile e páginas web. -->
-					</p>
+							delay: 1200,
+							easing: backOut
+						}}
+					>
+						Estudante e desenvolvedor backend
+					</span>
+					<br />
+
+					<span
+						in:fade={{
+							delay: 3000,
+							easing: backOut
+						}}
+					>
+						que se vira com frontend
+					</span>
+				</p>
+				<!-- Adiciona links das redes sociais na parte inferior -->
 				<div class="flex flex-row justify-center md:hidden">
 					{#each socials as social}
 						<a href={social.link} aria-label={social.label} class="mx-2">
@@ -76,6 +73,7 @@
 					{/each}
 				</div>
 			</div>
+			<!-- Adiciona links das redes sociais na lateral -->
 			<div class="hidden md:flex flex-col justify-start">
 				{#each socials as social}
 					<a href={social.link} aria-label={social.label} class="mb-5">
@@ -88,7 +86,7 @@
 		</div>
 	</div>
 {:else}
-	<div style="height: 100vh;"></div>
+	<div style="height: 100vh;" />
 {/if}
 
 <style>
@@ -117,7 +115,7 @@
 		margin: auto;
 	}
 
-	.intro-txt{
+	.intro-txt {
 		font-size: 2rem;
 		font-weight: 600;
 	}

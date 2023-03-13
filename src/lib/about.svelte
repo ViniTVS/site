@@ -1,19 +1,16 @@
-<div class="mt-20 md:mt-0 md:content-center" id="about">
-
-	<h2>Sobre mim</h2>
-	<div class="grid grid-cols-1 md:grid-cols-3 gap-4" style="height: 100%;">
-	<div class="col md:col-span-2 c-prose" style="height: fit-content;">
-		<p>
-			Eu sou o Vinícius, um estudante de Ciência da Computação e estagiário trabalhando com PHP,
-			MySQL e Flutter. Durante a graduação tive a oportunidade de aprender programação desde C e
-			C++ a Java e Python. Fazendo minha Iniciação Científica em robótica também passei a conhecer
-			melhor sobre dispositivos IoT e especialmente Arduino.
-		</p>
+<div class="hero " id="about">
+	<div class="hero-content flex-col md:flex-row-reverse">
+		<img alt="Headshot" src="eu.png" id="eu" class="max-w-sm rounded-lg shadow-2xl" />
+		<div>
+			<h2>Sobre mim</h2>
+			<p class="py-6">
+				Eu sou o Vinícius, um estudante de Ciência da Computação e estagiário trabalhando com PHP,
+				MySQL e Flutter. Durante a graduação tive a oportunidade de aprender programação desde C e
+				C++ a Java e Python. Fazendo minha Iniciação Científica em robótica também passei a conhecer
+				melhor sobre dispositivos IoT e especialmente Arduino.
+			</p>
+		</div>
 	</div>
-	<div class="col content-center" >
-		<img alt="Headshot" src="eu.png" id="eu" />
-	</div>
-</div>
 </div>
 
 <style>
@@ -25,14 +22,13 @@
 	}
 
 	#eu {
-		width: 100%;
+		/* width: 100%; */
 		height: auto;
 		max-width: 200px;
 		border-radius: 8px;
 		margin: auto;
 	}
 
-	
 	@media (min-width: 768px) {
 		#about {
 			margin: auto;
