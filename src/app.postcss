@@ -3,32 +3,29 @@
 @tailwind components;
 @tailwind utilities;
 
-html, body { @apply h-full overflow-hidden; }
+html, body { @apply h-full overflow-hidden; font-size: 16px;}
 
 
 h2 {
     font-size: 1.6666667rem;
     line-height: 4/3;
     font-weight: 700;
+    color: white;
 }
+[data-theme="light_theme"] h2 {
+    color: black;
+}
+
 
 h3 {
     font-size: 1.25rem;
     line-height: 1.6;
     font-weight: 600;
+    color: white;
 }
-
-
-/* @media (min-width: 768px) {
-    .c-prose {
-        font-size: 1.125rem;
-    }
-    .c-prose h3 {
-        font-size: 1.3333334em;
-        line-height: 1.5;
-    }
-} */
-
+[data-theme="light_theme"] h3 {
+    color: black;
+}
 
 .bg-0 {
     background: linear-gradient(135deg,hsl(var(--p) / 0.2) 10%,hsl(var(--p)));
@@ -62,15 +59,16 @@ h3 {
     background: linear-gradient(135deg,hsl(var(--er)) 10%, white 150%);
 }
 
-.icon-svg {
+.icon-svg, .project-showcase {
     color: white;
 }
-[data-theme="light_theme"] .icon-svg {
+[data-theme="light_theme"] .icon-svg, [data-theme="light_theme"] .project-showcase {
     color: black;
 }
 .icon-svg:hover {
     color: inherit;
 }
-/* [data-theme="light_theme"] .icon-svg:hover {
-    color: inherit;
-} */
+
+@media (min-width: 768px) {
+    html, body {font-size: 20px;}
+}

@@ -8,9 +8,6 @@
 			MySQL e Flutter. Durante a graduação tive a oportunidade de aprender programação desde C e
 			C++ a Java e Python. Fazendo minha Iniciação Científica em robótica também passei a conhecer
 			melhor sobre dispositivos IoT e especialmente Arduino.
-			<!-- <br />
-			Normalmente passo meu tempo lendo, jogando, ouvindo música e, como todo bom programador, criando
-			algum novo projeto que nunca será finalizado. -->
 		</p>
 	</div>
 	<div class="col content-center" >
