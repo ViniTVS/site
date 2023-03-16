@@ -1,4 +1,4 @@
-<div class="hero " id="about">
+<div class="hero" id="about">
 	<div class="hero-content flex-col md:flex-row-reverse">
 		<img alt="Headshot" src="eu.png" id="eu" class="max-w-sm rounded-lg shadow-2xl" />
 		<div>
@@ -7,7 +7,7 @@
 				Eu sou o Vinícius, um estudante de Ciência da Computação e estagiário trabalhando com PHP,
 				MySQL e Flutter. Durante a graduação tive a oportunidade de aprender programação desde C e
 				C++ a Java e Python. Fazendo minha Iniciação Científica em robótica também passei a conhecer
-				melhor sobre dispositivos IoT e especialmente Arduino.
+				melhor sobre dispositivos IoT e Arduino.
 			</p>
 		</div>
 	</div>

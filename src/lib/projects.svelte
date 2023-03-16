@@ -1,6 +1,4 @@
 <script lang="ts">
-	import { fade } from 'svelte/transition';
-	import { inview } from 'svelte-inview';
 	import { onMount } from 'svelte';
 
 	interface Technology {
@@ -100,11 +98,11 @@
 			title: 'Trabalhos',
 			link: 'https://github.com/stars/ViniTVS/lists/ci%C3%AAncia-da-computa%C3%A7%C3%A3o',
 			api: null,
-			tech: ["C", "Python", "C++", "Java", "Haskell"],
+			tech: ['C', 'Python', 'C++', 'Java', 'Haskell'],
 			desc: ' Uma lista de repositórios contendo trabalhos de diferentes matérias realizados \
 					durante meu bacharelado. <br> \
 					<span style="font-size: 0.8rem;">(podem ou não estar com seus enunciados corretos)</span>'
-		},
+		}
 	];
 
 	onMount(() => {
@@ -130,7 +128,7 @@
 	});
 </script>
 
-<div class="grid heading" id="projects" style="padding-top: 68px;">
+<div class="grid heading" id="projects">
 	<h2>Projetos</h2>
 	<div class="flex flex-row justify-between flex-wrap">
 		{#each projects as projeto, i}
@@ -172,12 +170,25 @@
 				</div>
 			</a>
 		{/each}
+
+		<div class="project-showcase mt-8 p-6 pt-3 grow">
+			<div class="flex flex-row">
+				<div class="mr-4 my-2 transition transition-2" />
+				<h2>
+					<blockquote>
+						Do what you think is interesting, do something that you think is fun and worthwhile,
+						because otherwise you won't do it well anyway.
+					</blockquote>
+				</h2>
+			</div>
+			<span>Brian W. Kernighan</span>
+		</div>
 	</div>
 </div>
 
 <style>
 	#projects {
-		padding-top: 70px;
+		padding-top: 90px;
 	}
 
 	.project-showcase {
@@ -196,6 +207,20 @@
 		transition: all 0.1s ease-in;
 		font-size: 24px;
 	}
+	.transition {
+		background: linear-gradient(180deg, white -50%, hsl(var(--p)) 20%, hsl(var(--p)) 80%, white 150%);
+		height: inherit;
+		min-width: 4px;
+		width: 4px;
+	}
+	
+	.transition-2 {
+		background: linear-gradient(180deg, white -50%, hsl(var(--s)) 20%, hsl(var(--s)) 80%, white 150%);
+	}
+
+	.transition-3 {
+		background: linear-gradient(180deg, white -50%, hsl(var(--a)) 20%, hsl(var(--a)) 80%, white 150%);
+	} 
 
 	@media (min-width: 600px) {
 		.project-showcase {

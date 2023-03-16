@@ -34,7 +34,7 @@
 		"highlight.js": "^11.7.0",
 		"highlightjs-svelte": "^1.0.6",
 		"prettier-plugin-svelte": "^2.9.0",
-		"svelte-inview": "^3.0.4",
+		"svelte-inview": "^4.0.0",
 		"theme-change": "^2.3.0"
 	}
 }

@@ -74,7 +74,7 @@
 				</div>
 			</div>
 			<!-- Adiciona links das redes sociais na lateral -->
-			<div class="hidden md:flex flex-col justify-start">
+			<div class="hidden md:flex flex-col justify-start" style="margin-top: auto; margin-bottom: auto;">
 				{#each socials as social}
 					<a href={social.link} aria-label={social.label} class="mb-5">
 						<div class="icon">
