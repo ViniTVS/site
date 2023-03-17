@@ -40,7 +40,7 @@
 	<div class="grid content-center heading" in:fade>
 		<div class="flex flex-row justify-center mt-2">
 			<div class="prose md:prose-lg mx-auto" id="intro">
-				<h1>Olá, mundo. <br/> Eu sou o Vini.</h1>
+				<h1>Olá, mundo. <br /> Eu sou o Vini.</h1>
 				<p>
 					<span
 						class="intro-txt"
@@ -74,7 +74,10 @@
 				</div>
 			</div>
 			<!-- Adiciona links das redes sociais na lateral -->
-			<div class="hidden md:flex flex-col justify-start" style="margin-top: auto; margin-bottom: auto;">
+			<div
+				class="hidden md:flex flex-col justify-start"
+				style="margin-top: auto; margin-bottom: auto;"
+			>
 				{#each socials as social}
 					<a href={social.link} aria-label={social.label} class="mb-5">
 						<div class="icon">
@@ -125,6 +128,9 @@
 			/* font-size: 4em; */
 			font-size: 5rem;
 			margin-bottom: 0px;
+		}
+		.heading {
+			min-height: calc(100vh - 100px);
 		}
 	}
 </style>

@@ -149,8 +149,4 @@
 		width: 2.5rem;
 	}
 
-	.custom-background {
-		background: radial-gradient(at 100% 0vh, hsl(var(--p) / 0.3) 0px, transparent 30%),
-			radial-gradient(ellipse at 0 180vh, hsl(var(--s) / 0.2) 0px, transparent 30%);
-	}
 </style>
