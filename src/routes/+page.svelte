@@ -46,7 +46,7 @@
 			<div class="col-span-2 md:col-span-1">
 				<h3>Ciência da Computação</h3>
 				<p>
-					Estudante do sétimo período de Bacharelado em Ciência da Computação pela Universidade
+					Estudante de Bacharelado em Ciência da Computação pela Universidade
 					Federal do Paraná.
 				</p>
 			</div>
@@ -59,5 +59,8 @@
 <style>
 	#experience {
 		padding-top: 90px;
+	}
+	#experience span {
+		padding-top: 0.33rem;
 	}
 </style>

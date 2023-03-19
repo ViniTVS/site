@@ -80,6 +80,33 @@
 			<div class="mx-4 md:mx-10 mb-4 md:mb-10">
 				<slot />
 			</div>
+			<footer
+				class="footer footer-center p-4 md:p-10 pt-10
+					{isDark ? 'bg-base-300' : 'bg-base-200'} 
+					text-base-content"
+				id="contact"
+			>
+			<h2> Entre em contato</h2>
+					<p style="font-size: 1rem; max-width: 80%;">
+						Caso se interesse em meus serviços ou tenha dúvidas, minha caixa de e-mail está sempre aberta:
+					</p>
+					<a href="mailto:vinisantos185@gmail.com">
+				<button
+					class="btn {isDark ? 'btn-primary' : 'btn-accent'}"
+					style="text-transform: lowercase;">vinisantos185@gmail.com</button
+				></a>
+				<!-- </div> -->
+				<p>
+					<span class="aligned">
+						<span class="copyleft">&copy;</span>2023 - Projetado e desenvolvido com<img
+							alt="amor"
+							src="full_heart.png"
+							id="coracao"
+							class="mx-1"
+						/>por</span><br /> 
+						Vinícius Teixeira Vieira dos Santos
+				</p>
+			</footer>
 		</div>
 	</div>
 
@@ -149,4 +176,24 @@
 		width: 2.5rem;
 	}
 
+	#coracao {
+		width: auto;
+		height: 15px;
+	}
+	.aligned {
+		display: flex;
+		align-items: center;
+		overflow: hidden;
+	}
+	.copyleft {
+		display: inline-block;
+		transform: rotate(180deg);
+	}
+
+	@media (min-width: 768px) {
+		#coracao {
+			width: auto;
+			height: 20px;
+		}
+	}
 </style>

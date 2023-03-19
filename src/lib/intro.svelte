@@ -55,7 +55,7 @@
 
 					<span
 						in:fade={{
-							delay: 3000,
+							delay: 2400,
 							easing: backOut
 						}}
 					>
