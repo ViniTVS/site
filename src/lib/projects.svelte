@@ -86,7 +86,7 @@
 			link: 'https://github.com/ViniTVS/site',
 			tech: ['TypeScript', 'Svelte', 'Tailwind'],
 			api: null,
-			desc: ' Desenvolvido em sua maioria com HTML e CSS, utilizado um pouco de TypeScript para \
+			desc: ' Desenvolvido em sua maioria com HTML e CSS, foi utilizado um pouco de TypeScript para \
 					tornar o site dinâmico e modular. <br> \
 					Feito com \
 					<a href="https://kit.svelte.dev/" target="_blank" rel="noreferrer" class="link"> \
@@ -101,7 +101,7 @@
 			tech: ['C', 'Python', 'C++', 'Java', 'Haskell'],
 			desc: ' Uma lista de repositórios contendo trabalhos de diferentes matérias realizados \
 					durante meu bacharelado. <br> \
-					<span style="font-size: 0.8rem;">(podem ou não estar com seus enunciados corretos)</span>'
+					<span style="font-size: 0.8rem;">(podem ou não estar com seus enunciados)</span>'
 		}
 	];
 
