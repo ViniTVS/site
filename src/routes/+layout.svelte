@@ -32,7 +32,7 @@
 	<input id="my-drawer-3" type="checkbox" class="drawer-toggle" bind:checked={openDrawer} />
 	<div class="drawer-content flex flex-col">
 		<!-- Navbar -->
-		<div
+		<nav
 			class="sticky top-0 z-30 flex h-16 w-full 
 				bg-opacity-80 backdrop-blur transition-all duration-100 
 				shadow-sm w-full navbar bg-base-100"
@@ -74,7 +74,7 @@
 					</div>
 				</button>
 			</div>
-		</div>
+		</nav>
 		<!-- Conteúdo -->
 		<div class="custom-background" id="intro">
 			<div class="mx-4 md:mx-10 mb-4 md:mb-10">
@@ -86,25 +86,26 @@
 					text-base-content"
 				id="contact"
 			>
-			<h2> Entre em contato</h2>
-					<p style="font-size: 1rem; max-width: 80%;">
-						Caso se interesse em meus serviços ou tenha dúvidas, minha caixa de e-mail está sempre aberta:
-					</p>
-					<a href="mailto:vinisantos185@gmail.com">
-				<button
-					class="btn {isDark ? 'btn-primary' : 'btn-accent'}"
-					style="text-transform: lowercase;">vinisantos185@gmail.com</button
-				></a>
-				<!-- </div> -->
+				<h2>Entre em contato</h2>
+				<p style="font-size: 1rem; max-width: 80%;">
+					Caso se interesse em meus serviços ou tenha dúvidas, minha caixa de e-mail está sempre
+					aberta:
+				</p>
+				<a href="mailto:vinisantos185@gmail.com">
+					<button
+						class="btn {isDark ? 'btn-primary' : 'btn-accent'}"
+						style="text-transform: lowercase;"
+					>
+						vinisantos185@gmail.com
+					</button>
+				</a>
 				<p>
 					<span class="aligned">
-						<span class="copyleft">&copy;</span>2023 - Projetado e desenvolvido com<img
-							alt="amor"
-							src="full_heart.png"
-							id="coracao"
-							class="mx-1"
-						/>por</span><br /> 
-						Vinícius Teixeira Vieira dos Santos
+						<span class="copyleft">&copy;</span> 2023 - Projetado e desenvolvido com
+						<img alt="amor" src="full_heart.png" id="coracao" class="mx-1" />por
+					</span>
+					<br/>
+					Vinícius Teixeira Vieira dos Santos
 				</p>
 			</footer>
 		</div>
@@ -139,7 +140,7 @@
 							href={menuopt.ref}
 							on:click={drawerToggle}
 						>
-							<h1>{menuopt.option}</h1>
+							<h2>{menuopt.option}</h2>
 						</a>
 					{/each}
 				</div>

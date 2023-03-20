@@ -59,6 +59,10 @@
 		JavaScript: {
 			link: '',
 			img: 'devicon-javascript-plain'
+		},
+		Devicon: {
+			link: 'https://devicon.dev/',
+			img: 'devicon-devicon-plain'
 		}
 	};
 
@@ -84,7 +88,7 @@
 		{
 			title: 'Site',
 			link: 'https://github.com/ViniTVS/site',
-			tech: ['TypeScript', 'Svelte', 'Tailwind'],
+			tech: ['TypeScript', 'Svelte', 'Tailwind', 'Devicon'],
 			api: null,
 			desc: ' Desenvolvido em sua maioria com HTML e CSS, foi utilizado um pouco de TypeScript para \
 					tornar o site dinâmico e modular. <br> \

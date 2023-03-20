@@ -15,7 +15,6 @@
 	<h2>Experiência e formação</h2>
 	<div class="md:px-10 xl:px-20">
 		<div class="grid grid-cols-3 md:grid-cols-2 mt-5">
-			<!-- <h4>2018 - Atualmente</h4> -->
 			<span>2021 - Atualmente</span>
 			<div class="col-span-2 md:col-span-1">
 				<h3>Spro IT Solutions - Estágio</h3>
