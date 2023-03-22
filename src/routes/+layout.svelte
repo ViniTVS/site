@@ -104,7 +104,7 @@
 						<span class="copyleft">&copy;</span> 2023 - Projetado e desenvolvido com
 						<img alt="amor" src="full_heart.png" id="coracao" class="mx-1" />por
 					</span>
-					<br/>
+					<br />
 					Vinícius Teixeira Vieira dos Santos
 				</p>
 			</footer>
@@ -196,6 +196,9 @@
 		#coracao {
 			width: auto;
 			height: 20px;
+		}
+		.aligned {
+			min-width: 355px;
 		}
 	}
 </style>
