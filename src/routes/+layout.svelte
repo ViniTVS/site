@@ -185,6 +185,7 @@
 		display: flex;
 		align-items: center;
 		overflow: hidden;
+		min-width: 290px;
 	}
 	.copyleft {
 		display: inline-block;
