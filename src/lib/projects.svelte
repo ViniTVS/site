@@ -63,6 +63,10 @@
 		Devicon: {
 			link: 'https://devicon.dev/',
 			img: 'devicon-devicon-plain'
+		},
+		Ruby: {
+			link: '',
+			img: 'devicon-ruby-plain'
 		}
 	};
 
@@ -212,19 +216,37 @@
 		font-size: 24px;
 	}
 	.transition {
-		background: linear-gradient(180deg, white -50%, hsl(var(--p)) 20%, hsl(var(--p)) 80%, white 150%);
+		background: linear-gradient(
+			180deg,
+			white -50%,
+			hsl(var(--p)) 20%,
+			hsl(var(--p)) 80%,
+			white 150%
+		);
 		height: inherit;
 		min-width: 4px;
 		width: 4px;
 	}
-	
+
 	.transition-2 {
-		background: linear-gradient(180deg, white -50%, hsl(var(--s)) 20%, hsl(var(--s)) 80%, white 150%);
+		background: linear-gradient(
+			180deg,
+			white -50%,
+			hsl(var(--s)) 20%,
+			hsl(var(--s)) 80%,
+			white 150%
+		);
 	}
 
 	.transition-3 {
-		background: linear-gradient(180deg, white -50%, hsl(var(--a)) 20%, hsl(var(--a)) 80%, white 150%);
-	} 
+		background: linear-gradient(
+			180deg,
+			white -50%,
+			hsl(var(--a)) 20%,
+			hsl(var(--a)) 80%,
+			white 150%
+		);
+	}
 
 	@media (min-width: 600px) {
 		.project-showcase {
