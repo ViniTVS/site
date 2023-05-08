@@ -37,7 +37,7 @@
 			</div>
 		</div>
 		<div class="grid grid-cols-3 md:grid-cols-2 mt-5">
-			<span>2021 - 2022</span>
+			<span>2021 - 2023</span>
 			<div class="col-span-2 md:col-span-1">
 				<h3>Spro IT Solutions - Estágio</h3>
 				<p>
@@ -50,7 +50,7 @@
 			</div>
 		</div>
 		<div class="grid grid-cols-3 md:grid-cols-2 mt-5">
-			<span>2022 - Atualmente</span>
+			<span>2023 - Atualmente</span>
 			<div class="col-span-2 md:col-span-1">
 				<h3>Spro IT Solutions - Desenvolvedor Júnior</h3>
 				<h4>Em adição à função anterior:</h4>
