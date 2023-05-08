@@ -37,31 +37,31 @@
 </script>
 
 {#if ready}
-	<div class="grid content-center heading" in:fade>
+	<div class="grid heading" in:fade>
 		<div class="flex flex-row justify-center mt-2">
-			<div class="prose md:prose-lg mx-auto" id="intro">
-				<h1>Olá, mundo. <br /> Eu sou o Vini.</h1>
-				<p>
-					<span
-						class="intro-txt"
+			<div class="flex flex-col mx-auto justify-center" id="intro">
+				<h1 style=" line-height: 1.1111111;">Olá, mundo. <br /> Eu sou o Vini.</h1>
+				<!-- <p> -->
+				<div class="my-8 md:my-10">
+					<h2
+						style="font-size: 2rem;"
 						in:fade={{
 							delay: 1200,
 							easing: backOut
 						}}
 					>
 						Estudante e desenvolvedor backend
-					</span>
-					<br />
+					</h2>
 
-					<span
+					<p
 						in:fade={{
 							delay: 2400,
 							easing: backOut
 						}}
 					>
 						que se vira com frontend
-					</span>
-				</p>
+					</p>
+				</div>
 				<!-- Adiciona links das redes sociais na parte inferior -->
 				<div class="flex flex-row justify-center md:hidden">
 					{#each socials as social}
@@ -116,11 +116,6 @@
 		width: 40px;
 		height: 40px;
 		margin: auto;
-	}
-
-	.intro-txt {
-		font-size: 2rem;
-		font-weight: 600;
 	}
 
 	@media (max-width: 700px) {

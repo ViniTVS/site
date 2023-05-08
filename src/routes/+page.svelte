@@ -15,15 +15,12 @@
 	<h2>Experiência e formação</h2>
 	<div class="md:px-10 xl:px-20">
 		<div class="grid grid-cols-3 md:grid-cols-2 mt-5">
-			<span>2021 - Atualmente</span>
+			<span>2018 - Atualmente</span>
 			<div class="col-span-2 md:col-span-1">
-				<h3>Spro IT Solutions - Estágio</h3>
+				<h3>Ciência da Computação</h3>
 				<p>
-					Desenvolvimento e manutenção de regras de negócio do sistema interno da empresa, em PHP. <br
-					/>
-					CRUD utilizando MySQL e Axios. <br />
-					Frontend em HTML, CSS, Vue.js e jQuery. <br />
-					Desenvolvimento híbrido mobile com Flutter. <br />
+					Estudante de Bacharelado em Ciência da Computação pela Universidade
+					Federal do Paraná.
 				</p>
 			</div>
 		</div>
@@ -40,13 +37,26 @@
 			</div>
 		</div>
 		<div class="grid grid-cols-3 md:grid-cols-2 mt-5">
-			<!-- <h4>2018 - Atualmente</h4> -->
-			<span>2018 - Atualmente</span>
+			<span>2021 - 2022</span>
 			<div class="col-span-2 md:col-span-1">
-				<h3>Ciência da Computação</h3>
+				<h3>Spro IT Solutions - Estágio</h3>
 				<p>
-					Estudante de Bacharelado em Ciência da Computação pela Universidade
-					Federal do Paraná.
+					Desenvolvimento e manutenção de regras de negócio do sistema interno da empresa, em PHP. <br
+					/>
+					CRUD utilizando MySQL e Axios. <br />
+					Frontend em HTML, CSS, Vue.js e jQuery. <br />
+					Desenvolvimento híbrido mobile com Flutter. <br />
+				</p>
+			</div>
+		</div>
+		<div class="grid grid-cols-3 md:grid-cols-2 mt-5">
+			<span>2022 - Atualmente</span>
+			<div class="col-span-2 md:col-span-1">
+				<h3>Spro IT Solutions - Desenvolvedor Júnior</h3>
+				<h4>Em adição à função anterior:</h4>
+				<p>
+					Gerenciamento de Banco de Dados. <br />
+					Criação de relatórios internos utilizando Python e API requests. <br />
 				</p>
 			</div>
 		</div>

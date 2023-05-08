@@ -8,6 +8,10 @@ html,
 body {
 	@apply h-full overflow-hidden;
 	font-size: 16px;
+	color: #EEE;
+}
+[data-theme='light_theme'] body {
+	color: #111;
 }
 
 h2 {
@@ -99,7 +103,7 @@ h3 {
 			radial-gradient(ellipse at 0 180vh, hsl(var(--s) / 0.15) 0px, transparent 30%),
 			radial-gradient(ellipse at 100% 420vh, hsl(var(--a) / 0.2) 0px, transparent 30%);
 	}
-	
+
 	[data-theme='light_theme'] .custom-background {
 		background: radial-gradient(at 100% 0vh, hsl(var(--p) / 0.6) 0px, transparent 30%),
 			radial-gradient(ellipse at 0 180vh, hsl(var(--s) / 0.25) 0px, transparent 30%),
