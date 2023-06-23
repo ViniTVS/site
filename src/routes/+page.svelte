@@ -2,9 +2,15 @@
 	import About from '$lib/about.svelte';
 	import Intro from '$lib/intro.svelte';
 	import Projects from '$lib/projects.svelte';
+	import { i } from '@inlang/sdk-js';
+	// import { switchLanguage } from "@inlang/sdk-js";
+
 
 	let tech_ic: String[] = ['C++', 'Arduino'];
 	let tech_trab: String[] = ['PHP', 'Vue.js', 'MySQL', 'Flutter'];
+
+console.log(i("teste.a"))
+// switchLanguage('en')
 </script>
 
 <Intro />
