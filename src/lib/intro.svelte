@@ -5,6 +5,7 @@
 	import { fade } from 'svelte/transition';
 	import { backOut } from 'svelte/easing';
 	import { onMount } from 'svelte';
+	import { i } from '@inlang/sdk-js';
 
 	let socials: {
 		alt: string;
@@ -16,19 +17,19 @@
 			alt: 'Github logo',
 			src: FaGithubSquare,
 			link: 'https://github.com/ViniTVS',
-			label: 'Visite meu perfil do Github'
+			label: i("intro.github")
 		},
 		{
 			alt: 'LinkedIn logo',
 			src: FaLinkedin,
 			link: 'https://www.linkedin.com/in/vin%C3%ADcius-teixiera-vieira-dos-santos-6494201b6',
-			label: 'Visite meu perfil do LinkedIn'
+			label: i("intro.linkedin")
 		},
 		{
 			alt: 'Twitter logo',
 			src: FaTwitterSquare,
 			link: 'https://twitter.com/vine_tvs',
-			label: 'Visite meu perfil do Twitter'
+			label: i("intro.twitter")
 		}
 	];
 
@@ -40,7 +41,7 @@
 	<div class="grid heading" in:fade>
 		<div class="flex flex-row justify-center mt-2">
 			<div class="flex flex-col mx-auto justify-center" id="intro">
-				<h1 style=" line-height: 1.1111111;">Olá, mundo. <br /> Eu sou o Vini.</h1>
+				<h1 style=" line-height: 1.1111111;">{@html i('intro.hello')}</h1>
 				<!-- <p> -->
 				<div class="my-8 md:my-10">
 					<h2
@@ -50,7 +51,7 @@
 							easing: backOut
 						}}
 					>
-						Estudante e desenvolvedor backend
+						{i('intro.sub_title1')}
 					</h2>
 
 					<p
@@ -59,7 +60,7 @@
 							easing: backOut
 						}}
 					>
-						que se vira com frontend
+						{i('intro.sub_title2')}
 					</p>
 				</div>
 				<!-- Adiciona links das redes sociais na parte inferior -->

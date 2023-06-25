@@ -5,12 +5,28 @@
 	import { i } from '@inlang/sdk-js';
 	// import { switchLanguage } from "@inlang/sdk-js";
 
+	interface Experience {
+		title: string;
+		date: string;
+		text: string;
+	}
 
 	let tech_ic: String[] = ['C++', 'Arduino'];
 	let tech_trab: String[] = ['PHP', 'Vue.js', 'MySQL', 'Flutter'];
+	let xp_list: Experience[] = [];
 
-console.log(i("teste.a"))
-// switchLanguage('en')
+	for (let x = 0; ; x++) {
+		if (i('experience.' + x + '.date') == '') break;
+
+		xp_list = [
+			...xp_list,
+			{
+				title: i('experience.' + x + '.title'),
+				date: i('experience.' + x + '.date'),
+				text: i('experience.' + x + '.text')
+			}
+		];
+	}
 </script>
 
 <Intro />
@@ -18,54 +34,19 @@ console.log(i("teste.a"))
 <About />
 
 <div id="experience">
-	<h2>Experiência e formação</h2>
+	<h2>{i("layout.experience")}</h2>
 	<div class="md:px-10 xl:px-20">
-		<div class="grid grid-cols-3 md:grid-cols-2 mt-5">
-			<span>2018 - Atualmente</span>
-			<div class="col-span-2 md:col-span-1">
-				<h3>Ciência da Computação</h3>
-				<p>
-					Estudante de Bacharelado em Ciência da Computação pela Universidade
-					Federal do Paraná.
-				</p>
+		{#each xp_list as xp_item}
+			<div class="grid grid-cols-3 md:grid-cols-2 mt-5">
+				<span>{xp_item.date}</span>
+				<div class="col-span-2 md:col-span-1">
+					<h3>{xp_item.title}</h3>
+					<p>
+						{@html xp_item.text}
+					</p>
+				</div>
 			</div>
-		</div>
-		<div class="grid grid-cols-3 md:grid-cols-2 mt-5">
-			<span>2019</span>
-			<div class="col-span-2 md:col-span-1">
-				<h3>Iniciação Científica</h3>
-				<p>
-					Com o objetivo de desenvolver um novo firmware para o robô de competição da equipe de
-					robótica da UFPR, programei juntamente com colegas da matéria de Robótica da universidade
-					tanto o robô quanto sua base de transmissão de comandos utilizando dispositivos Arduino,
-					ambiente em Linux e programação em C/C++.
-				</p>
-			</div>
-		</div>
-		<div class="grid grid-cols-3 md:grid-cols-2 mt-5">
-			<span>2021 - 2023</span>
-			<div class="col-span-2 md:col-span-1">
-				<h3>Spro IT Solutions - Estágio</h3>
-				<p>
-					Desenvolvimento e manutenção de regras de negócio do sistema interno da empresa, em PHP. <br
-					/>
-					CRUD utilizando MySQL e Axios. <br />
-					Frontend em HTML, CSS, Vue.js e jQuery. <br />
-					Desenvolvimento híbrido mobile com Flutter. <br />
-				</p>
-			</div>
-		</div>
-		<div class="grid grid-cols-3 md:grid-cols-2 mt-5">
-			<span>2023 - Atualmente</span>
-			<div class="col-span-2 md:col-span-1">
-				<h3>Spro IT Solutions - Desenvolvedor Júnior</h3>
-				<h4>Em adição à função anterior:</h4>
-				<p>
-					Gerenciamento de Banco de Dados. <br />
-					Criação de relatórios internos utilizando Python e API requests. <br />
-				</p>
-			</div>
-		</div>
+		{/each}
 	</div>
 </div>
 

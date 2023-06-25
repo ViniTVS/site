@@ -6,35 +6,64 @@
 	import FaMoon from 'svelte-icons/fa/FaMoon.svelte';
 	import MdMenu from 'svelte-icons/md/MdMenu.svelte';
 	import MdClose from 'svelte-icons/md/MdClose.svelte';
+	import MdGTranslate from 'svelte-icons/md/MdGTranslate.svelte';
+	import { i, switchLanguage, language, languages } from '@inlang/sdk-js';
+	import { fade } from 'svelte/transition';
 
 	let menus: { ref: string; option: string }[] = [
-		{ ref: '#about', option: 'Sobre mim' },
-		{ ref: '#experience', option: 'Experiência' },
-		{ ref: '#projects', option: 'Projetos' },
-		{ ref: '#contact', option: 'Contato' }
+		{ ref: '#about', option: i('layout.about') },
+		{ ref: '#experience', option: i('layout.experience') },
+		{ ref: '#projects', option: i('layout.projects') },
+		{ ref: '#contact', option: i('layout.contact') }
 	];
 
 	var isDark: boolean = false;
 	var openDrawer: boolean = false;
+	var showToast: boolean = true;
 
 	function drawerToggle() {
 		openDrawer = !openDrawer;
 	}
 
+	function updLang(lang: string) {
+		if (language != lang) switchLanguage(lang).then(() => window.location.reload());
+	}
+
+	// console.log(Intl.DateTimeFormat().resolvedOptions().locale)
+
 	onMount(() => {
+		if (localStorage.getItem('language_selected') != 'true') {
+			// get system's language
+			let sys_lang: string = Intl.DateTimeFormat().resolvedOptions().locale;
+			// check if system's language is defined
+			for (const l of languages) {
+				if (sys_lang.includes(l)) {
+					localStorage.setItem('language_selected', 'true');
+					updLang(l);
+					return;
+				}
+			}
+			// just use en
+			localStorage.setItem('language_selected', 'true');
+			updLang('en');
+		}
+		setTimeout(() => {showToast = false;}, 5000);
+		// localStorage.clear();
 		themeChange(false);
 		let start_theme = document.documentElement.getAttribute('data-theme');
 		isDark = start_theme == 'dark_theme';
 	});
 </script>
 
+<title> {i('personal_page')} - Vinícius Teixeira Vieira dos Santos </title>
+
 <div class="drawer drawer-end">
 	<input id="my-drawer-3" type="checkbox" class="drawer-toggle" bind:checked={openDrawer} />
 	<div class="drawer-content flex flex-col">
 		<!-- Navbar -->
 		<nav
-			class="sticky top-0 z-30 flex h-16 w-full 
-				bg-opacity-80 backdrop-blur transition-all duration-100 
+			class="sticky top-0 z-30 flex h-16 w-full
+				bg-opacity-80 backdrop-blur transition-all duration-100
 				shadow-sm w-full navbar bg-base-100"
 		>
 			<a href="#intro">
@@ -60,7 +89,7 @@
 				<!-- Muda tema -->
 				<button
 					on:click={() => (isDark = !isDark)}
-					class="btn btn-sm btn-square btn-outline hidden md:block"
+					class="btn btn-sm btn-square btn-outline hidden md:block mx-2"
 					data-toggle-theme="dark_theme,light_theme"
 					data-act-class="ACTIVECLASS"
 					aria-label="Alterar tema"
@@ -73,6 +102,16 @@
 						{/if}
 					</div>
 				</button>
+				<button
+					onclick="my_modal_1.showModal()"
+					class="btn btn-sm btn-square btn-outline hidden md:block mx-2"
+					data-act-class="ACTIVECLASS"
+					aria-label="Alterar tema"
+				>
+					<div class="icon" style="width: 24px; height: 24px;">
+						<MdGTranslate />
+					</div>
+				</button>
 			</div>
 		</nav>
 		<!-- Conteúdo -->
@@ -82,7 +121,7 @@
 			</div>
 			<footer
 				class="footer footer-center p-4 md:p-10 pt-10
-					{isDark ? 'bg-base-300' : 'bg-base-200'} 
+					{isDark ? 'bg-base-200' : 'bg-base-200'}
 					text-base-content"
 				id="contact"
 			>
@@ -113,14 +152,10 @@
 
 	<!-- Sidebar content -->
 	<div class="drawer-side md:hidden">
-		<label
-			for="my-drawer-3"
-			class="drawer-overlay"
-			style="background-color: black; opacity: 0.4;"
-		/>
-		<!-- Barra lateral em si -->
-		<div class="menu px-4 py-2 w-3/4 bg-base-100 " style="max-height: 100vh;">
-			<div class="flex flex-col justify-between" style="max-height: 100%;">
+		<label for="my-drawer-3" class="drawer-overlay" />
+		<!-- Side bar -->
+		<div class="menu px-4 py-2 w-3/4 bg-base-100" style="height: 100vh; overflow: auto">
+			<div class="flex flex-col justify-between" style="height: 100%;">
 				<!-- Close button -->
 				<div class="flex flex-row justify-end">
 					<label
@@ -136,7 +171,7 @@
 				<div class="flex flex-col justify-between">
 					{#each menus as menuopt}
 						<a
-							class="normal-case text-xl my-10 mx-auto btn btn-ghost normal-case text-xl"
+							class="normal-case text-xl my-5 mx-auto btn btn-ghost normal-case text-xl"
 							href={menuopt.ref}
 							on:click={drawerToggle}
 						>
@@ -144,10 +179,20 @@
 						</a>
 					{/each}
 				</div>
-
+				<!--  -->
+				<button
+					onclick="my_modal_1.showModal()"
+					class="btn btn-bg btn-square btn-outline mx-auto mb-5"
+					data-act-class="ACTIVECLASS"
+					aria-label="Alterar tema"
+				>
+					<div class="icon">
+						<MdGTranslate />
+					</div>
+				</button>
 				<button
 					on:click={() => (isDark = !isDark)}
-					class="btn btn-bg btn-square btn-outline mx-auto mb-20"
+					class="btn btn-bg btn-square btn-outline mx-auto mb-5"
 					data-toggle-theme="dark_theme,light_theme"
 					data-act-class="ACTIVECLASS"
 					aria-label="Alterar tema"
@@ -164,6 +209,47 @@
 		</div>
 	</div>
 </div>
+
+<!-- Language modal -->
+<dialog id="my_modal_1" class="modal modal-bottom sm:modal-middle">
+	<form method="dialog" class="modal-box">
+		<h3 class="font-bold text-lg">{i('layout.language')}</h3>
+		<p class="">
+			{i('layout.select_language')}
+			{#if language != 'en'}
+				<br />
+				<span style="font-size: 0.75rem;"> Select language:</span>
+			{/if}
+		</p>
+		<div class="flex flex-row justify-center">
+			<button on:click={() => updLang('pt')}
+				><img alt="Português" class="mx-2" src="https://flagsapi.com/BR/flat/48.png" /></button
+			>
+			<button on:click={() => updLang('en')}
+				><img alt="English" class="mx-2" src="https://flagsapi.com/US/flat/48.png" /></button
+			>
+			<button on:click={() => updLang('de')}
+				><img alt="Deutsch" class="mx-2" src="https://flagsapi.com/DE/flat/48.png" /></button
+			>
+		</div>
+		<div class="modal-action">
+			<!-- if there is a button in form, it will close the modal -->
+			<button class="btn">{i('close')}</button>
+		</div>
+	</form>
+	<form method="dialog" class="modal-backdrop">
+		<button>close</button>
+	</form>
+</dialog>
+
+<!-- Language toast -->
+{#if showToast}
+	<div out:fade class="toast" style="max-width: 100vw !important;">
+		<div class="alert alert-info" style="width: 100% !important;">
+			<span style="white-space: normal;" >{i("layout.modal_info")}</span>
+		</div>
+	</div>
+{/if}
 
 <style>
 	.icon {
@@ -190,6 +276,10 @@
 	.copyleft {
 		display: inline-block;
 		transform: rotate(180deg);
+	}
+
+	dialog {
+		color: inherit;
 	}
 
 	@media (min-width: 768px) {

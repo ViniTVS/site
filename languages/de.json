@@ -1,6 +1,48 @@
 {
-  "welcome": "Willkommen bei inlang",
-  "teste": {
-    "a": "aaaaaa-de"
+  "personal_page": "Persönliche Seite",
+  "close": "Schließen",
+  "experience": [
+    {
+      "date": "2018 - Gegenwärtig",
+      "title": "Informatik",
+      "text": "Bachelor-Abschluss in Informatik an der Bundesuniversität Paraná."
+    },
+    {
+      "date": "2019",
+      "title": "Wissenschaftliche Forschung",
+      "text": "Mit dem Ziel, eine neue Firmware für den Very Small Size Soccer-Wettkampfroboter des Roboterteams der Universität zu entwickeln, habe ich zusammen mit Kollegen aus der Robotikabteilung der Universität sowohl den Roboter als auch seine Befehlsübertragungsbasis mit Arduino-Geräten in C/C++ programmiert."
+    },
+    {
+      "date": "2021 - 2023",
+      "title": "Spro IT Solutions - Praktikum",
+      "text": "Entwicklung und Pflege unternehmensinterner Systemgeschäftsregeln in PHP. <br> MySQL und Axios CRUD. <br> Frontend in HTML, CSS, Vue.js und jQuery. <br> Flutter hybride mobile App-Entwicklung."
+    },
+    {
+      "date": "2023 - Present",
+      "title": "Spro IT Solutions - Junior-Entwickler",
+      "text": "Zusätzlich zur vorherigen Funktion:<br>Datenbankverwaltung. <br> Erstellung interner Berichte mit Python und API-Anfragen."
+    }
+  ],
+  "layout": {
+    "title": "Persönliche Seite",
+    "about": "Über mich",
+    "experience": "Erfahrung",
+    "projects": "Projekte",
+    "contact": "Kontakt",
+    "select_language": "Sprache auswählen:",
+    "language": "Sprache",
+    "modal_info": "Sie können die Sprache im Menü oben auf der Seite ändern."
+  },
+  "intro": {
+    "hello": "Hallo Welt! <br> Ich bin Vini.",
+    "sub_title1": "Student und Backend-Entwickler",
+    "sub_title2": "",
+    "github": "Besuchen Sie mein Github-Profil",
+    "linkedin": "Besuchen Sie mein LinkedIn-Profil",
+    "twitter": "Besuchen Sie mein Twitter-Profil"
+  },
+  "about": {
+    "title": "Über mich",
+    "text": "Eu sou o Vinícius, um estudante de Ciência da Computação e estagiário trabalhando com PHP, MySQL e Flutter. Durante a graduação tive a oportunidade de aprender programação desde C e C++ a Java e Python. Fazendo minha Iniciação Científica em robótica também passei a conhecer melhor sobre dispositivos IoT e Arduino."
   }
 }
