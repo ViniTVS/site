@@ -155,7 +155,7 @@
 	<div class="drawer-side md:hidden z-40">
 		<label for="my-drawer-3" class="drawer-overlay" />
 		<!-- Side bar -->
-		<div class="menu px-4 py-2 w-3/4 bg-base-100" style="height: 100vh; overflow: auto;">
+		<div class="menu px-4 py-2 w-3/4 bg-base-100" style="height: 100vh; max-height: 100vh !important; overflow: auto;">
 			<div class="flex flex-col justify-between" style="height: 100%;">
 				<!-- Close button -->
 				<div class="flex flex-row justify-end">
