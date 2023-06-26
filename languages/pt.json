@@ -1,28 +1,28 @@
 {
   "personal_page": "Página pessoal",
   "close": "Fechar",
-  "experience": [
-    {
+  "experience": {
+    "0": {
       "date": "2018 - Atualmente",
       "title": "Ciência da Computação",
       "text": "Estudante de Bacharelado em Ciência da Computação pela Universidade Federal do Paraná."
     },
-    {
+    "1": {
       "date": "2019",
       "title": "Iniciação Científica",
       "text": "Com o objetivo de desenvolver um novo firmware para o robô de competição da equipe de robótica da UFPR, programei juntamente com colegas da matéria de Robótica da universidade tanto o robô quanto sua base de transmissão de comandos utilizando dispositivos Arduino em C/C++."
     },
-    {
+    "2": {
       "date": "2021 - 2023",
       "title": "Spro IT Solutions - Estágio",
       "text": "Desenvolvimento e manutenção de regras de negócio do sistema interno da empresa, em PHP. <br> CRUD utilizando MySQL e Axios. <br> Frontend em HTML, CSS, Vue.js e jQuery. <br> Desenvolvimento híbrido mobile com Flutter."
     },
-    {
+    "3": {
       "date": "2023 - Atualmente",
       "title": "Spro IT Solutions - Desenvolvedor Júnior",
       "text": "Em adição à função anterior:<br> Gerenciamento de Banco de Dados. <br> Criação de relatórios internos utilizando Python e API requests."
     }
-  ],
+  },
   "layout": {
     "title": "Página pessoal",
     "about": "Sobre mim",
@@ -43,6 +43,43 @@
   },
   "about": {
     "title": "Sobre mim",
-    "text": "Eu sou o Vinícius, um estudante de Ciência da Computação e estagiário trabalhando com PHP, MySQL e Flutter. Durante a graduação tive a oportunidade de aprender programação desde C e C++ a Java e Python. Fazendo minha Iniciação Científica em robótica também passei a conhecer melhor sobre dispositivos IoT e Arduino."
+    "text": "Eu sou Vinícius, um estudante de Ciência da Computação e desenvolvedor trabalhando com PHP, MySQL e Flutter. Durante a graduação tive a oportunidade de aprender programação desde C e C++ a Java e Python. Fazendo minha Iniciação Científica em robótica também passei a conhecer melhor sobre dispositivos IoT e Arduino."
+  },
+  "projects": {
+    "0": {
+      "title": "Codewars",
+      "link": "https://github.com/ViniTVS/codewars",
+      "api": "https://api.github.com/repos/ViniTVS/codewars/languages",
+      "desc": "<a href=\"https://www.codewars.com/\" target=\"_blank\" rel=\"noreferrer\" class=\"link\"> Codewars</a> é um site para treinar e desenvolver habilidades de lógica e linguagens de programação com desafios de prática de código. <br> Aqui você encontra um repositório com minhas soluções."
+    },
+    "1": {
+      "title": "Site",
+      "link": "https://github.com/ViniTVS/site",
+      "tech": {
+        "0": "TypeScript",
+        "1": "Svelte",
+        "2": "Tailwind",
+        "3": "Devicon"
+      },
+      "api": "",
+      "desc": "Desenvolvido em sua maioria com HTML e CSS, foi utilizado um pouco de TypeScript para tornar o site dinâmico e modular. <br> Feito com <a href=\"https://kit.svelte.dev/\" target=\"_blank\" rel=\"noreferrer\" class=\"link\">SvelteKit</a> e componentes do <a href=\"https://daisyui.com/\" target=\"_blank\" rel=\"noreferrer\" class=\"link\">daisyUI</a>."
+    },
+    "2": {
+      "title": "Trabalhos",
+      "link": "https://github.com/stars/ViniTVS/lists/ci%C3%AAncia-da-computa%C3%A7%C3%A3o",
+      "api": "",
+      "tech": {
+        "0": "C",
+        "1": "Python",
+        "2": "C++",
+        "3": "Java",
+        "4": "Haskell"
+      },
+      "desc": "Uma lista de repositórios contendo trabalhos de diferentes matérias realizados durante meu bacharelado. <br> <span style=\"font-size: 0.8rem;\">(podem ou não estar com seus enunciados)</span>"
+    }
+  },
+  "footer": {
+    "title": "Entre em contato",
+    "text": "Caso se interesse em meus serviços ou tenha dúvidas, minha caixa de e-mail está sempre aberta:"
   }
 }

@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+	import { i } from '@inlang/sdk-js';
 
 	interface Technology {
 		link: string;
@@ -75,50 +76,36 @@
 		desc: string;
 		tech: string[];
 		link: string;
-		api: string | null;
+		api: string;
 	}
 
-	let projects: Project[] = [
-		{
-			title: 'Codewars',
-			link: 'https://github.com/ViniTVS/codewars',
-			api: 'https://api.github.com/repos/ViniTVS/codewars/languages',
-			tech: [],
-			desc: '<a href="https://www.codewars.com/" target="_blank" rel="noreferrer" class="link"> \
-					Codewars</a> é um site para treinar e desenvolver habilidades de lógica e linguagens de programação \
-					com desafios de prática de código. <br> \
-					Aqui você encontra um repositório com minhas soluções.'
-		},
-		{
-			title: 'Site',
-			link: 'https://github.com/ViniTVS/site',
-			tech: ['TypeScript', 'Svelte', 'Tailwind', 'Devicon'],
-			api: null,
-			desc: ' Desenvolvido em sua maioria com HTML e CSS, foi utilizado um pouco de TypeScript para \
-					tornar o site dinâmico e modular. <br> \
-					Feito com \
-					<a href="https://kit.svelte.dev/" target="_blank" rel="noreferrer" class="link"> \
-						SvelteKit</a> e componentes do \
-					<a href="https://daisyui.com/" target="_blank" rel="noreferrer" class="link"> \
-						daisyUI</a>.'
-		},
-		{
-			title: 'Trabalhos',
-			link: 'https://github.com/stars/ViniTVS/lists/ci%C3%AAncia-da-computa%C3%A7%C3%A3o',
-			api: null,
-			tech: ['C', 'Python', 'C++', 'Java', 'Haskell'],
-			desc: ' Uma lista de repositórios contendo trabalhos de diferentes matérias realizados \
-					durante meu bacharelado. <br> \
-					<span style="font-size: 0.8rem;">(podem ou não estar com seus enunciados)</span>'
+	let projects: Project[] = [];
+
+	for (let x = 0; ; x++) {
+		if (i('projects.' + x + '.title') == '') break;
+
+		let t = [];
+		for (let y = 0; ; y++) {
+			let l = i('projects.' + x + '.tech.' + y);
+			if (l == '') break;
+			t.push(l);
 		}
-	];
+		let p: Project = {
+			title: i('projects.' + x + '.title'),
+			desc: i('projects.' + x + '.desc'),
+			tech: t,
+			link: i('projects.' + x + '.link'),
+			api: i('projects.' + x + '.api')
+		};
+		projects = [...projects, p];
+	}
 
 	onMount(() => {
 		// projetos com o campo api preenchido significa que devem ser obtidas as
 		// tecnologias utilizadas dinamicamente
-		for (let i = 0; i < projects.length; i++) {
-			if (projects[i].api) {
-				fetch(projects[i].api!, {
+		for (let j = 0; j < projects.length; j++) {
+			if (projects[j].api != '') {
+				fetch(projects[j].api, {
 					headers: {
 						Accept: 'application/json'
 					}
@@ -129,22 +116,23 @@
 						let ling = Object.keys(json).sort(function (a, b) {
 							return json[b] - json[a];
 						});
-						projects[i].tech = ling.slice(0, 5); // limita em 5
+						projects[j].tech = ling.slice(0, 5); // limita em 5
 					});
 			}
 		}
+		projects = projects;
 	});
 </script>
 
 <div class="grid heading" id="projects">
 	<h2>Projetos</h2>
 	<div class="flex flex-row justify-between flex-wrap">
-		{#each projects as projeto, i}
+		{#each projects as projeto, index}
 			<a
 				href={projeto.link}
 				target="_blank"
 				rel="noreferrer"
-				class="project-showcase bg-{(i % 5).toString()}
+				class="project-showcase bg-{(index % 5).toString()}
 						mt-8 p-6"
 			>
 				<!-- texto -->

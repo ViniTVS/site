@@ -1,28 +1,28 @@
 {
   "personal_page": "Personal page",
   "close": "Close",
-  "experience": [
-    {
+  "experience": {
+    "0": {
       "date": "2018 - Present",
       "title": "Computer Science",
       "text": "Bachelor's degree in Computer Science at Federal University of Paraná."
     },
-    {
+    "1": {
       "date": "2019",
       "title": "Scientific research",
       "text": "With the objective of developing a new firmware for the Very Small Size Soccer competition robot of the university's robot team, I programmed together with colleagues from the University's Robotics department, both the robot and its command transmission base using Arduino devices in C/C++."
     },
-    {
+    "2": {
       "date": "2021 - 2023",
       "title": "Spro IT Solutions - Internship",
       "text": "Development and maintenance of company's internal system business rules, in PHP. <br> CRUD using MySQL and Axios. <br> Frontend in HTML, CSS, Vue.js and jQuery. <br> Hybrid mobile app development with Flutter."
     },
-    {
+    "3": {
       "date": "2023 - Present",
       "title": "Spro IT Solutions - Junior Developer",
       "text": "In addition to the previous function:<br> Database Management. <br> Creation of internal reports using Python and API requests."
     }
-  ],
+  },
   "layout": {
     "title": "Personal page",
     "about": "About me",
@@ -43,6 +43,43 @@
   },
   "about": {
     "title": "About me",
-    "text": "Eu sou o Vinícius, um estudante de Ciência da Computação e estagiário trabalhando com PHP, MySQL e Flutter. Durante a graduação tive a oportunidade de aprender programação desde C e C++ a Java e Python. Fazendo minha Iniciação Científica em robótica também passei a conhecer melhor sobre dispositivos IoT e Arduino."
+    "text": "I'm Vinícius, a Computer Science student and developer working with PHP, MySQL and Flutter. During graduation I had the opportunity to learn programming from C and C++ to Java and Python. Doing my Scientific Initiation in robotics, I also got to know better about IoT devices and Arduino."
+  },
+  "projects": {
+    "0": {
+      "title": "Codewars",
+      "link": "https://github.com/ViniTVS/codewars",
+      "api": "https://api.github.com/repos/ViniTVS/codewars/languages",
+      "desc": "<a href=\"https://www.codewars.com/\" target=\"_blank\" rel=\"noreferrer\" class=\"link\"> Codewars</a> is a website to train and develop logic and programming language skills with code practice challenges. <br> Here you will find a repository with my solutions."
+    },
+    "1": {
+      "title": "Site",
+      "link": "https://github.com/ViniTVS/site",
+      "tech": {
+        "0": "TypeScript",
+        "1": "Svelte",
+        "2": "Tailwind",
+        "3": "Devicon"
+      },
+      "api": "",
+      "desc": "Developed mostly with HTML and CSS, a bit of TypeScript was used to make the site dynamic and modular. <br> Made with <a href=\"https://kit.svelte.dev/\" target=\"_blank\" rel=\"noreferrer\" class=\"link\">SvelteKit</a> and <a href=\"https://daisyui.com/\" target=\"_blank\" rel=\"noreferrer\" class=\"link\">daisyUI</a> components."
+    },
+    "2": {
+      "title": "University",
+      "link": "https://github.com/stars/ViniTVS/lists/ci%C3%AAncia-da-computa%C3%A7%C3%A3o",
+      "api": "",
+      "tech": {
+        "0": "C",
+        "1": "Python",
+        "2": "C++",
+        "3": "Java",
+        "4": "Haskell"
+      },
+      "desc": "A list of repositories containing works in different subjects carried out during my bachelor's degree. <br> <span style=\"font-size: 0.8rem;\">(may or may not be with your original statements)</span>"
+    }
+  },
+  "footer": {
+    "title": "Contact me",
+    "text": "If you are interested in my services or have questions, my email box is always open:"
   }
 }

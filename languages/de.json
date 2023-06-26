@@ -1,28 +1,28 @@
 {
   "personal_page": "Persönliche Seite",
   "close": "Schließen",
-  "experience": [
-    {
+  "experience": {
+    "0": {
       "date": "2018 - Gegenwärtig",
       "title": "Informatik",
       "text": "Bachelor-Abschluss in Informatik an der Bundesuniversität Paraná."
     },
-    {
+    "1": {
       "date": "2019",
       "title": "Wissenschaftliche Forschung",
       "text": "Mit dem Ziel, eine neue Firmware für den Very Small Size Soccer-Wettkampfroboter des Roboterteams der Universität zu entwickeln, habe ich zusammen mit Kollegen aus der Robotikabteilung der Universität sowohl den Roboter als auch seine Befehlsübertragungsbasis mit Arduino-Geräten in C/C++ programmiert."
     },
-    {
+    "2": {
       "date": "2021 - 2023",
       "title": "Spro IT Solutions - Praktikum",
       "text": "Entwicklung und Pflege unternehmensinterner Systemgeschäftsregeln in PHP. <br> MySQL und Axios CRUD. <br> Frontend in HTML, CSS, Vue.js und jQuery. <br> Flutter hybride mobile App-Entwicklung."
     },
-    {
+    "3": {
       "date": "2023 - Present",
       "title": "Spro IT Solutions - Junior-Entwickler",
       "text": "Zusätzlich zur vorherigen Funktion:<br>Datenbankverwaltung. <br> Erstellung interner Berichte mit Python und API-Anfragen."
     }
-  ],
+  },
   "layout": {
     "title": "Persönliche Seite",
     "about": "Über mich",
@@ -43,6 +43,43 @@
   },
   "about": {
     "title": "Über mich",
-    "text": "Eu sou o Vinícius, um estudante de Ciência da Computação e estagiário trabalhando com PHP, MySQL e Flutter. Durante a graduação tive a oportunidade de aprender programação desde C e C++ a Java e Python. Fazendo minha Iniciação Científica em robótica também passei a conhecer melhor sobre dispositivos IoT e Arduino."
+    "text": "Ich bin Vinícius, ein Informatikstudent und Entwickler, der mit PHP, MySQL und Flutter arbeitet. Während meines Abschlusses hatte ich die Gelegenheit, Programmieren von C und C++ bis hin zu Java und Python zu lernen. Während meiner wissenschaftlichen Einführung in Robotik lernte ich auch IoT-Geräte und Arduino besser kennen."
+  },
+  "projects": {
+    "0": {
+      "title": "Codewars",
+      "link": "https://github.com/ViniTVS/codewars",
+      "api": "https://api.github.com/repos/ViniTVS/codewars/languages",
+      "desc": "<a href=\"https://www.codewars.com/\" target=\"_blank\" rel=\"noreferrer\" class=\"link\"> Codewars</a> ist eine Website zum Trainieren und Entwickeln von Logik- und Programmiersprachen Kenntnisse mit Code-Übungsherausforderungen. <br> Hier finden Sie ein Repository mit meinen Lösungen."
+    },
+    "1": {
+      "title": "Site",
+      "link": "https://github.com/ViniTVS/site",
+      "tech": {
+        "0": "TypeScript",
+        "1": "Svelte",
+        "2": "Tailwind",
+        "3": "Devicon"
+      },
+      "api": "",
+      "desc": "Hauptsächlich mit HTML und CSS entwickelt, wurde ein wenig TypeScript verwendet, um die Site dynamisch und modular zu gestalten. <br> Hergestellt mit <a href=\"https://kit.svelte.dev/\" target=\"_blank\" rel=\"noreferrer\" class=\"link\">SvelteKit</a> und <a href=\"https://daisyui.com/\" target=\"_blank\" rel=\"noreferrer\" class=\"link\">daisyUI</a>-Komponenten."
+    },
+    "2": {
+      "title": "Universität",
+      "link": "https://github.com/stars/ViniTVS/lists/ci%C3%AAncia-da-computa%C3%A7%C3%A3o",
+      "api": "",
+      "tech": {
+        "0": "C",
+        "1": "Python",
+        "2": "C++",
+        "3": "Java",
+        "4": "Haskell"
+      },
+      "desc": "Eine Liste von Repositorien mit Arbeiten zu verschiedenen Themen, die während meines Bachelorstudiums entstanden sind. <br> <span style=\"font-size: 0.8rem;\">(kann mit Ihren Aussagen übereinstimmen oder auch nicht)</span>"
+    }
+  },
+  "footer": {
+    "title": "Kontakt",
+    "text": "Wenn Sie an meinen Dienstleistungen interessiert sind oder Fragen haben, steht Ihnen mein E-Mail-Postfach jederzeit zur Verfügung:"
   }
 }

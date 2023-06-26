@@ -47,7 +47,9 @@
 			localStorage.setItem('language_selected', 'true');
 			updLang('en');
 		}
-		setTimeout(() => {showToast = false;}, 5000);
+		setTimeout(() => {
+			showToast = false;
+		}, 5000);
 		// localStorage.clear();
 		themeChange(false);
 		let start_theme = document.documentElement.getAttribute('data-theme');
@@ -125,10 +127,9 @@
 					text-base-content"
 				id="contact"
 			>
-				<h2>Entre em contato</h2>
+				<h2>{i('footer.title')}</h2>
 				<p style="font-size: 1rem; max-width: 80%;">
-					Caso se interesse em meus serviços ou tenha dúvidas, minha caixa de e-mail está sempre
-					aberta:
+					{i('footer.text')}
 				</p>
 				<a href="mailto:vinisantos185@gmail.com">
 					<button
@@ -141,7 +142,7 @@
 				<p>
 					<span class="aligned">
 						<span class="copyleft">&copy;</span> 2023 - Projetado e desenvolvido com
-						<img alt="amor" src="full_heart.png" id="coracao" class="mx-1" />por
+						<img alt="amor" src="full_heart.png" id="coracao" class="mx-1" />
 					</span>
 					<br />
 					Vinícius Teixeira Vieira dos Santos
@@ -151,10 +152,10 @@
 	</div>
 
 	<!-- Sidebar content -->
-	<div class="drawer-side md:hidden">
+	<div class="drawer-side md:hidden z-40">
 		<label for="my-drawer-3" class="drawer-overlay" />
 		<!-- Side bar -->
-		<div class="menu px-4 py-2 w-3/4 bg-base-100" style="height: 100vh; overflow: auto">
+		<div class="menu px-4 py-2 w-3/4 bg-base-100" style="height: 100vh; overflow: auto;">
 			<div class="flex flex-col justify-between" style="height: 100%;">
 				<!-- Close button -->
 				<div class="flex flex-row justify-end">
@@ -168,10 +169,10 @@
 						</div>
 					</label>
 				</div>
-				<div class="flex flex-col justify-between">
+				<div class="flex flex-col justify-around grow">
 					{#each menus as menuopt}
 						<a
-							class="normal-case text-xl my-5 mx-auto btn btn-ghost normal-case text-xl"
+							class="normal-case text-xl mx-auto btn btn-ghost normal-case text-xl"
 							href={menuopt.ref}
 							on:click={drawerToggle}
 						>
@@ -179,32 +180,34 @@
 						</a>
 					{/each}
 				</div>
-				<!--  -->
-				<button
-					onclick="my_modal_1.showModal()"
-					class="btn btn-bg btn-square btn-outline mx-auto mb-5"
-					data-act-class="ACTIVECLASS"
-					aria-label="Alterar tema"
-				>
-					<div class="icon">
-						<MdGTranslate />
-					</div>
-				</button>
-				<button
-					on:click={() => (isDark = !isDark)}
-					class="btn btn-bg btn-square btn-outline mx-auto mb-5"
-					data-toggle-theme="dark_theme,light_theme"
-					data-act-class="ACTIVECLASS"
-					aria-label="Alterar tema"
-				>
-					<div class="icon">
-						{#if isDark}
-							<FaSun />
-						{:else}
-							<FaMoon />
-						{/if}
-					</div>
-				</button>
+				<div class="flex flex-col justify-around" style="height: 30%;">
+					<!--  -->
+					<button
+						onclick="my_modal_1.showModal()"
+						class="btn btn-bg btn-square btn-outline mx-auto"
+						data-act-class="ACTIVECLASS"
+						aria-label="Alterar tema"
+					>
+						<div class="icon">
+							<MdGTranslate />
+						</div>
+					</button>
+					<button
+						on:click={() => (isDark = !isDark)}
+						class="btn btn-bg btn-square btn-outline mx-auto"
+						data-toggle-theme="dark_theme,light_theme"
+						data-act-class="ACTIVECLASS"
+						aria-label="Alterar tema"
+					>
+						<div class="icon">
+							{#if isDark}
+								<FaSun />
+							{:else}
+								<FaMoon />
+							{/if}
+						</div>
+					</button>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -246,7 +249,7 @@
 {#if showToast}
 	<div out:fade class="toast" style="max-width: 100vw !important;">
 		<div class="alert alert-info" style="width: 100% !important;">
-			<span style="white-space: normal;" >{i("layout.modal_info")}</span>
+			<span style="white-space: normal;">{i('layout.modal_info')}</span>
 		</div>
 	</div>
 {/if}
