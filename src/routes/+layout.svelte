@@ -9,17 +9,18 @@
 	import MdGTranslate from 'svelte-icons/md/MdGTranslate.svelte';
 	import { i, switchLanguage, language, languages } from '@inlang/sdk-js';
 	import { fade } from 'svelte/transition';
+	import { page } from '$app/stores';
 
 	let menus: { ref: string; option: string }[] = [
-		{ ref: '#about', option: i('layout.about') },
-		{ ref: '#experience', option: i('layout.experience') },
-		{ ref: '#projects', option: i('layout.projects') },
-		{ ref: '#contact', option: i('layout.contact') }
+		{ ref: '/#about', option: i('layout.about') },
+		{ ref: '/#experience', option: i('layout.experience') },
+		{ ref: '/#projects', option: i('layout.projects') },
+		{ ref: '/#contact', option: i('layout.contact') }
 	];
 
 	var isDark: boolean = false;
 	var openDrawer: boolean = false;
-	var showToast: boolean = true;
+	var showToast: boolean = false;
 
 	function drawerToggle() {
 		openDrawer = !openDrawer;
@@ -28,11 +29,12 @@
 	function updLang(lang: string) {
 		if (language != lang) switchLanguage(lang).then(() => window.location.reload());
 	}
-
+	// console.log();
 	// console.log(Intl.DateTimeFormat().resolvedOptions().locale)
 
 	onMount(() => {
 		if (localStorage.getItem('language_selected') != 'true') {
+			showToast = true;
 			// get system's language
 			let sys_lang: string = Intl.DateTimeFormat().resolvedOptions().locale;
 			// check if system's language is defined
@@ -46,10 +48,10 @@
 			// just use en
 			localStorage.setItem('language_selected', 'true');
 			updLang('en');
-		}
-		setTimeout(() => {
-			showToast = false;
-		}, 5000);
+			setTimeout(() => {
+				showToast = false;
+			}, 5000);
+		} 
 		// localStorage.clear();
 		themeChange(false);
 		let start_theme = document.documentElement.getAttribute('data-theme');
@@ -68,9 +70,9 @@
 				bg-opacity-80 backdrop-blur transition-all duration-100
 				shadow-sm w-full navbar bg-base-100"
 		>
-			<a href="#intro">
+			<a href="/#intro">
 				<div class="flex-none">
-					<img alt="Íconde site" src="favicon.png" height="36" width="36" />
+					<img alt="Ícone site" src="/favicon.png" height="36" width="36" />
 				</div>
 			</a>
 			<div class="flex-1" />
@@ -122,27 +124,28 @@
 				<slot />
 			</div>
 			<footer
-				class="footer footer-center p-4 md:p-10 pt-10
+				class="footer footer-center p-4
 					{isDark ? 'bg-base-200' : 'bg-base-200'}
 					text-base-content"
-				id="contact"
 			>
-				<h2>{i('footer.title')}</h2>
-				<p style="font-size: 1rem; max-width: 80%;">
-					{i('footer.text')}
-				</p>
-				<a href="mailto:vinisantos185@gmail.com">
-					<button
-						class="btn {isDark ? 'btn-primary' : 'btn-accent'}"
-						style="text-transform: lowercase;"
-					>
-						vinisantos185@gmail.com
-					</button>
-				</a>
+				{#if $page.route.id == '/'}
+					<h2 id="contact" class="pt-6">{i('footer.title')}</h2>
+					<p style="font-size: 1rem; max-width: 80%;">
+						{i('footer.text')}
+					</p>
+					<a href="mailto:vinisantos185@gmail.com">
+						<button
+							class="btn {isDark ? 'btn-primary' : 'btn-accent'}"
+							style="text-transform: lowercase;"
+						>
+							vinisantos185@gmail.com
+						</button>
+					</a>
+				{/if}
 				<p>
 					<span class="aligned">
 						<span class="copyleft">&copy;</span> 2023 - Projetado e desenvolvido com
-						<img alt="amor" src="full_heart.png" id="coracao" class="mx-1" />
+						<img alt="amor" src="/full_heart.png" id="coracao" class="mx-1" />
 					</span>
 					<br />
 					Vinícius Teixeira Vieira dos Santos
@@ -155,7 +158,10 @@
 	<div class="drawer-side md:hidden z-40">
 		<label for="my-drawer-3" class="drawer-overlay" />
 		<!-- Side bar -->
-		<div class="menu px-4 py-2 w-3/4 bg-base-100" style="height: 100vh; max-height: 100vh !important; overflow: auto;">
+		<div
+			class="menu px-4 py-2 w-3/4 bg-base-100"
+			style="height: 100vh; max-height: 100vh !important; overflow: auto;"
+		>
 			<div class="flex flex-col justify-between" style="height: 100%;">
 				<!-- Close button -->
 				<div class="flex flex-row justify-end">
