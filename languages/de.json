@@ -43,6 +43,7 @@
   },
   "about": {
     "title": "Über mich",
+    "more": "Mehr",
     "text": "Ich bin Vinícius, ein Informatikstudent und Entwickler, der mit PHP, MySQL und Flutter arbeitet. Während meines Abschlusses hatte ich die Gelegenheit, Programmieren von C und C++ bis hin zu Java und Python zu lernen. Während meiner wissenschaftlichen Einführung in Robotik lernte ich auch IoT-Geräte und Arduino besser kennen."
   },
   "projects": {
@@ -81,5 +82,37 @@
   "footer": {
     "title": "Kontakt",
     "text": "Wenn Sie an meinen Dienstleistungen interessiert sind oder Fragen haben, steht Ihnen mein E-Mail-Postfach jederzeit zur Verfügung:"
+  },
+  "about_page": {
+    "text": "Ich bin <years> Jahre alt und wurde in São Paulo, Brasilien, geboren. Schon als Kind war ich neugierig darauf, zu erfahren, wie Dinge funktionieren – ich habe es geliebt, Dinge auseinanderzunehmen und natürlich habe ich es geliebt, mit Lego zu spielen. Zusammen mit meiner Liebe zu Videospielen führte dies natürlich zu meiner Liebe zum Computer und damit zu meinem Bachelor-Abschluss. Heute arbeite ich als Programmierer und verbringe meine Freizeit immer noch mit Spielen, aber ich habe auch eine Leidenschaft für Musik und Bücher.<br> Mir wurde einmal gesagt, dass es möglich ist, einen Menschen anhand seines Geschmacks besser kennenzulernen. Dies sind einige davon:",
+    "games": {
+      "title": "Spiele"
+    },
+    "books": {
+      "title": "Bücher",
+      "titles": [
+        "Várias Histórias - Machado de Assis",
+        "Bailey – Ein Freund fürs Leben - W. Bruce Cameron",
+        "Die Chroniken von Araluen - John Flanagan",
+        "Mord im Orient-Express - Agatha Christie",
+        "1984 - George Orwell",
+        "Nullnummer - Umberto Eco",
+        "Wunder - R. J. Palacio"
+      ]
+    },
+    "movies": {
+      "title": "Filme",
+      "titles": [
+        "Cinema Paradiso, 1988",
+        "Forrest Gump, 1992",
+        "O Auto da Compadecida, 2000",
+        "A Star Is Born, 2018",
+        "Parasite, 2019",
+        "Joker, 2019"
+      ]
+    },
+    "music": {
+      "title": "Musik"
+    }
   }
 }

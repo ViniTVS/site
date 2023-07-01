@@ -43,6 +43,7 @@
   },
   "about": {
     "title": "About me",
+    "more": "More",
     "text": "I'm Vinícius, a Computer Science student and developer working with PHP, MySQL and Flutter. During graduation I had the opportunity to learn programming from C and C++ to Java and Python. Doing my Scientific Initiation in robotics, I also got to know better about IoT devices and Arduino."
   },
   "projects": {
@@ -75,11 +76,43 @@
         "3": "Java",
         "4": "Haskell"
       },
-      "desc": "A list of repositories containing works in different subjects carried out during my bachelor's degree. <br> <span style=\"font-size: 0.8rem;\">(may or may not be with your original statements)</span>"
+      "desc": "A list of repositories containing works in different subjects carried out during my bachelor's degree. <br> <span style=\"font-size: 0.8rem;\">(may or may not have their original statements)</span>"
     }
   },
   "footer": {
     "title": "Contact me",
     "text": "If you are interested in my services or have questions, my email box is always open:"
+  },
+  "about_page": {
+    "text": "I'm <years> years old and I was born in São Paulo, Brazil. Ever since I was a kid, I've always been curious to learn how things work - I liked to take things apart and, of course, I loved playing with Lego. This, together with my love for video games, naturally resulted in my love for computing and, consequently, my bachelor's degree. Today I work as a programmer and I still spend my free time playing games, but I also have a passion for music and books.<br> I was once told that it is possible to get to know a person better based on their tastes. These are some of them:",
+    "games": {
+      "title": "Games"
+    },
+    "books": {
+      "title": "Books",
+      "titles": [
+        "Várias Histórias - Machado de Assis",
+        "A Dog's Purpose - W. Bruce Cameron",
+        "Ranger's Apprentice - John Flanagan",
+        "Murder on the Orient Express - Agatha Christie",
+        "1984 - George Orwell",
+        "Numero Zero - Umberto Eco",
+        "Wonder - R. J. Palacio"
+      ]
+    },
+    "movies": {
+      "title": "Movies",
+      "titles": [
+        "Cinema Paradiso, 1988",
+        "Forrest Gump, 1992",
+        "O Auto da Compadecida, 2000",
+        "A Star Is Born, 2018",
+        "Parasite, 2019",
+        "Joker, 2019"
+      ]
+    },
+    "music": {
+      "title": "Music"
+    }
   }
 }

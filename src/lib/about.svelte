@@ -12,12 +12,7 @@
 			</p>
 		</div>
 	</div>
-	<!-- <details class="collapse collapse-plus bg-base-200">
-		<summary class="collapse-title text-xl font-medium">Click to open/close</summary>
-		<div class="collapse-content">
-			<p>content</p>
-		</div>
-	</details> -->
+	<a href="/about" class="btn btn-info">{i("about.more")}</a>
 </div>
 
 <style>

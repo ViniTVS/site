@@ -29,8 +29,6 @@
 	function updLang(lang: string) {
 		if (language != lang) switchLanguage(lang).then(() => window.location.reload());
 	}
-	// console.log();
-	// console.log(Intl.DateTimeFormat().resolvedOptions().locale)
 
 	onMount(() => {
 		if (localStorage.getItem('language_selected') != 'true') {
@@ -255,7 +253,8 @@
 {#if showToast}
 	<div out:fade class="toast" style="max-width: 100vw !important;">
 		<div class="alert alert-info" style="width: 100% !important;">
-			<span style="white-space: normal;">{i('layout.modal_info')}</span>
+			<span style="white-space: normal;">{i('layout.modal_info')}</span> <br>
+			<btn class="btn btn-neutral" on:keydown={() => showToast = false} on:click={() => showToast = false}>{i('close')}</btn>
 		</div>
 	</div>
 {/if}
