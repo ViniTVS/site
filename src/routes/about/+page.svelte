@@ -1,33 +1,29 @@
 <script lang="ts">
 	import { i } from '@inlang/sdk-js';
-	// import { switchLanguage } from "@inlang/sdk-js";
-
-	let books: String[] = [];
-	let movies: String[] = [];
 
 	function getLangData(type: string, array: String[]) {
 		for (let x = 0; ; x++) {
 			let title = i('about_page.' + type + '.titles.' + x);
 			if (title == '') break;
-
 			array.push(title);
 		}
 	}
 
-	function calculateAge(birthday: any) {
-		// birthday is a date
-		var ageDifMs = Date.now() - birthday;
-		var ageDate = new Date(ageDifMs); // miliseconds from epoch
+	function calculateAge(birthday: any) { // birthday is a date
+		let ageDifMs = Date.now() - birthday;
+		let ageDate = new Date(ageDifMs); // miliseconds from epoch
 		return Math.abs(ageDate.getUTCFullYear()! - 1970);
 	}
 
-	getLangData('books', books);
-	getLangData('movies', movies);
-	document.body.scrollTop = 0; // For Safari
-	document.documentElement.scrollTop = 0;
+	let books: String[] = [];
+	let movies: String[] = [];
 	let bday: Date = new Date('1999-12-21');
 	let age: string = calculateAge(bday).toString();
-	
+
+	document.body.scrollTop = 0; // For Safari
+	document.documentElement.scrollTop = 0;
+	getLangData('books', books);
+	getLangData('movies', movies);
 </script>
 
 <div>

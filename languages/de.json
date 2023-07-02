@@ -90,26 +90,26 @@
     },
     "books": {
       "title": "Bücher",
-      "titles": [
-        "Várias Histórias - Machado de Assis",
-        "Bailey – Ein Freund fürs Leben - W. Bruce Cameron",
-        "Die Chroniken von Araluen - John Flanagan",
-        "Mord im Orient-Express - Agatha Christie",
-        "1984 - George Orwell",
-        "Nullnummer - Umberto Eco",
-        "Wunder - R. J. Palacio"
-      ]
+      "titles": {
+        "0": "Várias Histórias - Machado de Assis",
+        "1": "Bailey – Ein Freund fürs Leben - W. Bruce Cameron",
+        "2": "Die Chroniken von Araluen - John Flanagan",
+        "3": "Mord im Orient-Express - Agatha Christie",
+        "4": "1984 - George Orwell",
+        "5": "Nullnummer - Umberto Eco",
+        "6": "Wunder - R. J. Palacio"
+      }
     },
     "movies": {
       "title": "Filme",
-      "titles": [
-        "Cinema Paradiso, 1988",
-        "Forrest Gump, 1992",
-        "O Auto da Compadecida, 2000",
-        "A Star Is Born, 2018",
-        "Parasite, 2019",
-        "Joker, 2019"
-      ]
+      "titles": {
+        "0": "Cinema Paradiso, 1988",
+        "1": "Forrest Gump, 1992",
+        "2": "O Auto da Compadecida, 2000",
+        "3": "A Star Is Born, 2018",
+        "4": "Parasite, 2019",
+        "5": "Joker, 2019"
+      }
     },
     "music": {
       "title": "Musik"

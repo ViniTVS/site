@@ -90,26 +90,26 @@
     },
     "books": {
       "title": "Books",
-      "titles": [
-        "Várias Histórias - Machado de Assis",
-        "A Dog's Purpose - W. Bruce Cameron",
-        "Ranger's Apprentice - John Flanagan",
-        "Murder on the Orient Express - Agatha Christie",
-        "1984 - George Orwell",
-        "Numero Zero - Umberto Eco",
-        "Wonder - R. J. Palacio"
-      ]
+      "titles": {
+        "0": "Várias Histórias - Machado de Assis",
+        "1": "A Dog's Purpose - W. Bruce Cameron",
+        "2": "Ranger's Apprentice - John Flanagan",
+        "3": "Murder on the Orient Express - Agatha Christie",
+        "4": "1984 - George Orwell",
+        "5": "Numero Zero - Umberto Eco",
+        "6": "Wonder - R. J. Palacio"
+      }
     },
     "movies": {
       "title": "Movies",
-      "titles": [
-        "Cinema Paradiso, 1988",
-        "Forrest Gump, 1992",
-        "O Auto da Compadecida, 2000",
-        "A Star Is Born, 2018",
-        "Parasite, 2019",
-        "Joker, 2019"
-      ]
+      "titles": {
+        "0": "Cinema Paradiso, 1988",
+        "1": "Forrest Gump, 1992",
+        "2": "O Auto da Compadecida, 2000",
+        "3": "A Star Is Born, 2018",
+        "4": "Parasite, 2019",
+        "5": "Joker, 2019"
+      }
     },
     "music": {
       "title": "Music"

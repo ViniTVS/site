@@ -14,23 +14,23 @@
 		label: string;
 	}[] = [
 		{
-			alt: 'Github logo',
+			alt: 'Github',
 			src: FaGithubSquare,
 			link: 'https://github.com/ViniTVS',
 			label: i("intro.github")
 		},
 		{
-			alt: 'LinkedIn logo',
+			alt: 'LinkedIn',
 			src: FaLinkedin,
 			link: 'https://www.linkedin.com/in/vin%C3%ADcius-teixiera-vieira-dos-santos-6494201b6',
 			label: i("intro.linkedin")
 		},
 		{
-			alt: 'Twitter logo',
+			alt: 'Twitter',
 			src: FaTwitterSquare,
 			link: 'https://twitter.com/vine_tvs',
 			label: i("intro.twitter")
-		}
+		},
 	];
 
 	let ready = false;

@@ -11,17 +11,6 @@
 	import { fade } from 'svelte/transition';
 	import { page } from '$app/stores';
 
-	let menus: { ref: string; option: string }[] = [
-		{ ref: '/#about', option: i('layout.about') },
-		{ ref: '/#experience', option: i('layout.experience') },
-		{ ref: '/#projects', option: i('layout.projects') },
-		{ ref: '/#contact', option: i('layout.contact') }
-	];
-
-	var isDark: boolean = false;
-	var openDrawer: boolean = false;
-	var showToast: boolean = false;
-
 	function drawerToggle() {
 		openDrawer = !openDrawer;
 	}
@@ -30,7 +19,22 @@
 		if (language != lang) switchLanguage(lang).then(() => window.location.reload());
 	}
 
+	let isDark: boolean = false;
+	let openDrawer: boolean = false;
+	let showToast: boolean = false;
+	let menus: { ref: string; option: string }[] = [
+		{ ref: '/#about', option: i('layout.about') },
+		{ ref: '/#experience', option: i('layout.experience') },
+		{ ref: '/#projects', option: i('layout.projects') },
+		{ ref: '/#contact', option: i('layout.contact') }
+	];
+
+
 	onMount(() => {
+		// theme setup
+		themeChange(false);
+		isDark = document.documentElement.getAttribute('data-theme') == 'dark_theme';
+		// set language
 		if (localStorage.getItem('language_selected') != 'true') {
 			showToast = true;
 			// get system's language
@@ -40,6 +44,9 @@
 				if (sys_lang.includes(l)) {
 					localStorage.setItem('language_selected', 'true');
 					updLang(l);
+					setTimeout(() => {
+						showToast = false;
+					}, 5000);
 					return;
 				}
 			}
@@ -49,11 +56,7 @@
 			setTimeout(() => {
 				showToast = false;
 			}, 5000);
-		} 
-		// localStorage.clear();
-		themeChange(false);
-		let start_theme = document.documentElement.getAttribute('data-theme');
-		isDark = start_theme == 'dark_theme';
+		}
 	});
 </script>
 
@@ -74,7 +77,7 @@
 				</div>
 			</a>
 			<div class="flex-1" />
-			<!-- menus se página for larga o bastante -->
+			<!-- top menu center content -->
 			<div class="flex-2 hidden md:block" style="overflow: hidden;">
 				{#each menus as menuopt}
 					<a class="btn btn-ghost normal-case text-xl" href={menuopt.ref}>
@@ -82,13 +85,15 @@
 					</a>
 				{/each}
 			</div>
+			<!-- top menu right content -->
 			<div class="flex-1 px-2 mx-2 flex-row-reverse">
+				<!-- sidebar button -->
 				<label for="my-drawer-3" class="btn btn-square btn-ghost md:hidden">
 					<div class="icon">
 						<MdMenu />
 					</div>
 				</label>
-				<!-- Muda tema -->
+				<!-- Theme button -->
 				<button
 					on:click={() => (isDark = !isDark)}
 					class="btn btn-sm btn-square btn-outline hidden md:block mx-2"
@@ -104,6 +109,7 @@
 						{/if}
 					</div>
 				</button>
+				<!-- Language button -->
 				<button
 					onclick="my_modal_1.showModal()"
 					class="btn btn-sm btn-square btn-outline hidden md:block mx-2"
@@ -121,10 +127,9 @@
 			<div class="mx-4 md:mx-10 mb-4 md:mb-10">
 				<slot />
 			</div>
+			<!--  Footer  -->
 			<footer
-				class="footer footer-center p-4
-					{isDark ? 'bg-base-200' : 'bg-base-200'}
-					text-base-content"
+				class="footer footer-center p-4 text-base-content {isDark ? 'bg-base-200' : 'bg-base-200'}"
 			>
 				{#if $page.route.id == '/'}
 					<h2 id="contact" class="pt-6">{i('footer.title')}</h2>
@@ -155,7 +160,7 @@
 	<!-- Sidebar content -->
 	<div class="drawer-side md:hidden z-40">
 		<label for="my-drawer-3" class="drawer-overlay" />
-		<!-- Side bar -->
+		<!-- Side bar itself -->
 		<div
 			class="menu px-4 py-2 w-3/4 bg-base-100"
 			style="height: 100vh; max-height: 100vh !important; overflow: auto;"
@@ -173,6 +178,7 @@
 						</div>
 					</label>
 				</div>
+				<!-- Menus -->
 				<div class="flex flex-col justify-around grow">
 					{#each menus as menuopt}
 						<a
@@ -184,8 +190,9 @@
 						</a>
 					{/each}
 				</div>
+				<!-- Buttons (change language and theme) -->
 				<div class="flex flex-col justify-around" style="height: 30%;">
-					<!--  -->
+					<!-- Language "Language modal"  -->
 					<button
 						onclick="my_modal_1.showModal()"
 						class="btn btn-bg btn-square btn-outline mx-auto"
@@ -229,15 +236,15 @@
 			{/if}
 		</p>
 		<div class="flex flex-row justify-center">
-			<button on:click={() => updLang('pt')}
-				><img alt="Português" class="mx-2" src="https://flagsapi.com/BR/flat/48.png" /></button
-			>
-			<button on:click={() => updLang('en')}
-				><img alt="English" class="mx-2" src="https://flagsapi.com/US/flat/48.png" /></button
-			>
-			<button on:click={() => updLang('de')}
-				><img alt="Deutsch" class="mx-2" src="https://flagsapi.com/DE/flat/48.png" /></button
-			>
+			<button on:click={() => updLang('pt')}>
+				<img alt="Português" class="mx-2" src="https://flagsapi.com/BR/flat/48.png" />
+			</button>
+			<button on:click={() => updLang('en')}>
+				<img alt="English" class="mx-2" src="https://flagsapi.com/US/flat/48.png" />
+			</button>
+			<button on:click={() => updLang('de')}>
+				<img alt="Deutsch" class="mx-2" src="https://flagsapi.com/DE/flat/48.png" />
+			</button>
 		</div>
 		<div class="modal-action">
 			<!-- if there is a button in form, it will close the modal -->
@@ -249,12 +256,19 @@
 	</form>
 </dialog>
 
-<!-- Language toast -->
+<!-- Language toast, only shows if page was never visited (or at least it should be this way...) -->
 {#if showToast}
 	<div out:fade class="toast" style="max-width: 100vw !important;">
 		<div class="alert alert-info" style="width: 100% !important;">
-			<span style="white-space: normal;">{i('layout.modal_info')}</span> <br>
-			<btn class="btn btn-neutral" on:keydown={() => showToast = false} on:click={() => showToast = false}>{i('close')}</btn>
+			<span style="white-space: normal;">{i('layout.modal_info')}</span>
+			<br />
+			<btn
+				class="btn btn-neutral"
+				on:keydown={() => (showToast = false)}
+				on:click={() => (showToast = false)}
+			>
+				{i('close')}
+			</btn>
 		</div>
 	</div>
 {/if}

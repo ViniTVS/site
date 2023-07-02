@@ -37,9 +37,9 @@
     "hello": "Olá, mundo! <br> Eu sou o Vini.",
     "sub_title1": "Estudante e desenvolvedor backend",
     "sub_title2": "que se vira com frontend",
-    "github": "Página pessoal",
-    "linkedin": "Página pessoal",
-    "twitter": "Página pessoal"
+    "github": "Meu GitHub",
+    "linkedin": "Meu LinkedIn",
+    "twitter": "Meu Twitter"
   },
   "about": {
     "title": "Sobre mim",
@@ -90,26 +90,26 @@
     },
     "books": {
       "title": "Livros",
-      "titles": [
-        "Várias Histórias - Machado de Assis",
-        "Quatro Vidas de um Cachorro - W. Bruce Cameron",
-        "Rangers: Ordem dos Arqueiros - John Flanagan",
-        "Assassinato no Expresso do Oriente - Agatha Christie",
-        "1984 - George Orwell",
-        "Número Zero - Umberto Eco",
-        "Extraordinário - R. J. Palacio"
-      ]
+      "titles": {
+        "0": "Várias Histórias - Machado de Assis",
+        "1": "Quatro Vidas de um Cachorro - W. Bruce Cameron",
+        "2": "Rangers: Ordem dos Arqueiros - John Flanagan",
+        "3": "Assassinato no Expresso do Oriente - Agatha Christie",
+        "4": "1984 - George Orwell",
+        "5": "Número Zero - Umberto Eco",
+        "6": "Extraordinário - R. J. Palacio"
+      }
     },
     "movies": {
       "title": "Filmes",
-      "titles": [
-        "Cinema Paradiso, 1988",
-        "Forrest Gump, 1992",
-        "O Auto da Compadecida, 2000",
-        "Nasce Uma Estrela, 2018",
-        "Parasita, 2019",
-        "Coringa, 2019"
-      ]
+      "titles": {
+        "0": "Cinema Paradiso, 1988",
+        "1": "Forrest Gump, 1992",
+        "2": "O Auto da Compadecida, 2000",
+        "3": "Nasce Uma Estrela, 2018",
+        "4": "Parasita, 2019",
+        "5": "Coringa, 2019"
+      }
     },
     "music": {
       "title": "Música"

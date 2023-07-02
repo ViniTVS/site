@@ -3,7 +3,6 @@
 	import Intro from '$lib/intro.svelte';
 	import Projects from '$lib/projects.svelte';
 	import { i } from '@inlang/sdk-js';
-	// import { switchLanguage } from "@inlang/sdk-js";
 
 	interface Experience {
 		title: string;
@@ -11,21 +10,18 @@
 		text: string;
 	}
 
-	let tech_ic: String[] = ['C++', 'Arduino'];
-	let tech_trab: String[] = ['PHP', 'Vue.js', 'MySQL', 'Flutter'];
+	// let tech_ic: String[] = ['C++', 'Arduino'];
+	// let tech_trab: String[] = ['PHP', 'Vue.js', 'MySQL', 'Flutter'];
 	let xp_list: Experience[] = [];
 
 	for (let x = 0; ; x++) {
 		if (i('experience.' + x + '.date') == '') break;
 
-		xp_list = [
-			...xp_list,
-			{
-				title: i('experience.' + x + '.title'),
-				date: i('experience.' + x + '.date'),
-				text: i('experience.' + x + '.text')
-			}
-		];
+		xp_list.push({
+			title: i('experience.' + x + '.title'),
+			date: i('experience.' + x + '.date'),
+			text: i('experience.' + x + '.text')
+		});
 	}
 </script>
 
@@ -34,7 +30,7 @@
 <About />
 
 <div id="experience">
-	<h2>{i("layout.experience")}</h2>
+	<h2>{i('layout.experience')}</h2>
 	<div class="md:px-10 xl:px-20">
 		{#each xp_list as xp_item}
 			<div class="grid grid-cols-3 md:grid-cols-2 mt-5">
