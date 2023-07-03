@@ -1,25 +1,30 @@
 <script lang="ts">
 	import { i } from '@inlang/sdk-js';
+
+	let width: number;
 </script>
+
+<svelte:window bind:innerWidth={width} />
 
 <div class="" id="about">
 	<div class="hero-content flex-col md:flex-row-reverse px-0 mx-0">
 		<img alt="Headshot" src="eu.png" id="eu" class="max-w-sm rounded-lg shadow-2xl" />
 		<div>
-			<h2>{i("about.title")}</h2>
+			<h2>{i('about.title')}</h2>
 			<p>
-				{i("about.text")}
+				{i('about.text')}
 			</p>
+			<a href="/about" class="btn btn-accent {width > 768 ? 'btn-sm' : ''}  mt-2">
+				{i('about.more')}
+			</a>
 		</div>
 	</div>
-	<a href="/about" class="btn btn-info">{i("about.more")}</a>
 </div>
 
 <style>
 	#about {
 		padding-top: 90px;
 		padding-bottom: auto;
-		/* height: 100vh; */
 		max-height: 800px;
 	}
 

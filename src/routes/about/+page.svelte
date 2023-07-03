@@ -59,7 +59,7 @@
 				src="https://sites.usp.br/cdccenglish/wp-content/uploads/sites/512/2020/03/CINEMA-1.jpg"
 				class="max-w-sm rounded-lg shadow-2xl"
 			/>
-			<div>
+			<div >
 				<h3>{i('about_page.movies.title')}</h3>
 				<ul class="list-disc list-inside">
 					{#each movies as movie}
@@ -77,7 +77,7 @@
 				src="https://i.ytimg.com/vi/us9wkIfBvK0/hqdefault.jpg"
 				class="max-w-sm rounded-lg shadow-2xl"
 			/>
-			<div>
+			<div >
 				<h3>{i('about_page.music.title')}</h3>
 				<ul class="list-disc list-inside">
 					<li>Stg. Pepper's Lonely Hearts Club Band - The Beatles, 1967</li>
@@ -126,5 +126,13 @@
 		background-clip: text;
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
+	}
+	img {
+		max-width: min(80vw, 24rem);
+		/* max-width: ; */
+	}
+	.hero-content div {
+
+		min-width: min(80vw, 24rem, 50%);
 	}
 </style>
