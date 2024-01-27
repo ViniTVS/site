@@ -14,9 +14,12 @@
     "@nuxtjs/i18n": "^8.0.0",
     "@nuxtjs/tailwindcss": "^6.10.3",
     "daisyui": "^4.4.24",
+    "node-sass": "^9.0.0",
     "nuxt": "^3.9.0",
     "nuxt-icon": "^0.6.8",
     "nuxt-storage": "^1.2.2",
+    "sass": "^1.70.0",
+    "sass-loader": "^14.0.0",
     "vue": "^3.4.3",
     "vue-router": "^4.2.5"
   },
