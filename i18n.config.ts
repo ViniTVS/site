@@ -10,6 +10,7 @@ export default defineI18nConfig(() => ({
             about: "Sobre mim",
             uni: "Universidade",
             more: "Mais",
+            present: "Atualmente",
         },
         en: {
             welcome: 'Welcome',
@@ -28,6 +29,7 @@ export default defineI18nConfig(() => ({
             about: "Über mich",
             uni: "Universität",
             more: "Mehr",
+            present: "Gegenwart",
         }
     }
 }))

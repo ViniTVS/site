@@ -4,16 +4,6 @@ const { t } = useI18n({
   useScope: 'local'
 })
 
-const components = {
-  'projects': resolveComponent('Projects'),
-  'resume': resolveComponent('Resume'),
-};
-
-let sel_component = ref('projects');
-
-function updComponent(val: string) {
-  sel_component.value = val;
-}
 
 </script>
 
@@ -32,18 +22,15 @@ function updComponent(val: string) {
       </div>
     </div>
   </div>
-
-  <ul class="menu menu-horizontal bg-accent rounded-box mt-10">
-    <li v-for="comp in Object.keys(components)"  @click="updComponent(comp)">
-      <a :class="{ active: sel_component === comp }">
-        {{ $t(comp) }}
-      </a>
-    </li>
-  </ul>
-
   <div class="divider"></div>
-  <!-- @vue-ignore (this is actually correct) -->
-  <component :is="components[sel_component]"></component>
+  <div class="grid grid-cols-2 md:grid-cols-5 md:gap-4">
+    <div class="col-span-3">
+      <Projects />
+    </div>
+    <div class="col-span-2">
+      <Resume />
+    </div>
+  </div>
 </template>
 
 

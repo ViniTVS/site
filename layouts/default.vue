@@ -137,7 +137,7 @@ function clickDropDown() {
             </div>
         </div>
     </nav>
-
+    <!-- content -->
     <div class="max-w-full container px-4 md:px-10 custom-background">
         <slot> </slot>
     </div>
@@ -164,7 +164,7 @@ function clickDropDown() {
     transform: rotate(180deg);
 }
 
-.btn {
+.btn-ghost {
     border: solid;
     border-width: 3px;
     border-color: transparent;
