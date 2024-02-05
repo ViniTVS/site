@@ -42,9 +42,9 @@ const jobs_r = jobs.reverse();
       <Icon color="oklch(var(--a))" name="ph:briefcase-duotone" size="1.5rem" class="my-auto mr-2"></Icon>
       <h3> {{ t('work') }}</h3>
     </div>
-
+    <!-- work -->
     <ul>
-      <li v-for="job in jobs_r">
+      <li v-for="(job, index) in jobs_r" :key="index">
         <div class="flex flex-row justify-between font-bold">
           <span>{{ job.company }}</span>
           <span>{{ job.interval.replace('now', t('present')) }}</span>
@@ -53,6 +53,7 @@ const jobs_r = jobs.reverse();
       </li>
     </ul>
 
+    <!-- education -->
     <div class="flex flex-row mt-4">
       <Icon color="oklch(var(--a))" name="ph:books-duotone" size="1.5rem" class="my-auto mr-2"></Icon>
       <h3> {{ t('education') }}</h3>
