@@ -45,36 +45,48 @@ const jobs_r = jobs.reverse();
     <!-- work -->
     <ul>
       <li v-for="(job, index) in jobs_r" :key="index">
-        <div class="flex flex-row justify-between font-bold">
+        <div>
           <span>{{ job.company }}</span>
           <span>{{ job.interval.replace('now', t('present')) }}</span>
         </div>
-        <span style="font-size: 0.85rem;"> {{ job.desc[locale] }} </span>
+        <span> {{ job.desc[locale] }} </span>
       </li>
     </ul>
 
     <!-- education -->
-    <div class="flex flex-row mt-4">
+    <div class="flex flex-row mt-2">
       <Icon color="oklch(var(--a))" name="ph:books-duotone" size="1.5rem" class="my-auto mr-2"></Icon>
       <h3> {{ t('education') }}</h3>
     </div>
     <ul>
       <li>
-        <div class="flex flex-row justify-between font-bold">
+        <div>
           <span>{{ t('degree') }}</span>
           <span style="white-space: nowrap;"> 2018 - 2023 </span>
         </div>
-        <span style="font-size: 0.85rem;">Universidade Federal do Paraná </span>
+        <span>Universidade Federal do Paraná </span>
       </li>
     </ul>
   </div>
 </template>
 
 
-<style scoped>
+<style lang="scss" scoped>
 h3 {
-  font-size: 1.25rem;
-  font-weight: 500;
+  font-weight: 700;
+}
+
+li {
+  >div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-weight: 600;
+  }
+
+  >span {
+    font-size: 0.85rem;
+  }
 }
 </style>
 

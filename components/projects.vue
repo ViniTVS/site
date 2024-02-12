@@ -3,8 +3,6 @@
 interface Project {
     lang: { [id: string]: { title: string, desc: string } },
     link: string,
-    tech: Array<string>,
-    api: string,
 }
 const { locale } = useI18n();
 
@@ -12,12 +10,10 @@ const { locale } = useI18n();
 const projects: Ref<Array<Project>> = ref([
     {
         link: "https://github.com/ViniTVS/codewars",
-        tech: [],
-        api: "https://api.github.com/repos/ViniTVS/codewars/languages",
         lang: {
             pt: {
                 title: "Codewars",
-                desc: "Codewars é um site para treinar e desenvolver habilidades de lógica e linguagens de programação com desafios de prática de código.  Aqui você encontra um repositório com minhas soluções."
+                desc: "<a href=\"https://www.codewars.com/\" target=\"_blank\" rel=\"noreferrer\" class=\"link\"> Codewars</a> é um site para treinar e desenvolver habilidades de lógica e linguagens de programação com desafios de prática de código.  Aqui você encontra um repositório com minhas soluções."
             },
             de: {
                 title: "Codewars",
@@ -31,13 +27,6 @@ const projects: Ref<Array<Project>> = ref([
     },
     {
         link: "https://github.com/ViniTVS/site",
-        tech: [
-            "TypeScript",
-            "Svelte",
-            "Tailwind",
-            "Devicon"
-        ],
-        api: "",
         lang: {
             pt: {
                 title: "Site",
@@ -54,15 +43,7 @@ const projects: Ref<Array<Project>> = ref([
         }
     },
     {
-        "link": "https://github.com/stars/ViniTVS/lists/ci%C3%AAncia-da-computa%C3%A7%C3%A3o",
-        tech: [
-            "C",
-            "Python",
-            "C++",
-            "Java",
-            "Haskell"
-        ],
-        api: "",
+        link: "https://github.com/stars/ViniTVS/lists/ci%C3%AAncia-da-computa%C3%A7%C3%A3o",
         lang: {
             pt: {
                 title: "Trabalhos",
@@ -82,23 +63,6 @@ const projects: Ref<Array<Project>> = ref([
 
 onMounted(() => {
 
-    for (let i in projects.value) {
-        if (projects.value[i].api != '') {
-            fetch(projects.value[i].api, {
-                headers: {
-                    Accept: 'application/json'
-                }
-            }).then((response) => response.json()).then((json) => {
-                // ordena linguagens mais usadas... https://stackoverflow.com/a/16794116
-                let ling = Object.keys(json).sort(function (a, b) {
-                    return json[b] - json[a];
-                });
-                projects.value[i].tech = ling.slice(0, 5); // limita em 5
-            });
-        }
-
-    }
-
 })
 </script>
 
@@ -106,15 +70,10 @@ onMounted(() => {
     <div class="flex flex-row justify-between flex-wrap">
         <a v-for="(project, index) in projects" :href=project.link target="_blank" rel="noreferrer"
             class="project-showcase mt-8 p-6" :class="'bg-' + (index % 5).toString()">
-            <!-- texto -->
+            <!-- text -->
             <div>
                 <h3>{{ project.lang[locale].title }}</h3>
                 <div v-html="project.lang[locale].desc"></div>
-            </div>
-            <!-- ícones -->
-            <div class="flex mt-4">
-                <div class="flex flex-row justify-start">
-                </div>
             </div>
         </a>
 

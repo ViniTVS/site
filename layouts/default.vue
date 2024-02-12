@@ -175,3 +175,13 @@ function clickDropDown() {
     }
 }
 </style>
+
+<style lang="scss">
+html {
+    font-size: 20px;
+
+    @media (max-width: 768px) {
+        font-size: 16px;
+    }
+}
+</style>
