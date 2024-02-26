@@ -62,9 +62,6 @@ onMounted(() => {
   }
   locale.value = lang;
   setData('language', lang);
-
-  document.addEventListener("mousemove", myFunction);
-
 });
 
 
