@@ -31,6 +31,18 @@ const { t } = useI18n({
       <Resume />
     </div>
   </div>
+  <div class="mt-8 p-6 pt-3 grow w-full">
+    <div class="flex flex-row">
+      <div class="mr-4 my-2 transition "></div>
+      <h2>
+        <blockquote>
+          Do what you think is interesting, do something that you think is fun and worthwhile,
+          because otherwise you won't do it well anyway.
+        </blockquote>
+      </h2>
+    </div>
+    <span>Brian W. Kernighan</span>
+  </div>
 </template>
 
 
@@ -63,6 +75,17 @@ const { t } = useI18n({
   max-width: 200px;
   border-radius: 8px;
   margin: auto;
+}
+
+.transition {
+  background: linear-gradient(180deg,
+      transparent -50%,
+      oklch(var(--a)) 20%,
+      oklch(var(--a)) 80%,
+      transparent 150%);
+  height: inherit;
+  min-width: 4px;
+  width: 4px;
 }
 
 @media (min-width: 768px) {

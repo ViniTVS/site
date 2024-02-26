@@ -1,64 +1,31 @@
 <script setup lang="ts">
 
 interface Project {
-    lang: { [id: string]: { title: string, desc: string } },
-    link: string,
+  link: string,
+  name: string
 }
 const { locale } = useI18n();
+const { t } = useI18n({
+  useScope: 'local'
+})
 
+const backgrounds = [
+  ""
+];
 
 const projects: Ref<Array<Project>> = ref([
-    {
-        link: "https://github.com/ViniTVS/codewars",
-        lang: {
-            pt: {
-                title: "Codewars",
-                desc: "<a href=\"https://www.codewars.com/\" target=\"_blank\" rel=\"noreferrer\" class=\"link\"> Codewars</a> é um site para treinar e desenvolver habilidades de lógica e linguagens de programação com desafios de prática de código.  Aqui você encontra um repositório com minhas soluções."
-            },
-            de: {
-                title: "Codewars",
-                desc: "<a href=\"https://www.codewars.com/\" target=\"_blank\" rel=\"noreferrer\" class=\"link\"> Codewars</a> ist eine Website zum Trainieren und Entwickeln von Logik- und Programmiersprachen Kenntnisse mit Code-Übungsherausforderungen. <br> Hier finden Sie ein Repository mit meinen Lösungen."
-            },
-            en: {
-                title: "Codewars",
-                desc: "<a href=\"https://www.codewars.com/\" target=\"_blank\" rel=\"noreferrer\" class=\"link\"> Codewars</a> is a website to train and develop logic and programming language skills with code practice challenges. <br> Here you will find a repository with my solutions."
-            }
-        }
-    },
-    {
-        link: "https://github.com/ViniTVS/site",
-        lang: {
-            pt: {
-                title: "Site",
-                desc: "Desenvolvido em sua maioria com HTML e CSS, foi utilizado um pouco de TypeScript para tornar o site dinâmico e modular. <br> Feito com <a href=\"https://kit.svelte.dev/\" target=\"_blank\" rel=\"noreferrer\" class=\"link\">SvelteKit</a> e componentes do <a href=\"https://daisyui.com/\" target=\"_blank\" rel=\"noreferrer\" class=\"link\">daisyUI</a>."
-            },
-            de: {
-                title: "Site",
-                desc: "Hauptsächlich mit HTML und CSS entwickelt, wurde ein wenig TypeScript verwendet, um die Site dynamisch und modular zu gestalten. <br> Hergestellt mit <a href=\"https://kit.svelte.dev/\" target=\"_blank\" rel=\"noreferrer\" class=\"link\">SvelteKit</a> und <a href=\"https://daisyui.com/\" target=\"_blank\" rel=\"noreferrer\" class=\"link\">daisyUI</a>-Komponenten."
-            },
-            en: {
-                title: "Site",
-                desc: "Developed mostly with HTML and CSS, a bit of TypeScript was used to make the site dynamic and modular. <br> Made with <a href=\"https://kit.svelte.dev/\" target=\"_blank\" rel=\"noreferrer\" class=\"link\">SvelteKit</a> and <a href=\"https://daisyui.com/\" target=\"_blank\" rel=\"noreferrer\" class=\"link\">daisyUI</a> components."
-            }
-        }
-    },
-    {
-        link: "https://github.com/stars/ViniTVS/lists/ci%C3%AAncia-da-computa%C3%A7%C3%A3o",
-        lang: {
-            pt: {
-                title: "Trabalhos",
-                desc: "Uma lista de repositórios contendo trabalhos de diferentes matérias realizados durante meu bacharelado. <br> <span style=\"font-size: 0.8rem;\">(podem ou não estar com seus enunciados)</span>"
-            },
-            en: {
-                title: "University",
-                desc: "A list of repositories containing works in different subjects carried out during my bachelor's degree. <br> <span style=\"font-size: 0.8rem;\">(may or may not have their original statements)</span>"
-            },
-            de: {
-                title: "Universität",
-                desc: "Eine Liste von Repositorien mit Arbeiten zu verschiedenen Themen, die während meines Bachelorstudiums entstanden sind. <br> <span style=\"font-size: 0.8rem;\">(kann mit Ihren Aussagen übereinstimmen oder auch nicht)</span>"
-            }
-        }
-    },
+  {
+    link: "https://github.com/ViniTVS/codewars",
+    name: "codewars"
+  },
+  {
+    link: "https://github.com/ViniTVS/site",
+    name: "arduino"
+  },
+  {
+    link: "https://github.com/stars/ViniTVS/lists/ci%C3%AAncia-da-computa%C3%A7%C3%A3o",
+    name: "tcc",
+  },
 ]);
 
 onMounted(() => {
@@ -67,27 +34,111 @@ onMounted(() => {
 </script>
 
 <template>
-    <div class="flex flex-row justify-between flex-wrap">
-        <a v-for="(project, index) in projects" :href=project.link target="_blank" rel="noreferrer"
-            class="project-showcase mt-8 p-6" :class="'bg-' + (index % 5).toString()">
-            <!-- text -->
-            <div>
-                <h3>{{ project.lang[locale].title }}</h3>
-                <div v-html="project.lang[locale].desc"></div>
-            </div>
-        </a>
-
-        <div class="project-showcase mt-8 p-6 pt-3 grow">
-            <div class="flex flex-row">
-                <div class="mr-4 my-2 transition transition-2"></div>
-                <h2>
-                    <blockquote>
-                        Do what you think is interesting, do something that you think is fun and worthwhile,
-                        because otherwise you won't do it well anyway.
-                    </blockquote>
-                </h2>
-            </div>
-            <span>Brian W. Kernighan</span>
-        </div>
-    </div>
+  <div class="flex flex-row justify-between flex-wrap">
+    <a v-for="(project, index) in projects" :href=project.link target="_blank" rel="noreferrer"
+      class="project-showcase mb-8 p-6" :class="'bg-' + (index % 5).toString()" :key="index">
+      <!-- text -->
+      <div>
+        <h2>{{ t(project.name + ".title") }}</h2>
+        <div>{{ t(project.name + ".desc") }}</div>
+      </div>
+    </a>
+  </div>
 </template>
+
+<style lang="scss" scoped>
+#projects {
+  padding-top: 90px;
+}
+
+.project-showcase {
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.icon-svg {
+  margin: auto;
+  -moz-transition: all 0.1s ease-in;
+  -o-transition: all 0.1s ease-in;
+  -webkit-transition: all 0.1s ease-in;
+  transition: all 0.1s ease-in;
+  font-size: 24px;
+}
+.bg-0 {
+	background: linear-gradient(135deg, oklch(var(--p) / 0.2) 10%, oklch(var(--p)));
+}
+.bg-1 {
+	background: linear-gradient(135deg, oklch(var(--a) / 0.2) 10%, oklch(var(--a)));
+}
+.bg-2 {
+	background: linear-gradient(135deg, oklch(var(--in) / 0.2) 10%, oklch(var(--in)));
+}
+.bg-3 {
+	background: linear-gradient(135deg, oklch(var(--in) / 0.2) 10%, oklch(var(--in)));
+}
+.bg-4 {
+	background: linear-gradient(135deg, oklch(var(--su) / 0.2) 10%, oklch(var(--su)));
+}
+</style>
+
+<i18n lang="json">
+{
+  "pt": {
+    "work": "Trabalho",
+    "education": "Formação",
+    "present": "Atualmente",
+    "degree": "Bacharelado em Ciência da Computação",
+    "codewars": {
+      "title": "Codewars",
+      "desc": "Codewars é um site para treinar e desenvolver habilidades de lógica e linguagens de programação com desafios de prática de código.  Aqui você encontra um repositório com minhas soluções."
+    },
+    "arduino": {
+      "title": "Codewars",
+      "desc": "Codewars is a website to train and develop logic and programming language skills with code practice challenges. Here you will find a repository with my solutions."
+    },
+    "tcc": {
+      "title": "Codewars",
+      "desc": "Codewars is a website to train and develop logic and programming language skills with code practice challenges. Here you will find a repository with my solutions."
+    }
+  },
+  "en": {
+    "work": "Work",
+    "education": "Education",
+    "present": "Present",
+    "degree": "Bachelor's in Computer Science",
+    "codewars": {
+      "title": "Codewars",
+      "desc": "Codewars is a website to train and develop logic and programming language skills with code practice challenges. Here you will find a repository with my solutions."
+    },
+    "arduino": {
+      "title": "Codewars",
+      "desc": "Codewars is a website to train and develop logic and programming language skills with code practice challenges. Here you will find a repository with my solutions."
+    },
+    "tcc": {
+      "title": "Codewars",
+      "desc": "Codewars is a website to train and develop logic and programming language skills with code practice challenges. Here you will find a repository with my solutions."
+    }
+  },
+  "de": {
+    "work": "Arbeit",
+    "education": "Ausbildung",
+    "present": "Gegenwart",
+    "degree": "Bachelor in Informatik",
+    "codewars": {
+      "title": "Codewars",
+      "desc": "Codewars ist eine Website zum Trainieren und Entwickeln von Logik- und Programmiersprachen Kenntnisse mit Code-Übungsherausforderungen. Hier finden Sie ein Repository mit meinen Lösungen."
+    },
+    "arduino": {
+      "title": "Codewars",
+      "desc": "Codewars is a website to train and develop logic and programming language skills with code practice challenges. Here you will find a repository with my solutions."
+    },
+    "tcc": {
+      "title": "Codewars",
+      "desc": "Codewars is a website to train and develop logic and programming language skills with code practice challenges. Here you will find a repository with my solutions."
+    }
+  }
+}
+</i18n>

@@ -6,29 +6,21 @@ const { t } = useI18n({
 })
 
 interface Job {
-  desc: { [id: string]: String },
-  company: String,
-  interval: String,
+  desc: string,
+  company: string,
+  interval: string,
 }
 
 const jobs: Array<Job> = [
   {
     company: "SPRO IT Solutions",
     interval: "2021 - 2023",
-    desc: {
-      pt: "Estágiário Desenvolvedor Fullstack",
-      de: "Fullstack Developer Intern",
-      en: "Fullstack Developer Intern"
-    }
+    desc: "intern"
   },
   {
     company: "SPRO IT Solutions",
     interval: "2023 - now",
-    desc: {
-      pt: "Desenvolvedor Fullstack Júnior",
-      de: "Junior Fullstack Developer",
-      en: "Junior Fullstack Developer"
-    }
+    desc: "junior_full"
   },
 ];
 
@@ -37,9 +29,9 @@ const jobs_r = jobs.reverse();
 </script>
 
 <template>
-  <div class="p-2 border-2" style="border-color: oklch(var(--a)); width: 100%;">
+  <div class="p-2 border-2 w-full" style="border-color: oklch(var(--p));">
     <div class="flex flex-row">
-      <Icon color="oklch(var(--a))" name="ph:briefcase-duotone" size="1.5rem" class="my-auto mr-2"></Icon>
+      <Icon color="oklch(var(--p))" name="ph:briefcase-duotone" size="1.5rem" class="my-auto mr-2"></Icon>
       <h3> {{ t('work') }}</h3>
     </div>
     <!-- work -->
@@ -49,14 +41,14 @@ const jobs_r = jobs.reverse();
           <span>{{ job.company }}</span>
           <span>{{ job.interval.replace('now', t('present')) }}</span>
         </div>
-        <span> {{ job.desc[locale] }} </span>
+        <span> {{ t(job.desc) }} </span>
       </li>
     </ul>
 
     <!-- education -->
     <div class="flex flex-row mt-2">
-      <Icon color="oklch(var(--a))" name="ph:books-duotone" size="1.5rem" class="my-auto mr-2"></Icon>
-      <h3> {{ t('education') }}</h3>
+      <Icon color="oklch(var(--p))" name="ph:books-duotone" size="1.5rem" class="my-auto mr-2"></Icon>
+      <h3> {{ t('education') }} </h3>
     </div>
     <ul>
       <li>
@@ -97,19 +89,25 @@ li {
     "work": "Trabalho",
     "education": "Formação",
     "present": "Atualmente",
-    "degree": "Bacharelado em Ciência da Computação"
+    "degree": "Bacharelado em Ciência da Computação",
+    "intern": "Estágiário Desenvolvedor Fullstack",
+    "junior_full": "Desenvolvedor Fullstack Júnior"
   },
   "en": {
     "work": "Work",
     "education": "Education",
     "present": "Present",
-    "degree": "Bachelor's in Computer Science"
+    "degree": "Bachelor's in Computer Science",
+    "intern": "Fullstack Developer Intern",
+    "junior_full": "Junior Fullstack Developer"
   },
   "de": {
     "work": "Arbeit",
     "education": "Ausbildung",
     "present": "Gegenwart",
-    "degree": "Bachelor in Informatik"
+    "degree": "Bachelor in Informatik",
+    "intern": "Fullstack Developer Intern",
+    "junior_full": "Junior Fullstack Developer"
   }
 }
 </i18n>

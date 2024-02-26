@@ -10,13 +10,13 @@
       transparent 40%
     ),
     radial-gradient(
-      circle at 100% 360vh,
-      oklch(var(--a) / 0.2) 0px,
-      transparent 7%
+      circle at 120% 120vh,
+      oklch(var(--n) / 0.1) 0px,
+      transparent 30%
     ),
     radial-gradient(
       circle at 0 540vh,
-      oklch(var(--s) / 0.2) 0px,
+      oklch(var(--p) / 0.2) 0px,
       transparent 7%
     );
 }
@@ -25,8 +25,8 @@
 
 //  .custom-background {
 //      background: radial-gradient(circle at 100% 0vh, oklch(var(--p) / 0.6) 0px, transparent 7%),
-//          radial-gradient(circle at 0 180vh, oklch(var(--s) / 0.25) 0px, transparent 10%),
-//          radial-gradient(circle at 100% 360vh, oklch(var(--a) / 0.6) 0px, transparent 7%),
-//          radial-gradient(circle at 0 540vh, oklch(var(--s) / 0.6) 0px, transparent 7%);
+//          radial-gradient(circle at 0 180vh, oklch(var(--p) / 0.25) 0px, transparent 10%),
+//          radial-gradient(circle at 100% 360vh, oklch(var(--p) / 0.6) 0px, transparent 7%),
+//          radial-gradient(circle at 0 540vh, oklch(var(--p) / 0.6) 0px, transparent 7%);
 //  }
 // }
