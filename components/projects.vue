@@ -4,20 +4,24 @@ interface Project {
   link: string,
   name: string
 }
-const { locale } = useI18n();
+
 const { t } = useI18n({
   useScope: 'local'
-})
+});
 
-const backgrounds = [
-  ""
+interface Background {
+  variable: string,
+  name: string
+}
+
+const backgrounds: Array<Background> = [
+  { name: "primary", variable: "oklch(var(--p))" },
+  { name: "accent", variable: "oklch(var(--a))" },
+  { name: "secondary", variable: "oklch(var(--s))" },
+  { name: "neutral", variable: "oklch(var(--n))" },
 ];
 
 const projects: Ref<Array<Project>> = ref([
-  {
-    link: "https://github.com/ViniTVS/codewars",
-    name: "codewars"
-  },
   {
     link: "https://github.com/ViniTVS/site",
     name: "arduino"
@@ -25,6 +29,10 @@ const projects: Ref<Array<Project>> = ref([
   {
     link: "https://github.com/stars/ViniTVS/lists/ci%C3%AAncia-da-computa%C3%A7%C3%A3o",
     name: "tcc",
+  },
+  {
+    link: "https://github.com/ViniTVS/codewars",
+    name: "practice"
   },
 ]);
 
@@ -35,65 +43,31 @@ onMounted(() => {
 
 <template>
   <div class="flex flex-row justify-between flex-wrap">
-    <a v-for="(project, index) in projects" :href=project.link target="_blank" rel="noreferrer"
-      class="project-showcase mb-8 p-6" :class="'bg-' + (index % 5).toString()" :key="index">
-      <!-- text -->
-      <div>
-        <h2>{{ t(project.name + ".title") }}</h2>
-        <div>{{ t(project.name + ".desc") }}</div>
-      </div>
-    </a>
+    <!-- text -->
+    <div v-for="(project, i) in  projects " class="mb-8 p-6" :key="'project-' + i">
+      <a :href=project.link target="_blank" rel="noreferrer"
+        class="underline "
+        :style="'text-decoration-color:' + backgrounds[i % backgrounds.length].variable">
+        {{ t(project.name + ".title") }}
+      </a>
+      <div>{{ t(project.name + ".desc") }}</div>
+    </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
-#projects {
-  padding-top: 90px;
-}
 
-.project-showcase {
-  border-radius: 12px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 100%;
-}
-
-.icon-svg {
-  margin: auto;
-  -moz-transition: all 0.1s ease-in;
-  -o-transition: all 0.1s ease-in;
-  -webkit-transition: all 0.1s ease-in;
-  transition: all 0.1s ease-in;
-  font-size: 24px;
-}
-.bg-0 {
-	background: linear-gradient(135deg, oklch(var(--p) / 0.2) 10%, oklch(var(--p)));
-}
-.bg-1 {
-	background: linear-gradient(135deg, oklch(var(--a) / 0.2) 10%, oklch(var(--a)));
-}
-.bg-2 {
-	background: linear-gradient(135deg, oklch(var(--in) / 0.2) 10%, oklch(var(--in)));
-}
-.bg-3 {
-	background: linear-gradient(135deg, oklch(var(--in) / 0.2) 10%, oklch(var(--in)));
-}
-.bg-4 {
-	background: linear-gradient(135deg, oklch(var(--su) / 0.2) 10%, oklch(var(--su)));
-}
 </style>
 
-<i18n lang="json">
-{
+<i18n lang="json">{
   "pt": {
     "work": "Trabalho",
     "education": "Formação",
     "present": "Atualmente",
     "degree": "Bacharelado em Ciência da Computação",
-    "codewars": {
-      "title": "Codewars",
-      "desc": "Codewars é um site para treinar e desenvolver habilidades de lógica e linguagens de programação com desafios de prática de código.  Aqui você encontra um repositório com minhas soluções."
+    "practice": {
+      "title": "Coding practice",
+      "desc": "Um repositório com meus códigos para solução de desafios de código na prática de sites como LeetCode, Codewars, HackerRank, etc."
     },
     "arduino": {
       "title": "Codewars",
@@ -109,9 +83,9 @@ onMounted(() => {
     "education": "Education",
     "present": "Present",
     "degree": "Bachelor's in Computer Science",
-    "codewars": {
-      "title": "Codewars",
-      "desc": "Codewars is a website to train and develop logic and programming language skills with code practice challenges. Here you will find a repository with my solutions."
+    "practice": {
+      "title": "Coding practice",
+      "desc": "A repository with my codes for solving practical code challenges on sites like LeetCode, Codewars, HackerRank, etc."
     },
     "arduino": {
       "title": "Codewars",
@@ -127,9 +101,9 @@ onMounted(() => {
     "education": "Ausbildung",
     "present": "Gegenwart",
     "degree": "Bachelor in Informatik",
-    "codewars": {
-      "title": "Codewars",
-      "desc": "Codewars ist eine Website zum Trainieren und Entwickeln von Logik- und Programmiersprachen Kenntnisse mit Code-Übungsherausforderungen. Hier finden Sie ein Repository mit meinen Lösungen."
+    "practice": {
+      "title": "Codierungspraxis",
+      "desc": "Ein Repository mit meinen Codes zum Lösen praktischer Code-Herausforderungen auf Websites wie LeetCode, Codewars, HackerRank usw."
     },
     "arduino": {
       "title": "Codewars",
@@ -140,5 +114,4 @@ onMounted(() => {
       "desc": "Codewars is a website to train and develop logic and programming language skills with code practice challenges. Here you will find a repository with my solutions."
     }
   }
-}
-</i18n>
+}</i18n>

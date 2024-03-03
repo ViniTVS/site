@@ -1,99 +1,96 @@
 <script setup lang="ts">
-import { themeChange } from 'theme-change';
-import { ref } from 'vue';
-// @ts-ignore
-import { getData, setData } from 'nuxt-storage/local-storage';
+import { themeChange } from "theme-change";
+import { ref } from "vue";
 
 const { locale } = useI18n();
 let isDark = ref(true);
 let isDropDown = ref(false);
 
-
 let languages = [
-  { option: 'Deutsch', value: 'de' },
-  { option: 'Português', value: 'pt' },
-  { option: 'English', value: 'en' },
+  { option: "Deutsch", value: "de" },
+  { option: "Português", value: "pt" },
+  { option: "English", value: "en" },
 ];
 
 let pages = [
-  { option: 'home', path: '/' },
-  { option: 'about', path: '/about' },
-  { option: 'uni', path: '/uni' },
+  { option: "home", path: "/" },
+  { option: "about", path: "/about" },
+  { option: "uni", path: "/uni" },
 ];
 
 watch(locale, (val: string) => {
-  setData('language', val, 365, 'd');
-})
+  localStorage.setItem("language", val);
+});
 
 // update isDark variable and set data-theme on localstorage
 watch(isDark, (val: boolean) => {
-  let theme = val ? 'dark' : 'light';
-  document.documentElement.setAttribute('data-theme', theme);
-  setData('theme', theme, 365, 'd');
+  let theme = val ? "dark" : "light";
+  document.documentElement.setAttribute("data-theme", theme);
+  localStorage.setItem("theme", theme);
 });
 
 onMounted(() => {
   // order languages options
   languages.sort(function (a, b) {
     return a.option.localeCompare(b.option);
-  })
+  });
 
   // set theme
   themeChange(false);
-  let storageTheme = getData('theme');
+  let storageTheme = localStorage.getItem("theme");
   if (storageTheme == null) {
-    storageTheme = 'light'
+    storageTheme = "light";
   }
-  isDark.value = storageTheme == 'dark';
-  document.documentElement.setAttribute('data-theme', storageTheme);
+  isDark.value = storageTheme == "dark";
+  document.documentElement.setAttribute("data-theme", storageTheme);
 
   // set language
-  let lang = getData('language');
+  let lang = localStorage.getItem("language");
   if (lang == null) {
-    lang = 'en';
+    lang = "en";
     let sys_lang = Intl.DateTimeFormat().resolvedOptions().locale;
     for (const language of languages) {
       if (sys_lang.includes(language.value)) {
         lang = language.value;
         break;
       }
-
     }
   }
   locale.value = lang;
-  setData('language', lang);
+  localStorage.setItem("language", lang);
 });
-
 
 // close dropdown on focus lost or when option is selected
 // https://github.com/saadeghi/daisyui/discussions/2092
 function handleDropdown(event: any, val?: string) {
-  if (val != null)
-    locale.value = val
+  if (val != null) locale.value = val;
 
   const relatedTarget = event.relatedTarget;
   const currentTarget = event.currentTarget;
 
-  if (relatedTarget instanceof HTMLElement && currentTarget.contains(relatedTarget)) {
+  if (
+    relatedTarget instanceof HTMLElement &&
+    currentTarget.contains(relatedTarget)
+  ) {
     return;
   }
   isDropDown.value = false;
 }
 
-
 function clickDropDown() {
-  isDropDown.value = !isDropDown.value
+  isDropDown.value = !isDropDown.value;
 }
-
 </script>
 
 <template>
+
   <Head>
     <Meta :lang="locale" />
   </Head>
   <!-- navbar -->
   <nav
-    :class="'sticky top-0 z-30 flex h-16 w-full bg-opacity-80 backdrop-blur shadow-sm navbar md:px-6 bg-base-' + (isDark ? '300' : '100')">
+    class="sticky top-0 z-30 flex h-16 w-full bg-opacity-80 backdrop-blur shadow-sm navbar md:px-6 bg-base-100"
+    >
     <!-- left -->
     <div class="navbar-start">
       <!-- dropdown for mobile -->
@@ -108,7 +105,7 @@ function clickDropDown() {
         </ul>
       </div>
       <!-- desktop options -->
-      <div class="hidden md:flex flex-row ">
+      <div class="hidden md:flex flex-row">
         <NuxtLink v-for="page in pages" class="btn btn-ghost" :to="page.path">
           {{ page.option }}
         </NuxtLink>
@@ -129,9 +126,10 @@ function clickDropDown() {
           <Icon color="oklch(var(--p))" name="ph:translate-duotone" size="1.5rem"></Icon>
         </button>
         <ul :style="{ visibility: isDropDown ? 'visible' : 'hidden' }" tabindex="0"
-          class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-42">
+          class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-42"
+          >
           <button class="btn btn-ghost" v-for="lang in languages" @click="(e) => handleDropdown(e, lang.value)">
-            <li> {{ lang.option }} </li>
+            <li>{{ lang.option }}</li>
           </button>
         </ul>
       </div>
@@ -143,15 +141,16 @@ function clickDropDown() {
   </div>
   <!--  -->
   <footer class="footer footer-center text-base-content bg-neutral bg-opacity-25">
-    <h3 id="contact" class="pt-4" style="font-size: 1rem;"> titulo footer </h3>
+    <h3 id="contact" class="pt-4" style="font-size: 1rem;">titulo footer</h3>
     texto footer
-    <a href="mailto:vinisantos185@gmail.com" class="btn btn-secondary" style="text-transform: lowercase;">
+    <a href="mailto:vinisantos185@gmail.com" class="btn btn-secondary" style="text-transform: lowercase">
       vinisantos185@gmail.com
     </a>
-    <div class="flex flex-col" style="font-size: 0.75rem;">
+    <div class="flex flex-col" style="font-size: 0.75rem">
       <div class="flex flex-row">
-        <span class="copyleft">&copy;</span> 2024 - Projetado e desenvolvido com
-        <img alt="amor" src="/full_heart.png" id="coracao" class="mx-1" style="height: 1rem;" />
+        <span class="copyleft">&copy;</span> 2024 - Projetado e
+        desenvolvido com
+        <img alt="amor" src="/full_heart.png" id="coracao" class="mx-1" style="height: 1rem" />
       </div>
       Vinícius Teixeira Vieira dos Santos
     </div>
