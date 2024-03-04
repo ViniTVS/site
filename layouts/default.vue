@@ -3,6 +3,7 @@ import { themeChange } from "theme-change";
 import { ref } from "vue";
 
 const { locale } = useI18n();
+
 let isDark = ref(true);
 let isDropDown = ref(false);
 
@@ -88,9 +89,7 @@ function clickDropDown() {
     <Meta :lang="locale" />
   </Head>
   <!-- navbar -->
-  <nav
-    class="sticky top-0 z-30 flex h-16 w-full bg-opacity-80 backdrop-blur shadow-sm navbar md:px-6 bg-base-100"
-    >
+  <nav class="sticky top-0 z-30 flex h-16 w-full bg-opacity-80 backdrop-blur shadow-sm navbar md:px-6 bg-base-100">
     <!-- left -->
     <div class="navbar-start">
       <!-- dropdown for mobile -->
@@ -100,14 +99,14 @@ function clickDropDown() {
         </div>
         <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-42">
           <NuxtLink v-for="page in pages" class="btn btn-ghost" :to="page.path">
-            <li>{{ page.option }}</li>
+            <li>{{ $t(page.option) }}</li>
           </NuxtLink>
         </ul>
       </div>
       <!-- desktop options -->
       <div class="hidden md:flex flex-row">
         <NuxtLink v-for="page in pages" class="btn btn-ghost" :to="page.path">
-          {{ page.option }}
+          {{ $t(page.option) }}
         </NuxtLink>
       </div>
     </div>
@@ -126,8 +125,7 @@ function clickDropDown() {
           <Icon color="oklch(var(--p))" name="ph:translate-duotone" size="1.5rem"></Icon>
         </button>
         <ul :style="{ visibility: isDropDown ? 'visible' : 'hidden' }" tabindex="0"
-          class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-42"
-          >
+          class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-42">
           <button class="btn btn-ghost" v-for="lang in languages" @click="(e) => handleDropdown(e, lang.value)">
             <li>{{ lang.option }}</li>
           </button>
@@ -141,8 +139,8 @@ function clickDropDown() {
   </div>
   <!--  -->
   <footer class="footer footer-center text-base-content bg-neutral bg-opacity-25">
-    <h3 id="contact" class="pt-4" style="font-size: 1rem;">titulo footer</h3>
-    texto footer
+    <h3 id="contact" class="pt-8 font-bold" style="font-size: 1.75rem;">{{ $t('footer.title') }}</h3>
+    {{ $t('footer.text') }}
     <a href="mailto:vinisantos185@gmail.com" class="btn btn-secondary" style="text-transform: lowercase">
       vinisantos185@gmail.com
     </a>

@@ -45,9 +45,7 @@ const { t } = useI18n({
   </div>
 </template>
 
-
-<i18n lang="json">
-{
+<i18n lang="json">{
   "pt": {
     "title": "Sobre mim",
     "text": "Eu sou Vinícius, um estudante de Ciência da Computação e desenvolvedor trabalhando com PHP, MySQL e Flutter. Durante a graduação tive a oportunidade de aprender programação desde C e C++ a Java e Python. Fazendo minha Iniciação Científica em robótica também passei a conhecer melhor sobre dispositivos IoT e Arduino."
@@ -60,8 +58,7 @@ const { t } = useI18n({
     "title": "Über mich",
     "text": "Ich bin Vinícius, ein Informatikstudent und Entwickler, der mit PHP, MySQL und Flutter arbeitet. Während meines Abschlusses hatte ich die Gelegenheit, Programmieren von C und C++ bis hin zu Java und Python zu lernen. Während meiner wissenschaftlichen Einführung in Robotik lernte ich auch IoT-Geräte und Arduino besser kennen."
   }
-}
-</i18n>
+}</i18n>
 
 <style>
 #about {
