@@ -1,9 +1,7 @@
 <script setup lang="ts">
-
 const { t } = useI18n({
   useScope: 'local'
 })
-
 
 </script>
 
@@ -23,14 +21,8 @@ const { t } = useI18n({
     </div>
   </div>
   <div class="divider"></div>
-  <div class="grid grid-cols-2 md:grid-cols-5 md:gap-4">
-    <div class="col-span-3">
-      <Projects />
-    </div>
-    <div class="col-span-2">
-      <Resume />
-    </div>
-  </div>
+  <Resume />
+  <Projects />
   <div class="mt-8 p-6 pt-3 grow w-full">
     <div class="flex flex-row">
       <div class="mr-4 my-2 transition "></div>
