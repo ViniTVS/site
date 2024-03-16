@@ -138,7 +138,7 @@ function clickDropDown() {
     <slot> </slot>
   </div>
   <!--  -->
-  <footer class="footer footer-center text-base-content bg-neutral bg-opacity-25">
+  <footer class="max-w-full container px-4 md:px-10 footer footer-center text-base-content bg-base-300 bg-opacity-50">
     <h3 id="contact" class="pt-8 font-bold" style="font-size: 1.75rem;">{{ $t('footer.title') }}</h3>
     {{ $t('footer.text') }}
     <a href="mailto:vinisantos185@gmail.com" class="btn btn-secondary" style="text-transform: lowercase">

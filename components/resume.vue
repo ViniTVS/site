@@ -21,67 +21,33 @@ const today = new Date();
 
 let exps: Ref<Array<Exp>> = ref([
   {
-    desc: "SPRO IT Solutions",
-    title: "junior_full",
-    start: new Date("2023-03-14"),
-    end: today,
-    color: 'bg-secondary text-primary-secondary'
+    desc: "UFPR",
+    title: "degree",
+    start: new Date("2018-02-12"),
+    end: new Date("2023-11-20"),
+    color: 'bg-accent text-primary-content'
   },
   {
     desc: "SPRO IT Solutions",
     title: "intern",
-    start: new Date("2021-03-14"),
-    end: new Date("2023-03-14"),
+    start: new Date("2021-03-11"),
+    end: new Date("2023-03-11"),
     color: 'bg-secondary text-primary-secondary'
   },
-  // {
-  //   desc: "UFPR",
-  //   title: "degree",
-  //   start: new Date("2018-02-12"),
-  //   end: new Date("2023-11-20"),
-  //   color: 'bg-accent text-primary-content'
-  // },
+  {
+    desc: "SPRO IT Solutions",
+    title: "junior_full",
+    start: new Date("2023-03-11"),
+    end: today,
+    color: 'bg-primary text-primary-primary'
+  },
 ]);
-
-
-const min_year: number = Math.min(...exps.value.map((xp) => getYearFloat(xp.start)));
-const max_year: number = Math.max(...exps.value.map((xp) => getYearFloat(xp.end)));
-
-function getPerc(value: number, min: number = min_year, max: number = max_year): number {
-  let interval = max - min;
-  let diff = value - min;
-  return (diff / interval) * 100;
-}
 
 </script>
 
 <template>
-  <h3>{{t('work')}}</h3>
-  <div class="flex flex-col w-full">
-    <div v-for="(xp, i) in exps" :key="'xp-' + i"
-      class="text-center grow h-20 my-2 rounded-full flex flex-row p-3 px-4 text-lg"
-      :style="'margin-left: ' + getPerc(getYearFloat(xp.start)) + '%; margin-right: ' + (100 - getPerc(getYearFloat(xp.end))) + '%'"
-      :class="xp.color">
-      <div class="grow flex flex-col h-full text-left">
-        <span class="my-auto h-1/2 align-top text-left font-bold">{{ t(xp.title) }}</span>
-        <span class="my-auto h-1/2 align-bottom grow text-sm">{{ xp.desc }}</span>
-      </div>
-      <span class="my-auto align-middle font-bold text-right text-clip">
-        {{ format(xp.start, "yy") }}~{{ xp.end == today ? '' : format(xp.end, "yy") }}
-      </span>
+  <h3>{{ t('work') }}</h3>
 
-
-    </div>
-  </div>
-  <div class="mockup-browser border bg-base-300">
-    <div class="mockup-browser-toolbar">
-      <div class="input">https://daisyui.com</div>
-    </div>
-    <div class="bg-base-200">
-      
-      <img alt="Headshot" src="/viso-dark.png" id="viso" class="w-full" />  
-    </div>
-  </div>
 </template>
 
 
@@ -90,18 +56,6 @@ h3 {
   font-weight: 700;
 }
 
-li {
-  >div {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    font-weight: 600;
-  }
-
-  >span {
-    font-size: 0.85rem;
-  }
-}
 </style>
 
 

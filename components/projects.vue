@@ -42,21 +42,59 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="flex flex-row justify-between flex-wrap">
-    <!-- text -->
-    <div v-for="(project, i) in  projects " class="mb-8 p-6" :key="'project-' + i">
-      <a :href=project.link target="_blank" rel="noreferrer"
-        class="underline "
-        :style="'text-decoration-color:' + backgrounds[i % backgrounds.length].variable">
-        {{ t(project.name + ".title") }}
-      </a>
-      <div>{{ t(project.name + ".desc") }}</div>
+  <div class="bg-accent rounded-3xl h-96" style="overflow: hidden;">
+    <div class="mx-4 mt-4 info">
+      <h3>{{ t('tcc.title') }}</h3>
+      {{ t('tcc.desc') }}
+    </div>
+    <div class="w-11/12 sm:w-5/6 ml-auto mr-0 xl:w-4/6 mt-8" style="overflow:hidden;">
+      <div class="mockup-browser border bg-base-300" style=" width: 100vw; max-width: 1080px; overflow:hidden;">
+        <div class="mockup-browser-toolbar">
+          <div class="input">https://visualso.vercel.app/</div>
+        </div>
+        <div class="bg-base-200">
+          <img alt="Headshot" src="/viso-dark.png" id="viso" class="w-full hidden sm:block crop-h" />
+          <img alt="Headshot" src="/viso-mobile-dark.png" id="viso" class="w-full block crop-v" />
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
+.crop-h {
+  top: 0;
+  width: 100vw;
+  min-width: 720px;
+  max-width: 1080px;
+  object-fit: cover;
+  display: block;
 
+  @media (max-width: 428px) {
+    display: none;
+  }
+}
+
+.crop-v {
+  top: 0;
+  width: 100vw;
+  min-width: 720px;
+  max-width: 1080px;
+  object-fit: cover;
+  display: none;
+
+  @media (max-width: 428px) {
+    display: block;
+  }
+}
+
+.info {
+  >h3 {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+    font-weight: bold;
+  }
+}
 </style>
 
 <i18n lang="json">{
@@ -74,8 +112,8 @@ onMounted(() => {
       "desc": "Codewars is a website to train and develop logic and programming language skills with code practice challenges. Here you will find a repository with my solutions."
     },
     "tcc": {
-      "title": "Codewars",
-      "desc": "Codewars is a website to train and develop logic and programming language skills with code practice challenges. Here you will find a repository with my solutions."
+      "title": "ViSO",
+      "desc": "ViSO foi o projeto do meu TCC em dupla. É um site cujo objetivo é ilustrar e animar algoritmos utilizados em sistemas operacionais que esperamos servir como base de trabalhos futuros para outros alunos."
     }
   },
   "en": {
@@ -92,8 +130,8 @@ onMounted(() => {
       "desc": "Codewars is a website to train and develop logic and programming language skills with code practice challenges. Here you will find a repository with my solutions."
     },
     "tcc": {
-      "title": "Codewars",
-      "desc": "Codewars is a website to train and develop logic and programming language skills with code practice challenges. Here you will find a repository with my solutions."
+      "title": "ViSO",
+      "desc": "ViSO was my Final paper project. It is a website whose objective is to illustrate and animate algorithms used in operating systems that we hope will serve as a basis for future work for other students."
     }
   },
   "de": {
@@ -110,7 +148,7 @@ onMounted(() => {
       "desc": "Codewars is a website to train and develop logic and programming language skills with code practice challenges. Here you will find a repository with my solutions."
     },
     "tcc": {
-      "title": "Codewars",
+      "title": "ViSO",
       "desc": "Codewars is a website to train and develop logic and programming language skills with code practice challenges. Here you will find a repository with my solutions."
     }
   }
