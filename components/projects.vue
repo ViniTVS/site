@@ -1,89 +1,82 @@
 <script setup lang="ts">
 
-interface Project {
-  link: string,
-  name: string
-}
-
 const { t } = useI18n({
   useScope: 'local'
 });
 
-interface Background {
-  variable: string,
-  name: string
-}
+let theme: Ref<string> = ref("light");
 
-const backgrounds: Array<Background> = [
-  { name: "primary", variable: "oklch(var(--p))" },
-  { name: "accent", variable: "oklch(var(--a))" },
-  { name: "secondary", variable: "oklch(var(--s))" },
-  { name: "neutral", variable: "oklch(var(--n))" },
-];
-
-const projects: Ref<Array<Project>> = ref([
-  {
-    link: "https://github.com/ViniTVS/site",
-    name: "arduino"
-  },
-  {
-    link: "https://github.com/stars/ViniTVS/lists/ci%C3%AAncia-da-computa%C3%A7%C3%A3o",
-    name: "tcc",
-  },
-  {
-    link: "https://github.com/ViniTVS/codewars",
-    name: "practice"
-  },
-]);
 
 onMounted(() => {
 
-})
+  window.addEventListener('theme-changed', (event) => {
+    theme.value = event.detail.storage;
+  });
+
+});
 </script>
 
 <template>
-  <div class="bg-accent rounded-3xl h-96" style="overflow: hidden;">
-    <div class="mx-4 mt-4 info">
-      <h3>{{ t('tcc.title') }}</h3>
-      {{ t('tcc.desc') }}
-    </div>
-    <div class="w-11/12 sm:w-5/6 ml-auto mr-0 xl:w-4/6 mt-8" style="overflow:hidden;">
-      <div class="mockup-browser border bg-base-300" style=" width: 100vw; max-width: 1080px; overflow:hidden;">
-        <div class="mockup-browser-toolbar">
-          <div class="input">https://visualso.vercel.app/</div>
-        </div>
-        <div class="bg-base-200">
-          <img alt="Headshot" src="/viso-dark.png" id="viso" class="w-full hidden sm:block crop-h" />
-          <img alt="Headshot" src="/viso-mobile-dark.png" id="viso" class="w-full block crop-v" />
-        </div>
+  <h2>{{ t('projects') }}</h2>
+  <div class="grid grid-cols-1 2xl:grid-cols-2 gap-4 my-8">
+    <div class="bg-primary text-primary-content rounded-3xl c-card">
+      <div class="mx-4 mt-4 info text-center">
+        <h3>{{ t('practice.title') }}</h3>
+        {{ t('practice.desc') }}
+      </div>
+      
+      <!-- code mockup -->
+      <div class="w-11/12 ml-0 mt-8 hover-animate-r">
+        <img src="/code.png" class="rounded-2xl" style="width: 105%; margin-left: -10px;" />
       </div>
     </div>
+
+    <a href="https://visualso.vercel.app/">
+      <div class="bg-accent text-accent-content rounded-3xl c-card">
+        <div class="mx-4 mt-4 info text-center">
+          <h3>{{ t('tcc.title') }}</h3>
+          {{ t('tcc.desc') }}
+        </div>
+        <!-- browser page -->
+        <div class="w-5/6 md:w-11/12 ml-auto mr-0 mt-8 hover-animate-l">
+          <div class="mockup-browser border bg-base-300 text-base-content" style="width: 105%;">
+            <div class="mockup-browser-toolbar">
+              <div class="input">https://visualso.vercel.app</div>
+            </div>
+            <div class="bg-base-200 w-full">
+              <img alt="ViSO" :src="'/viso-' + theme + '.png'" class="w-full hidden sm:block crop-h" />
+              <img alt="ViSO" :src="'/viso-mobile-' + theme + '.png'" class="w-full block sm:hidden crop-v" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </a>
   </div>
+
 </template>
 
 <style lang="scss" scoped>
+.c-card {
+  overflow: hidden;
+  height: 50vh;
+}
+
 .crop-h {
   top: 0;
-  width: 100vw;
-  min-width: 720px;
-  max-width: 1080px;
   object-fit: cover;
   display: block;
 
-  @media (max-width: 428px) {
+  @media (max-width: 600px) {
     display: none;
   }
 }
 
 .crop-v {
   top: 0;
-  width: 100vw;
-  min-width: 720px;
-  max-width: 1080px;
   object-fit: cover;
   display: none;
 
-  @media (max-width: 428px) {
+  @media (max-width: 600px) {
     display: block;
   }
 }
@@ -95,11 +88,27 @@ onMounted(() => {
     font-weight: bold;
   }
 }
+
+.hover-animate-l {
+  transition: transform 250ms;
+
+  &:hover {
+    transform: translate(-10px, -10px);
+  }
+}
+
+.hover-animate-r {
+  transition: transform 250ms;
+
+  &:hover {
+    transform: translate(10px, -10px);
+  }
+}
 </style>
 
 <i18n lang="json">{
   "pt": {
-    "work": "Trabalho",
+    "projects": "Projetos e Trabalhos",
     "education": "Formação",
     "present": "Atualmente",
     "degree": "Bacharelado em Ciência da Computação",
@@ -113,11 +122,11 @@ onMounted(() => {
     },
     "tcc": {
       "title": "ViSO",
-      "desc": "ViSO foi o projeto do meu TCC em dupla. É um site cujo objetivo é ilustrar e animar algoritmos utilizados em sistemas operacionais que esperamos servir como base de trabalhos futuros para outros alunos."
+      "desc": "ViSO foi o projeto do meu TCC em dupla. É um site cujo objetivo é ilustrar e animar algoritmos utilizados em sistemas operacionais. Esperamos que sirva como base para trabalhos futuros de outros alunos."
     }
   },
   "en": {
-    "work": "Work",
+    "projects": "Projects",
     "education": "Education",
     "present": "Present",
     "degree": "Bachelor's in Computer Science",
@@ -131,11 +140,11 @@ onMounted(() => {
     },
     "tcc": {
       "title": "ViSO",
-      "desc": "ViSO was my Final paper project. It is a website whose objective is to illustrate and animate algorithms used in operating systems that we hope will serve as a basis for future work for other students."
+      "desc": "ViSO was my final paper project. It is a website whose objective is to illustrate and animate algorithms used in operating systems. Hopefully, it will serve as a basis for future projects for other students. (Portuguese only)"
     }
   },
   "de": {
-    "work": "Arbeit",
+    "projects": "Projekte und Werke",
     "education": "Ausbildung",
     "present": "Gegenwart",
     "degree": "Bachelor in Informatik",
@@ -149,7 +158,7 @@ onMounted(() => {
     },
     "tcc": {
       "title": "ViSO",
-      "desc": "Codewars is a website to train and develop logic and programming language skills with code practice challenges. Here you will find a repository with my solutions."
+      "desc": "ViSO war mein Abschlussprojekt. Es ist eine Website, deren Ziel es ist, Algorithmen, die in Betriebssystemen verwendet werden, zu veranschaulichen und zu animieren. Hoffentlich wird es als Grundlage für zukünftige Arbeiten für andere Studenten dienen. (Nur auf Portugiesisch)"
     }
   }
 }</i18n>

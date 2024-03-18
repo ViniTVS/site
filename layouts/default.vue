@@ -23,11 +23,20 @@ watch(locale, (val: string) => {
   localStorage.setItem("language", val);
 });
 
+function setTheme(theme: string) {
+  localStorage.setItem("theme", theme);
+  window.dispatchEvent(new CustomEvent('theme-changed', {
+    detail: {
+      storage: localStorage.getItem('theme')
+    }
+  }));
+}
+
 // update isDark variable and set data-theme on localstorage
 watch(isDark, (val: boolean) => {
   let theme = val ? "dark" : "light";
   document.documentElement.setAttribute("data-theme", theme);
-  localStorage.setItem("theme", theme);
+  setTheme(theme);
 });
 
 onMounted(() => {
