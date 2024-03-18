@@ -18,28 +18,51 @@ onMounted(() => {
 
 <template>
   <h2>{{ t('projects') }}</h2>
-  <div class="grid grid-cols-1 2xl:grid-cols-2 gap-4 my-8">
-    <div class="bg-primary text-primary-content rounded-3xl c-card">
-      <div class="mx-4 mt-4 info text-center">
-        <h3>{{ t('practice.title') }}</h3>
-        {{ t('practice.desc') }}
+  <div class="grid grid-cols-1 2xl:grid-cols-2 gap-4 my-8 ">
+    <div class="card-container group">
+      <!-- link(s) -->
+      <div class="text-primary-content">
+        <div class="mb-2 mx-4 links right-0 invisible group-hover:visible group-focus:visible">
+          <Icon name="ph:github-logo-duotone" />
+          <Icon name="ph:arrow-square-out-duotone" />
+        </div>
       </div>
-      
-      <!-- code mockup -->
-      <div class="w-11/12 ml-0 mt-8 hover-animate-r">
-        <img src="/code.png" class="rounded-2xl" style="width: 105%; margin-left: -10px;" />
+      <!-- card content -->
+      <div class="bg-primary text-primary-content rounded-3xl">
+        <div class="mx-4 mt-4 info text-center">
+          <h3>{{ t('practice.title') }}</h3>
+          {{ t('practice.desc') }}
+        </div>
+
+        <!-- code mockup -->
+        <div class="w-5/6 sm:w-11/12 mt-8 hover-animate-r">
+          <img src="/code.png" class="rounded-2xl" />
+        </div>
       </div>
+
     </div>
 
-    <a href="https://visualso.vercel.app/">
-      <div class="bg-accent text-accent-content rounded-3xl c-card">
+    <!--
+     -->
+    <div class="card-container group">
+      <!-- link(s) -->
+      <div class="text-accent-content">
+        <div class="mb-2 mx-4 links left-0 invisible group-hover:visible group-focus:visible">
+          <Icon name="ph:github-logo-duotone" />
+          <a href="https://visualso.vercel.app/">
+            <Icon name="ph:arrow-square-out-duotone" />
+          </a>
+        </div>
+      </div>
+      <!-- card content -->
+      <div class="bg-accent text-accent-content rounded-3xl">
         <div class="mx-4 mt-4 info text-center">
           <h3>{{ t('tcc.title') }}</h3>
           {{ t('tcc.desc') }}
         </div>
         <!-- browser page -->
-        <div class="w-5/6 md:w-11/12 ml-auto mr-0 mt-8 hover-animate-l">
-          <div class="mockup-browser border bg-base-300 text-base-content" style="width: 105%;">
+        <div class="w-5/6 sm:w-11/12 ml-auto mt-8 hover-animate-l" style="z-index: 20;">
+          <div class="mockup-browser border bg-base-300 text-base-content">
             <div class="mockup-browser-toolbar">
               <div class="input">https://visualso.vercel.app</div>
             </div>
@@ -50,15 +73,23 @@ onMounted(() => {
           </div>
         </div>
       </div>
-    </a>
+    </div>
   </div>
 
 </template>
 
 <style lang="scss" scoped>
-.c-card {
-  overflow: hidden;
-  height: 50vh;
+.links {
+  z-index: 2;
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  font-size: 2.2rem;
+
+  @media (max-width: 600px) {
+    font-size: 2.2rem;
+  }
 }
 
 .crop-h {
@@ -91,6 +122,7 @@ onMounted(() => {
 
 .hover-animate-l {
   transition: transform 250ms;
+  margin-right: -10px;
 
   &:hover {
     transform: translate(-10px, -10px);
@@ -99,9 +131,24 @@ onMounted(() => {
 
 .hover-animate-r {
   transition: transform 250ms;
+  margin-left: -10px;
 
   &:hover {
     transform: translate(10px, -10px);
+  }
+}
+
+.card-container {
+  position: relative;
+  height: 50vh;
+
+  >div {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
   }
 }
 </style>
@@ -122,7 +169,7 @@ onMounted(() => {
     },
     "tcc": {
       "title": "ViSO",
-      "desc": "ViSO foi o projeto do meu TCC em dupla. É um site cujo objetivo é ilustrar e animar algoritmos utilizados em sistemas operacionais. Esperamos que sirva como base para trabalhos futuros de outros alunos."
+      "desc": "ViSO foi o projeto do meu TCC. É um site cujo objetivo é ilustrar e animar algoritmos utilizados em sistemas operacionais. Esperamos que sirva como base para trabalhos futuros de outros alunos."
     }
   },
   "en": {
