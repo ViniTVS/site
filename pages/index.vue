@@ -6,7 +6,7 @@ const { t } = useI18n({
 </script>
 
 <template>
-  <div id="about" class="max-w-full container px-4 md:px-10">
+  <div id="about" class="max-w-full container ">
     <div class="hero-content flex-col md:flex-row-reverse px-0 mx-0 max-w-full">
       <img alt="Headshot" src="/eu.png" id="eu" class="rounded-lg shadow-2xl" />
       <div>

@@ -18,36 +18,35 @@ onMounted(() => {
 
 <template>
   <h2>{{ t('projects') }}</h2>
-  <div class="grid grid-cols-1 2xl:grid-cols-2 gap-4 my-8 ">
-    <div class="card-container group">
+  <div class="grid grid-cols-1 xl:grid-cols-2 gap-4 my-8 ">
+    
+    <div class="card-container">
       <!-- link(s) -->
-      <div class="text-primary-content">
-        <div class="mb-2 mx-4 links right-0 invisible group-hover:visible group-focus:visible">
-          <Icon name="ph:github-logo-duotone" />
-          <Icon name="ph:arrow-square-out-duotone" />
+      <div class="text-secondary-content">
+        <div class="mb-2 mx-2 links right-0">
+          <a href="https://visualso.vercel.app/">
+            <Icon name="ph:github-logo-duotone" />
+          </a>
         </div>
       </div>
       <!-- card content -->
-      <div class="bg-primary text-primary-content rounded-3xl">
+      <div class="bg-secondary text-secondary-content rounded-3xl">
         <div class="mx-4 mt-4 info text-center">
           <h3>{{ t('practice.title') }}</h3>
           {{ t('practice.desc') }}
         </div>
 
         <!-- code mockup -->
-        <div class="w-5/6 sm:w-11/12 mt-8 hover-animate-r">
-          <img src="/code.png" class="rounded-2xl" />
+        <div class="w-5/6 sm:w-11/12 sm:mt-8 hover-animate-t">
+          <img src="/ArduinoUno.svg" class="mx-auto" style="height: 50vh;" />
         </div>
       </div>
-
     </div>
 
-    <!--
-     -->
-    <div class="card-container group">
+    <div class="card-container">
       <!-- link(s) -->
       <div class="text-accent-content">
-        <div class="mb-2 mx-4 links left-0 invisible group-hover:visible group-focus:visible">
+        <div class="mb-2 mx-2 links left-0 ">
           <Icon name="ph:github-logo-duotone" />
           <a href="https://visualso.vercel.app/">
             <Icon name="ph:arrow-square-out-duotone" />
@@ -61,7 +60,7 @@ onMounted(() => {
           {{ t('tcc.desc') }}
         </div>
         <!-- browser page -->
-        <div class="w-5/6 sm:w-11/12 ml-auto mt-8 hover-animate-l" style="z-index: 20;">
+        <div class="w-5/6 sm:w-11/12 ml-auto mt-8 hover-animate-l">
           <div class="mockup-browser border bg-base-300 text-base-content">
             <div class="mockup-browser-toolbar">
               <div class="input">https://visualso.vercel.app</div>
@@ -71,6 +70,29 @@ onMounted(() => {
               <img alt="ViSO" :src="'/viso-mobile-' + theme + '.png'" class="w-full block sm:hidden crop-v" />
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card-container ">
+      <!-- link(s) -->
+      <div class="text-primary-content">
+        <div class="mb-2 mx-2 links right-0">
+          <a href="https://visualso.vercel.app/">
+            <Icon name="ph:github-logo-duotone" />
+          </a>
+        </div>
+      </div>
+      <!-- card content -->
+      <div class="bg-primary text-primary-content rounded-3xl">
+        <div class="mx-4 mt-4 info text-center">
+          <h3>{{ t('practice.title') }}</h3>
+          {{ t('practice.desc') }}
+        </div>
+
+        <!-- code mockup -->
+        <div class="w-5/6 sm:w-11/12 mt-8 hover-animate-r">
+          <img src="/code.png" class="rounded-2xl" />
         </div>
       </div>
     </div>
@@ -135,6 +157,13 @@ onMounted(() => {
 
   &:hover {
     transform: translate(10px, -10px);
+  }
+}
+.hover-animate-t {
+  transition: transform 250ms;
+
+  &:hover {
+    transform: translate(0px, -10px);
   }
 }
 
