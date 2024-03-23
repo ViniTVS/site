@@ -2,53 +2,68 @@
 const { t } = useI18n({
   useScope: 'local'
 })
-
 </script>
 
 <template>
-  <div id="about" class="max-w-full container ">
-    <div class="hero-content flex-col md:flex-row-reverse px-0 mx-0 max-w-full">
-      <img alt="Headshot" src="/eu.png" id="eu" class="rounded-lg shadow-2xl" />
-      <div>
-        <h2 class="font-bold" style="font-size: 1.875rem;">{{ t('title') }}</h2>
-        <p>
-          {{ t('text') }}
-        </p>
-        <NuxtLink to="/about" class="btn btn-primary md:btn-sm mt-2">
-          {{ $t('more') }}
-        </NuxtLink>
+  <div class="max-w-full container px-4 md:px-10">
+    <div class="grid content-center" style="height: calc(100vh - 7rem); padding-bottom: 7rem;">
+      <p class="text-6xl sm:text-7xl xl:text-8xl break-word font-black">
+        {{ t('hello') }} &#128075; <br>
+        {{ t('name') }}
+      </p>
+      <span class="text-lg md:text-xl font-bold">
+        {{ t('text') }}
+      </span>
+    </div>
+    <div class="divider"></div>
+    <Resume />
+    <Projects />
+    <div class="mt-8 p-6 pt-3 grow w-full">
+      <div class="flex flex-row">
+        <div class="mr-4 my-2 transition "></div>
+        <h2>
+          <blockquote>
+            Do what you think is interesting, do something that you think is fun and worthwhile,
+            because otherwise you won't do it well anyway.
+          </blockquote>
+        </h2>
       </div>
+      <span>Brian W. Kernighan</span>
     </div>
   </div>
-  <div class="divider"></div>
-  <Resume />
-  <Projects />
-  <div class="mt-8 p-6 pt-3 grow w-full">
-    <div class="flex flex-row">
-      <div class="mr-4 my-2 transition "></div>
-      <h2>
-        <blockquote>
-          Do what you think is interesting, do something that you think is fun and worthwhile,
-          because otherwise you won't do it well anyway.
-        </blockquote>
-      </h2>
+  <!--  -->
+  <footer class="max-w-full container px-4 md:px-10 footer footer-center text-base-content bg-base-300 bg-opacity-50">
+    <h3 id="contact" class="pt-8 font-bold" style="font-size: 1.75rem;">{{ $t('footer.title') }}</h3>
+    {{ $t('footer.text') }}
+    <a href="mailto:vinisantos185@gmail.com" class="btn btn-secondary lowercase">
+      vinisantos185@gmail.com
+    </a>
+    <div class="flex flex-col" style="font-size: 0.75rem">
+      <div class="flex flex-row">
+        <span class="copyleft">&copy;</span> 2024 - Projetado e
+        desenvolvido com
+        <img alt="amor" src="/full_heart.png" id="coracao" class="mx-1" style="height: 1rem" />
+      </div>
+      Vinícius Teixeira Vieira dos Santos
     </div>
-    <span>Brian W. Kernighan</span>
-  </div>
+  </footer>
 </template>
 
 <i18n lang="json">{
   "pt": {
-    "title": "Sobre mim",
-    "text": "Eu sou Vinícius, um estudante de Ciência da Computação e desenvolvedor trabalhando com PHP, MySQL e Flutter. Durante a graduação tive a oportunidade de aprender programação desde C e C++ a Java e Python. Fazendo minha Iniciação Científica em robótica também passei a conhecer melhor sobre dispositivos IoT e Arduino."
+    "hello": "Olá.",
+    "name": "Eu sou Vinícius.",
+    "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas bibendum."
   },
   "en": {
-    "title": "About me",
-    "text": "I'm Vinícius, a Computer Science student and developer working with PHP, MySQL and Flutter. During graduation I had the opportunity to learn programming from C and C++ to Java and Python. Doing my Scientific Initiation in robotics, I also got to know better about IoT devices and Arduino."
+    "hello": "Hello.",
+    "name": "I'm Vinícius.",
+    "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas bibendum."
   },
   "de": {
-    "title": "Über mich",
-    "text": "Ich bin Vinícius, ein Informatikstudent und Entwickler, der mit PHP, MySQL und Flutter arbeitet. Während meines Abschlusses hatte ich die Gelegenheit, Programmieren von C und C++ bis hin zu Java und Python zu lernen. Während meiner wissenschaftlichen Einführung in Robotik lernte ich auch IoT-Geräte und Arduino besser kennen."
+    "hello": "Hallo.",
+    "name": "Ich bin Vinícius.",
+    "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas bibendum."
   }
 }</i18n>
 

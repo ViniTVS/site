@@ -98,70 +98,40 @@ function clickDropDown() {
     <Meta :lang="locale" />
   </Head>
   <!-- navbar -->
-  <nav class="sticky top-0 z-30 flex h-16 w-full bg-opacity-80 backdrop-blur shadow-sm navbar md:px-6 bg-base-100">
-    <!-- left -->
-    <div class="navbar-start">
-      <!-- dropdown for mobile -->
-      <div class="dropdown md:hidden">
-        <div tabindex="0" role="button" class="btn btn-ghost btn-square">
-          <Icon name="ph:list-bold" size="1.5rem" />
-        </div>
-        <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-42">
-          <NuxtLink v-for="page in pages" class="btn btn-ghost" :to="page.path">
-            <li>{{ $t(page.option) }}</li>
-          </NuxtLink>
-        </ul>
-      </div>
-      <!-- desktop options -->
-      <div class="hidden md:flex flex-row">
-        <NuxtLink v-for="page in pages" class="btn btn-ghost" :to="page.path">
-          {{ $t(page.option) }}
-        </NuxtLink>
-      </div>
-    </div>
-    <!-- center -->
-    <NuxtLink to="/" class="navbar-center btn btn-ghost btn-circle">
-      <img src="/favicon.png" style="height: 1.5rem;" />
-    </NuxtLink>
-    <!-- right -->
-    <div class="navbar-end">
-      <button class="btn btn-ghost btn-square" v-on:click="isDark = !isDark">
-        <Icon color="oklch(var(--p))" :name="isDark ? 'ph:sun-duotone' : 'ph:moon-duotone'" size="1.5rem"></Icon>
-      </button>
+  <header class="fixed w-full top-0 grid justify-items-center z-30">
+    <nav class="flex justify-center rounded-3xl mt-4 bg-opacity-80 backdrop-blur shadow-sm bg-base-100 p-1">
+      <NuxtLink v-for="page in pages" class="btn btn-sm btn-ghost rounded-3xl px-4 text-md font-bold" :to="page.path">
+        {{ $t(page.option) }}
+      </NuxtLink>
 
-      <div class="dropdown dropdown-end" @focusout="handleDropdown">
-        <button class="btn btn-ghost btn-square" style="text-" @click="clickDropDown">
-          <Icon color="oklch(var(--p))" name="ph:translate-duotone" size="1.5rem"></Icon>
+    </nav>
+
+  </header>
+
+  <!-- content -->
+  <div class="custom-background">
+    <div class="h-28 grid place-content-end px-4 md:px-10 md:pt-4 z-20" id="option_buttons">
+      <div class="flex">
+        <!-- theme button -->
+        <button class="btn btn-ghost btn-square z-20" v-on:click="isDark = !isDark">
+          <Icon color="oklch(var(--p))" :name="isDark ? 'ph:sun-duotone' : 'ph:moon-duotone'" size="1.5rem"></Icon>
         </button>
-        <ul :style="{ visibility: isDropDown ? 'visible' : 'hidden' }" tabindex="0"
-          class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-42">
-          <button class="btn btn-ghost" v-for="lang in languages" @click="(e) => handleDropdown(e, lang.value)">
-            <li>{{ lang.option }}</li>
+        <!-- lang button -->
+        <div class="dropdown dropdown-end" @focusout="handleDropdown">
+          <button class="btn btn-ghost btn-square" style="text-" @click="clickDropDown">
+            <Icon color="oklch(var(--p))" name="ph:translate-duotone" size="1.5rem"></Icon>
           </button>
-        </ul>
+          <ul :style="{ visibility: isDropDown ? 'visible' : 'hidden' }" tabindex="0"
+            class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-42">
+            <button class="btn btn-ghost" v-for="lang in languages" @click="(e) => handleDropdown(e, lang.value)">
+              <li>{{ lang.option }}</li>
+            </button>
+          </ul>
+        </div>
       </div>
     </div>
-  </nav>
-  <!-- content -->
-  <div class="max-w-full container px-4 md:px-10 custom-background">
     <slot> </slot>
   </div>
-  <!--  -->
-  <footer class="max-w-full container px-4 md:px-10 footer footer-center text-base-content bg-base-300 bg-opacity-50">
-    <h3 id="contact" class="pt-8 font-bold" style="font-size: 1.75rem;">{{ $t('footer.title') }}</h3>
-    {{ $t('footer.text') }}
-    <a href="mailto:vinisantos185@gmail.com" class="btn btn-secondary" style="text-transform: lowercase">
-      vinisantos185@gmail.com
-    </a>
-    <div class="flex flex-col" style="font-size: 0.75rem">
-      <div class="flex flex-row">
-        <span class="copyleft">&copy;</span> 2024 - Projetado e
-        desenvolvido com
-        <img alt="amor" src="/full_heart.png" id="coracao" class="mx-1" style="height: 1rem" />
-      </div>
-      Vinícius Teixeira Vieira dos Santos
-    </div>
-  </footer>
 </template>
 
 <style lang="scss" scoped>

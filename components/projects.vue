@@ -8,7 +8,7 @@ let theme: Ref<string> = ref("light");
 
 
 onMounted(() => {
-
+  theme.value = localStorage.getItem("theme") ?? "light";
   window.addEventListener('theme-changed', (event) => {
     theme.value = event.detail.storage;
   });
@@ -19,8 +19,8 @@ onMounted(() => {
 <template>
   <h2>{{ t('projects') }}</h2>
   <div class="grid grid-cols-1 xl:grid-cols-2 gap-4 my-8 ">
-    
-    <div class="card-container">
+
+    <div class="overlap-container">
       <!-- link(s) -->
       <div class="text-secondary-content">
         <div class="mb-2 mx-2 links right-0">
@@ -43,7 +43,7 @@ onMounted(() => {
       </div>
     </div>
 
-    <div class="card-container">
+    <div class="overlap-container">
       <!-- link(s) -->
       <div class="text-accent-content">
         <div class="mb-2 mx-2 links left-0 ">
@@ -73,8 +73,8 @@ onMounted(() => {
         </div>
       </div>
     </div>
-    
-    <div class="card-container ">
+
+    <div class="overlap-container ">
       <!-- link(s) -->
       <div class="text-primary-content">
         <div class="mb-2 mx-2 links right-0">
@@ -159,6 +159,7 @@ onMounted(() => {
     transform: translate(10px, -10px);
   }
 }
+
 .hover-animate-t {
   transition: transform 250ms;
 
@@ -167,18 +168,8 @@ onMounted(() => {
   }
 }
 
-.card-container {
-  position: relative;
+.overlap-container {
   height: 50vh;
-
-  >div {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    overflow: hidden;
-  }
 }
 </style>
 

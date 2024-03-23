@@ -1,5 +1,70 @@
 <script setup lang="ts">
+const { t } = useI18n({
+  useScope: 'local'
+});
+
 </script>
 <template>
-    <Construction />
+  <div id="about" class="max-w-full container px-4 md:px-10">
+    <div class="hero-content flex-col md:flex-row-reverse px-0 mx-0 max-w-full">
+      <img alt="Headshot" src="/eu.png" id="eu" class="rounded-lg shadow-2xl" />
+      <div>
+        <h2 class="font-bold" style="font-size: 1.875rem;">{{ t('title') }}</h2>
+        <p>
+          {{ t('text') }}
+        </p>
+        <NuxtLink to="/about" class="btn btn-primary md:btn-sm mt-2">
+          {{ $t('more') }}
+        </NuxtLink>
+      </div>
+    </div>
+  </div>
 </template>
+
+<style>
+#about {
+  padding-top: 90px;
+  padding-bottom: auto;
+  max-height: 800px;
+}
+
+#eu {
+  height: auto;
+  max-width: 200px;
+  border-radius: 8px;
+  margin: auto;
+}
+
+.transition {
+  background: linear-gradient(180deg,
+      transparent -50%,
+      oklch(var(--a)) 20%,
+      oklch(var(--a)) 80%,
+      transparent 150%);
+  height: inherit;
+  min-width: 4px;
+  width: 4px;
+}
+
+@media (min-width: 768px) {
+  #about {
+    margin: auto;
+    height: auto;
+  }
+}
+</style>
+
+<i18n lang="json">{
+  "pt": {
+    "title": "Sobre mim",
+    "text": "Eu sou Vinícius, um estudante de Ciência da Computação e desenvolvedor trabalhando com PHP, MySQL e Flutter. Durante a graduação tive a oportunidade de aprender programação desde C e C++ a Java e Python. Fazendo minha Iniciação Científica em robótica também passei a conhecer melhor sobre dispositivos IoT e Arduino."
+  },
+  "en": {
+    "title": "About me",
+    "text": "I'm Vinícius, a Computer Science student and developer working with PHP, MySQL and Flutter. During graduation I had the opportunity to learn programming from C and C++ to Java and Python. Doing my Scientific Initiation in robotics, I also got to know better about IoT devices and Arduino."
+  },
+  "de": {
+    "title": "Über mich",
+    "text": "Ich bin Vinícius, ein Informatikstudent und Entwickler, der mit PHP, MySQL und Flutter arbeitet. Während meines Abschlusses hatte ich die Gelegenheit, Programmieren von C und C++ bis hin zu Java und Python zu lernen. Während meiner wissenschaftlichen Einführung in Robotik lernte ich auch IoT-Geräte und Arduino besser kennen."
+  }
+}</i18n>
