@@ -20,8 +20,8 @@ let theme: Ref<string> = ref("light");
   <h2>{{ t('projects') }}</h2>
 
   <div class="w-full projects">
-    <div class="h-screen flex overlap-container">
-      <div class="w-full grid grid-cols-2 place-content-between">
+    <div class="flex overlap-container rounded-2xl bg-primary text-primary-content">
+      <div class="w-full p-4 grid grid-cols-2 place-content-between">
         <div class="justify-self-start">
           <img src="/esp32.svg" class="h-24 md:h-32" />
         </div>
@@ -35,14 +35,12 @@ let theme: Ref<string> = ref("light");
           <img src="/ArduinoUno.svg" class="h-24 md:h-32" />
         </div>
       </div>
-
-      <div class="h-full grow place-content-center text-center vertical-center">
-        <div class="m-auto">
+      <div>
+        <div class="text-center vertical-center p-2">
           <h3>{{ t('practice.title') }}</h3>
           {{ t('practice.desc') }}
         </div>
       </div>
-
     </div>
   </div>
 
@@ -51,11 +49,40 @@ let theme: Ref<string> = ref("light");
 <style lang="scss" scoped>
 .projects {
   >div {
-    height: 75svh;
+    height: 80svh;
+    font-size: 1.25rem;
+    line-height: 1.75rem;
 
-    @media (max-width: 600px) {
-      height: 100svh;
+    img {
+      animation-name: floating;
+      animation-duration: 4s;
+      animation-iteration-count: infinite;
+      animation-timing-function: ease-in-out;
     }
+
+    div:nth-child(2) {
+      img {
+        animation-delay: 2s;
+      }
+    }
+
+    div:nth-child(3) {
+      img {
+        animation-delay: 3s;
+      }
+    }
+
+    div:nth-child(4) {
+      img {
+        animation-delay: 1s;
+      }
+    }
+  }
+
+  h3 {
+    font-weight: bold;
+    font-size: 2.5rem;
+    line-height: 2rem;
   }
 }
 
@@ -67,14 +94,23 @@ let theme: Ref<string> = ref("light");
   transform: translateY(-50%);
 }
 
-.overlap-container {
-  height: 100vh;
-  font-size: 1.25rem;
-  line-height: 1.75rem;
-}
-
 img {
   z-index: -10;
+}
+
+
+@keyframes floating {
+  0% {
+    transform: translate(0, 0px);
+  }
+
+  50% {
+    transform: translate(0, 15px);
+  }
+
+  100% {
+    transform: translate(0, -0px);
+  }
 }
 </style>
 
