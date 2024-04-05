@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import Parallaxy from '@lucien144/vue3-parallaxy';
 
 const { t } = useI18n({
   useScope: 'local'
@@ -6,170 +7,74 @@ const { t } = useI18n({
 
 let theme: Ref<string> = ref("light");
 
+// onMounted(() => {
+//   theme.value = localStorage.getItem("theme") ?? "light";
+//   window.addEventListener('theme-changed', (event) => {
+//     theme.value = event.detail.storage;
+//   });
+// });
 
-onMounted(() => {
-  theme.value = localStorage.getItem("theme") ?? "light";
-  window.addEventListener('theme-changed', (event) => {
-    theme.value = event.detail.storage;
-  });
-
-});
 </script>
 
 <template>
   <h2>{{ t('projects') }}</h2>
-  <div class="grid grid-cols-1 xl:grid-cols-2 gap-4 my-8 ">
 
-    <div class="overlap-container">
-      <!-- link(s) -->
-      <div class="text-secondary-content">
-        <div class="mb-2 mx-2 links right-0">
-          <a href="https://visualso.vercel.app/">
-            <Icon name="ph:github-logo-duotone" />
-          </a>
+  <div class="w-full projects">
+    <div class="h-screen flex overlap-container">
+      <div class="w-full grid grid-cols-2 place-content-between">
+        <div class="justify-self-start">
+          <img src="/esp32.svg" class="h-24 md:h-32" />
+        </div>
+        <div class="justify-self-end">
+          <img src="/c.svg" class="h-24 md:h-32" />
+        </div>
+        <div class="justify-self-start">
+          <img src="/rust.svg" class="h-24 md:h-32" />
+        </div>
+        <div class="justify-self-end">
+          <img src="/ArduinoUno.svg" class="h-24 md:h-32" />
         </div>
       </div>
-      <!-- card content -->
-      <div class="bg-secondary text-secondary-content rounded-3xl">
-        <div class="mx-4 mt-4 info text-center">
+
+      <div class="h-full grow place-content-center text-center vertical-center">
+        <div class="m-auto">
           <h3>{{ t('practice.title') }}</h3>
           {{ t('practice.desc') }}
         </div>
+      </div>
 
-        <!-- code mockup -->
-        <div class="w-5/6 sm:w-11/12 sm:mt-8 hover-animate-t">
-          <img src="/ArduinoUno.svg" class="mx-auto" style="height: 50vh;" />
-        </div>
-      </div>
-    </div>
-
-    <div class="overlap-container">
-      <!-- link(s) -->
-      <div class="text-accent-content">
-        <div class="mb-2 mx-2 links left-0 ">
-          <Icon name="ph:github-logo-duotone" />
-          <a href="https://visualso.vercel.app/">
-            <Icon name="ph:arrow-square-out-duotone" />
-          </a>
-        </div>
-      </div>
-      <!-- card content -->
-      <div class="bg-accent text-accent-content rounded-3xl">
-        <div class="mx-4 mt-4 info text-center">
-          <h3>{{ t('tcc.title') }}</h3>
-          {{ t('tcc.desc') }}
-        </div>
-        <!-- browser page -->
-        <div class="w-5/6 sm:w-11/12 ml-auto mt-8 hover-animate-l">
-          <div class="mockup-browser border bg-base-300 text-base-content">
-            <div class="mockup-browser-toolbar">
-              <div class="input">https://visualso.vercel.app</div>
-            </div>
-            <div class="bg-base-200 w-full">
-              <img alt="ViSO" :src="'/viso-' + theme + '.png'" class="w-full hidden sm:block crop-h" />
-              <img alt="ViSO" :src="'/viso-mobile-' + theme + '.png'" class="w-full block sm:hidden crop-v" />
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="overlap-container ">
-      <!-- link(s) -->
-      <div class="text-primary-content">
-        <div class="mb-2 mx-2 links right-0">
-          <a href="https://visualso.vercel.app/">
-            <Icon name="ph:github-logo-duotone" />
-          </a>
-        </div>
-      </div>
-      <!-- card content -->
-      <div class="bg-primary text-primary-content rounded-3xl">
-        <div class="mx-4 mt-4 info text-center">
-          <h3>{{ t('practice.title') }}</h3>
-          {{ t('practice.desc') }}
-        </div>
-
-        <!-- code mockup -->
-        <div class="w-5/6 sm:w-11/12 mt-8 hover-animate-r">
-          <img src="/code.png" class="rounded-2xl" />
-        </div>
-      </div>
     </div>
   </div>
 
 </template>
 
 <style lang="scss" scoped>
-.links {
-  z-index: 2;
+.projects {
+  >div {
+    height: 75svh;
+
+    @media (max-width: 600px) {
+      height: 100svh;
+    }
+  }
+}
+
+.vertical-center {
+  margin: 0;
   position: absolute;
-  bottom: 0;
-  display: flex;
-  flex-direction: column;
-  font-size: 2.2rem;
-
-  @media (max-width: 600px) {
-    font-size: 2.2rem;
-  }
-}
-
-.crop-h {
-  top: 0;
-  object-fit: cover;
-  display: block;
-
-  @media (max-width: 600px) {
-    display: none;
-  }
-}
-
-.crop-v {
-  top: 0;
-  object-fit: cover;
-  display: none;
-
-  @media (max-width: 600px) {
-    display: block;
-  }
-}
-
-.info {
-  >h3 {
-    font-size: 2.25rem;
-    line-height: 2.5rem;
-    font-weight: bold;
-  }
-}
-
-.hover-animate-l {
-  transition: transform 250ms;
-  margin-right: -10px;
-
-  &:hover {
-    transform: translate(-10px, -10px);
-  }
-}
-
-.hover-animate-r {
-  transition: transform 250ms;
-  margin-left: -10px;
-
-  &:hover {
-    transform: translate(10px, -10px);
-  }
-}
-
-.hover-animate-t {
-  transition: transform 250ms;
-
-  &:hover {
-    transform: translate(0px, -10px);
-  }
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
 }
 
 .overlap-container {
-  height: 50vh;
+  height: 100vh;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
+img {
+  z-index: -10;
 }
 </style>
 

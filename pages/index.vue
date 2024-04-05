@@ -1,18 +1,18 @@
 <script setup lang="ts">
 const { t } = useI18n({
-  useScope: 'local'
-})
+  useScope: "local",
+});
 </script>
 
 <template>
   <div class="max-w-full container px-4 md:px-10">
-    <div class="grid content-center" style="height: calc(100vh - 7rem); padding-bottom: 7rem;">
+    <div class="grid content-center" style="height: calc(100vh - 7rem); padding-bottom: 7rem">
       <p class="text-6xl sm:text-7xl xl:text-8xl break-word font-black">
-        {{ t('hello') }} &#128075; <br>
-        {{ t('name') }}
+        {{ t("hello") }} &#128075; <br />
+        <span class="text-primary"> {{ t("name") }} </span>
       </p>
       <span class="text-lg md:text-xl font-bold">
-        {{ t('text') }}
+        {{ t("text") }}
       </span>
     </div>
     <div class="divider"></div>
@@ -20,11 +20,12 @@ const { t } = useI18n({
     <Projects />
     <div class="mt-8 p-6 pt-3 grow w-full">
       <div class="flex flex-row">
-        <div class="mr-4 my-2 transition "></div>
+        <div class="mr-4 my-2 transition"></div>
         <h2>
           <blockquote>
-            Do what you think is interesting, do something that you think is fun and worthwhile,
-            because otherwise you won't do it well anyway.
+            Do what you think is interesting, do something that you
+            think is fun and worthwhile, because otherwise you won't
+            do it well anyway.
           </blockquote>
         </h2>
       </div>
@@ -33,8 +34,10 @@ const { t } = useI18n({
   </div>
   <!--  -->
   <footer class="max-w-full container px-4 md:px-10 footer footer-center text-base-content bg-base-300 bg-opacity-50">
-    <h3 id="contact" class="pt-8 font-bold" style="font-size: 1.75rem;">{{ $t('footer.title') }}</h3>
-    {{ $t('footer.text') }}
+    <h3 id="contact" class="pt-8 font-bold" style="font-size: 1.75rem">
+      {{ $t("footer.title") }}
+    </h3>
+    {{ $t("footer.text") }}
     <a href="mailto:vinisantos185@gmail.com" class="btn btn-secondary lowercase">
       vinisantos185@gmail.com
     </a>

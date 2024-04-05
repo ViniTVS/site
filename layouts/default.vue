@@ -99,7 +99,7 @@ function clickDropDown() {
   </Head>
   <!-- navbar -->
   <header class="fixed w-full top-0 grid justify-items-center z-30">
-    <nav class="flex justify-center rounded-3xl mt-4 bg-opacity-80 backdrop-blur shadow-sm bg-base-100 p-1">
+    <nav class="flex justify-center rounded-3xl mt-4 bg-opacity-80 backdrop-blur shadow-sm shadow-base-300 bg-base-100 p-1">
       <NuxtLink v-for="page in pages" class="btn btn-sm btn-ghost rounded-3xl px-4 text-md font-bold" :to="page.path">
         {{ $t(page.option) }}
       </NuxtLink>
