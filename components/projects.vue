@@ -17,15 +17,15 @@ onMounted(() => {
 
 <template>
   <h2>{{ t('projects') }}</h2>
-  <div class="w-full projects">
+  <div class="w-full grid grid-cols-1 lg:grid-cols-5 gap-8 projects">
     <!-- ViSO -->
-    <div class="h-full flex flex-col my-4 rounded-2xl bg-primary text-primary-content">
+    <div class="col-auto lg:col-span-3 flex flex-col rounded-2xl bg-primary text-primary-content">
       <div class="center text-center grow">
         <h3>{{ t('tcc.title') }}</h3>
         {{ t('tcc.desc') }}
       </div>
       <!-- browser page -->
-      <a href="https://visualso.vercel.app" style="height: 50%;">
+      <a href="https://visualso.vercel.app" class="h-1/2 md:h-2/6">
         <div class="w-110 ml-8 mx-auto hover-animate">
           <div class="mockup-browser border bg-base-300 text-base-content">
             <div class="mockup-browser-toolbar">
@@ -41,7 +41,7 @@ onMounted(() => {
     </div>
 
     <!-- VSSS -->
-    <div class="h-full flex flex-col my-4 rounded-2xl bg-accent text-accent-content">
+    <div class="col-auto lg:col-span-2 flex flex-col rounded-2xl bg-accent text-accent-content">
       <div class="center text-center grow">
         <h3>{{ t('vsss.title') }}</h3>
         {{ t('vsss.desc') }}
@@ -57,14 +57,14 @@ onMounted(() => {
       </div>
     </div>
 
-
+    <!-- IoT -->
     <div
-      class="grid grid-cols-2 grid-rows-5 md:grid-rows-4 gap-10 my-4 p-4 rounded-2xl bg-secondary text-secondary-content">
+      class="col-auto lg:col-span-2 grid grid-cols-2 grid-rows-5 md:grid-rows-4 gap-10 p-4 rounded-2xl bg-secondary text-secondary-content">
       <div>
         <img src="/esp32.svg" class="mr-auto floating" />
       </div>
       <div>
-        <img src="/c.svg" class="ml-auto floating" style="animation-delay: -2s;" />
+        <img src="/ArduinoUno.svg" class="ml-auto floating" style="animation-delay: -2s;" />
       </div>
       <div class="col-span-2 row-span-3 md:row-span-2 center text-center grow">
         <h3>{{ t('arduino.title') }}</h3>
@@ -76,10 +76,10 @@ onMounted(() => {
         </div>
       </div>
       <div>
-        <img src="/rust.svg" class="mr-auto floating" style="animation-delay: -3s;" />
+        <img src="/Raspberry_Pi_3.svg" class="mr-auto floating" style="animation-delay: -3s;" />
       </div>
       <div>
-        <img src="/ArduinoUno.svg" class="ml-auto floating" style="animation-delay: -1s;" />
+        <img src="/c.svg" class="ml-auto floating" style="animation-delay: -1s;" />
       </div>
     </div>
 
@@ -89,13 +89,13 @@ onMounted(() => {
 
 <style lang="scss" scoped>
 .w-110 {
-  width: 100vw;
+  width: 110%;
 }
 
 .projects {
 
   >div {
-    height: 80svh;
+    height: 70svh;
     font-size: 1.25rem;
     line-height: 1.75rem;
     overflow: hidden;
@@ -110,7 +110,7 @@ onMounted(() => {
 }
 
 .icons {
-  font-size: 1.75em;
+  font-size: 1.25em;
 
 }
 
@@ -142,6 +142,7 @@ img {
 
 .floating {
   height: 100%;
+  max-width: 200px;
   animation-name: floating;
   animation-duration: 4s;
   animation-iteration-count: infinite;

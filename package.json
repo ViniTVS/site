@@ -14,16 +14,16 @@
   "devDependencies": {
     "@nuxtjs/google-fonts": "^3.2.0",
     "@nuxtjs/i18n": "^8.3.0",
-    "@nuxtjs/tailwindcss": "^6.11.4",
+    "@nuxtjs/tailwindcss": "^6.12.0",
     "@types/chroma-js": "^2.4.4",
-    "daisyui": "^4.10.1",
+    "daisyui": "^4.10.2",
     "node-sass": "^9.0.0",
     "nuxt": "^3.11.2",
     "nuxt-icon": "^0.6.10",
-    "sass": "^1.74.1",
-    "sass-loader": "^14.1.1",
-    "vue": "^3.4.21",
-    "vue-router": "^4.3.0"
+    "sass": "^1.75.0",
+    "sass-loader": "^14.2.1",
+    "vue": "^3.4.23",
+    "vue-router": "^4.3.1"
   },
   "dependencies": {
     "@lucien144/vue3-parallaxy": "^0.1.2",

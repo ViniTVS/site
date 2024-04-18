@@ -103,9 +103,7 @@ function clickDropDown() {
       <NuxtLink v-for="page in pages" class="btn btn-sm btn-ghost rounded-3xl px-4 text-md font-bold" :to="page.path">
         {{ $t(page.option) }}
       </NuxtLink>
-
     </nav>
-
   </header>
 
   <!-- content -->

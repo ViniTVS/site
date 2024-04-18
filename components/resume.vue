@@ -10,7 +10,7 @@ function getYearFloat(date: Date): number {
   return parseFloat(format(date, 'yyyy')) + parseFloat(format(date, 'M')) / 12;
 }
 
-interface Exp {
+interface Info {
   desc: string,
   title: string,
   start: Date,
@@ -19,14 +19,7 @@ interface Exp {
 }
 const today = new Date();
 
-let exps: Ref<Array<Exp>> = ref([
-  {
-    desc: "UFPR",
-    title: "degree",
-    start: new Date("2018-02-12"),
-    end: new Date("2023-11-20"),
-    color: 'bg-accent text-primary-content'
-  },
+let xp: Ref<Array<Info>> = ref([
   {
     desc: "SPRO IT Solutions",
     title: "intern",
@@ -43,11 +36,27 @@ let exps: Ref<Array<Exp>> = ref([
   },
 ]);
 
+let edu: Ref<Array<Info>> = ref([
+  {
+    desc: "UFPR",
+    title: "degree",
+    start: new Date("2018-02-12"),
+    end: new Date("2023-11-20"),
+    color: 'bg-accent text-primary-content'
+  },
+]);
+
 </script>
 
 <template>
   <h3>{{ t('work') }}</h3>
+  <div>
+    <div v-for="(x, i) in xp">
+    {{ x.desc }}
 
+    </div>
+
+  </div>
 </template>
 
 
@@ -61,7 +70,7 @@ h3 {
 
 <i18n lang="json">{
   "pt": {
-    "work": "Trabalho",
+    "work": "Infoeriência",
     "education": "Formação",
     "present": "Atualmente",
     "degree": "Bacharelado em Ciência da Computação",
@@ -69,7 +78,7 @@ h3 {
     "junior_full": "Dev. Fullstack Júnior"
   },
   "en": {
-    "work": "Work",
+    "work": "Infoerience",
     "education": "Education",
     "present": "Present",
     "degree": "Bachelor's in Computer Science",
@@ -77,7 +86,7 @@ h3 {
     "junior_full": "Junior Fullstack Dev."
   },
   "de": {
-    "work": "Arbeit",
+    "work": "Erfahrung",
     "education": "Ausbildung",
     "present": "Gegenwart",
     "degree": "Bachelor in Informatik",
