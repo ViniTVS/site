@@ -9,7 +9,7 @@ const { t } = useI18n({
     <div class="hero-content flex-col md:flex-row-reverse px-0 mx-0 max-w-full">
       <img alt="Headshot" src="/eu.png" id="eu" class="rounded-lg shadow-2xl" />
       <div>
-        <h2 class="font-bold" style="font-size: 1.875rem;">{{ t('about') }}</h2>
+        <h2>{{ t('about') }}</h2>
         <p>
           {{ t('about_text') }}
         </p>

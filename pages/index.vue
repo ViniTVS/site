@@ -18,19 +18,6 @@ const { t } = useI18n({
     <div class="divider"></div>
     <Resume />
     <Projects />
-    <div class="mt-8 p-6 pt-3 grow w-full">
-      <div class="flex flex-row">
-        <div class="mr-4 my-2 transition"></div>
-        <h2>
-          <blockquote>
-            Do what you think is interesting, do something that you
-            think is fun and worthwhile, because otherwise you won't
-            do it well anyway.
-          </blockquote>
-        </h2>
-      </div>
-      <span>Brian W. Kernighan</span>
-    </div>
   </div>
   <!--  -->
   <footer class="max-w-full container px-4 md:px-10 footer footer-center text-base-content bg-base-300 bg-opacity-50">

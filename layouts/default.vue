@@ -107,7 +107,7 @@ function clickDropDown() {
   </header>
 
   <!-- content -->
-  <div class="custom-background">
+  <div class="custom-background" style="min-height: 100vh;">
     <div class="h-28 grid place-content-end px-4 md:px-10 md:pt-4 z-20" id="option_buttons">
       <div class="flex">
         <!-- theme button -->

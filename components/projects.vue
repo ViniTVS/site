@@ -9,6 +9,7 @@ let theme: Ref<string> = ref("light");
 onMounted(() => {
   theme.value = localStorage.getItem("theme") ?? "light";
   window.addEventListener('theme-changed', (event) => {
+    // @ts-ignore
     theme.value = event.detail.storage;
   });
 });
@@ -17,7 +18,7 @@ onMounted(() => {
 
 <template>
   <h2>{{ t('projects') }}</h2>
-  <div class="w-full grid grid-cols-1 lg:grid-cols-5 gap-8 projects">
+  <div class="w-full grid grid-cols-1 lg:grid-cols-5 gap-8 projects mb-8">
     <!-- ViSO -->
     <div class="col-auto lg:col-span-3 flex flex-col rounded-2xl bg-primary text-primary-content">
       <div class="center text-center grow">
@@ -83,6 +84,19 @@ onMounted(() => {
       </div>
     </div>
 
+    <div class="col-auto lg:col-span-3 mt-8 p-6 pt-3 grow w-full max-h-96 md:max-h-72">
+      <div class="flex flex-row">
+        <div class="mr-4 my-2 transition"></div>
+        <h3>
+          <blockquote>
+            Do what you think is interesting, do something that you
+            think is fun and worthwhile, because otherwise you won't
+            do it well anyway.
+          </blockquote>
+        </h3>
+      </div>
+      <span>Brian W. Kernighan</span>
+    </div>
   </div>
 
 </template>
@@ -99,13 +113,6 @@ onMounted(() => {
     font-size: 1.25rem;
     line-height: 1.75rem;
     overflow: hidden;
-  }
-
-  h3 {
-    font-weight: bold;
-    font-size: 2.5rem;
-    line-height: 2rem;
-    margin-bottom: 0.5rem;
   }
 }
 
