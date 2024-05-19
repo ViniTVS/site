@@ -1,6 +1,6 @@
 <script setup lang="ts">
 
-const { t } = useI18n({
+const { t, locale } = useI18n({
   useScope: 'local'
 });
 
@@ -30,7 +30,7 @@ onMounted(() => {
         <div class="w-110 ml-8 mx-auto hover-animate">
           <div class="mockup-browser border bg-base-300 text-base-content">
             <div class="mockup-browser-toolbar">
-              <div class="input">https://visualso.vercel.app</div>
+              <div class="input" style="margin-left: 20px;">https://visualso.vercel.app</div>
             </div>
             <div class="bg-base-200 w-full">
               <img alt="ViSO" :src="'/viso-' + theme + '.png'" class="w-full hidden sm:block crop-h" />
@@ -48,7 +48,7 @@ onMounted(() => {
         {{ t('vsss.desc') }}
         <div class="flex flex-row icons">
           <a href="https://github.com/ViniTVS/VSSS">
-            <Icon name="line-md:github" />
+            <Icon name="cib:github" />
           </a>
         </div>
       </div>
@@ -58,9 +58,36 @@ onMounted(() => {
       </div>
     </div>
 
+    <!-- Reminder -->
+    <div class="col-auto lg:col-span-2 flex flex-col rounded-2xl bg-secondary text-secondary-content">
+      <div class="center text-center col-span-5">
+        <h3>{{ t('reminder.title') }}</h3>
+        {{ t('reminder.desc') }}
+      </div>
+
+      <div class="max-h-72">
+        <!-- Flowbite's Device Mockups https://flowbite.com/docs/components/device-mockups/ -->
+        <div
+          class="relative mx-auto border-gray-800 dark:border-gray-800 bg-gray-800 border-[14px] rounded-[2rem] h-[600px] w-[300px]">
+          <div class="h-[32px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -start-[17px] top-[72px] rounded-s-xl">
+          </div>
+          <div class="h-[46px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -start-[17px] top-[124px] rounded-s-xl">
+          </div>
+          <div class="h-[46px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -start-[17px] top-[178px] rounded-s-xl">
+          </div>
+          <div class="h-[64px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -end-[17px] top-[142px] rounded-e-xl">
+          </div>
+          <div class="rounded-[1.5rem] overflow-hidden w-[272px] h-[572px] bg-white dark:bg-gray-800">
+            <img src="/reminder.jpeg" class="w-[272px] h-[572px]" alt="">
+          </div>
+        </div>
+      </div>
+
+    </div>
+
     <!-- IoT -->
     <div
-      class="col-auto lg:col-span-2 grid grid-cols-2 grid-rows-5 md:grid-rows-4 gap-10 p-4 rounded-2xl bg-secondary text-secondary-content">
+      class="col-auto lg:col-span-3 grid grid-cols-2 grid-rows-5 md:grid-rows-4 gap-10 p-4 rounded-2xl bg-primary text-primary-content">
       <div>
         <img src="/esp32.svg" class="mr-auto floating" />
       </div>
@@ -72,7 +99,7 @@ onMounted(() => {
         {{ t('arduino.desc') }}
         <div class="flex flex-row icons">
           <a href="https://visualso.vercel.app/">
-            <Icon name="line-md:github-loop" />
+            <Icon name="cib:github" />
           </a>
         </div>
       </div>
@@ -84,7 +111,7 @@ onMounted(() => {
       </div>
     </div>
 
-    <div class="col-auto lg:col-span-3 mt-8 p-6 pt-3 grow w-full max-h-96 md:max-h-72">
+    <div class="col-auto lg:col-span-5 mt-8 p-6 pt-3 grow w-full max-h-96 md:max-h-72">
       <div class="flex flex-row">
         <div class="mr-4 my-2 transition"></div>
         <h3>
@@ -197,6 +224,10 @@ img {
     "vsss": {
       "title": "Iniciação Científica",
       "desc": "Desenvolvimento do firmware do robô para o formato de competição Very Small Size Soccer e sua base de comunicação feito juntamente com colegas da universidade utilizando dispositivos Arduino."
+    },
+    "reminder": {
+      "title": "Reminder",
+      "desc": "Um aplicativo para lembrar de seus afazeres por horário ou localidade, com base na conexão Wi-Fi."
     }
   },
   "en": {
@@ -223,6 +254,10 @@ img {
     "vsss": {
       "title": "Scientific Research",
       "desc": "Firmware development for the Very Small Size Soccer competition format robots and its communication base implemented along with university colleagues using Arduino devices."
+    },
+    "reminder": {
+      "title": "Reminder",
+      "desc": "An application to remember your tasks by time or location, based on Wi-Fi connection."
     }
   },
   "de": {
@@ -249,6 +284,10 @@ img {
     "vsss": {
       "title": "Wissenschaftliche Forschung",
       "desc": "Firmware-Entwicklung für die Roboter im Very Small Size Soccer-Wettbewerbsformat und ihre Kommunikationsbasis, implementiert zusammen mit Universitätskollegen unter Verwendung von Arduino-Geräten."
+    },
+    "reminder": {
+      "title": "Reminder",
+      "desc": "Eine Anwendung zum Merken Ihrer Aufgaben nach Zeit oder Ort, basierend auf der Wi-Fi-Verbindung."
     }
   }
 }</i18n>

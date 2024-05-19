@@ -6,18 +6,23 @@
     ),
     radial-gradient(
       circle farthest-side at 10% 110vh,
-      oklch(var(--s) / 0.15) 0px,
-      transparent 40%
+      oklch(var(--p) / 0.15) 0px,
+      transparent 80%
     ),
     radial-gradient(
-      circle at 110% 200vh,
-      oklch(var(--a) / 0.25) 0px,
+      circle at -10% 230vh,
+      oklch(var(--p) / 0.4) 0px,
       transparent 30%
     ),
     radial-gradient(
-      circle at 0 540vh,
+      circle at 110% 360vh,
+      oklch(var(--p) / 0.25) 0px,
+      transparent 20%
+    ),
+    radial-gradient(
+      circle at 110% 530vh,
       oklch(var(--p) / 0.2) 0px,
-      transparent 7%
+      transparent 10%
     );
 }
 
@@ -45,7 +50,7 @@ h2 {
 h3 {
   font-weight: bold;
   font-size: 2.25rem;
-  line-height: 2rem;
+  line-height: 2.25rem;
   margin-bottom: 0.5rem;
   overflow-wrap: break-word;
 }

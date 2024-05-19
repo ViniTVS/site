@@ -6,46 +6,6 @@ const { t, te } = useI18n({
   useScope: 'local'
 })
 
-function getYearFloat(date: Date): number {
-  return parseFloat(format(date, 'yyyy')) + parseFloat(format(date, 'M')) / 12;
-}
-
-interface Info {
-  desc: string,
-  title: string,
-  start: Date,
-  end: Date,
-  color: string
-}
-const today = new Date();
-
-let xp: Ref<Array<Info>> = ref([
-  {
-    desc: "SPRO IT Solutions",
-    title: "intern",
-    start: new Date("2021-03-11"),
-    end: new Date("2023-03-11"),
-    color: 'bg-secondary text-primary-secondary'
-  },
-  {
-    desc: "SPRO IT Solutions",
-    title: "junior_full",
-    start: new Date("2023-03-11"),
-    end: today,
-    color: 'bg-primary text-primary-primary'
-  },
-]);
-
-let edu: Ref<Array<Info>> = ref([
-  {
-    desc: "UFPR",
-    title: "degree",
-    start: new Date("2018-02-12"),
-    end: new Date("2023-11-20"),
-    color: 'bg-accent text-primary-content'
-  },
-]);
-
 </script>
 
 <template>
@@ -62,7 +22,7 @@ let edu: Ref<Array<Info>> = ref([
       <h3> {{ t('junior_full') }} </h3>
       <div class="flex flex-row justify-between">
         <h4> SPRO IT Solutions </h4>
-        <h4> 2021~{{ t('present') }} </h4>
+        <h4> 2023~{{ t('present') }} </h4>
       </div>
     </div>
   </div>
