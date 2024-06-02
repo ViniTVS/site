@@ -1,29 +1,19 @@
 .custom-background {
-  background: radial-gradient(
-      circle at 100% 10vh,
+  background: radial-gradient(circle at 100% 10vh,
       oklch(var(--p) / 0.3) 0px,
-      transparent 20%
-    ),
-    radial-gradient(
-      circle farthest-side at 10% 110vh,
+      transparent 20%),
+    radial-gradient(circle farthest-side at 10% 150vh,
       oklch(var(--p) / 0.15) 0px,
-      transparent 80%
-    ),
-    radial-gradient(
-      circle at -10% 230vh,
+      transparent 80%),
+    radial-gradient(circle at -10% 230vh,
       oklch(var(--p) / 0.4) 0px,
-      transparent 30%
-    ),
-    radial-gradient(
-      circle at 110% 360vh,
+      transparent 30%),
+    radial-gradient(circle at 110% 360vh,
       oklch(var(--p) / 0.25) 0px,
-      transparent 20%
-    ),
-    radial-gradient(
-      circle at 110% 530vh,
+      transparent 20%),
+    radial-gradient(circle at 110% 530vh,
       oklch(var(--p) / 0.2) 0px,
-      transparent 10%
-    );
+      transparent 10%);
 }
 
 .overlap-container {
@@ -40,7 +30,7 @@
 }
 
 h2 {
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: 700;
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
@@ -49,8 +39,8 @@ h2 {
 
 h3 {
   font-weight: bold;
-  font-size: 2.25rem;
-  line-height: 2.25rem;
+  font-size: 1.75rem;
+  line-height: 2rem;
   margin-bottom: 0.5rem;
   overflow-wrap: break-word;
 }
@@ -58,8 +48,13 @@ h3 {
 h4 {
   font-weight: bold;
   font-size: 1.25rem;
-  margin-bottom: 0.25rem;
 }
+
+h5 {
+  font-weight: semibold;
+  font-size: 1.15rem;
+}
+
 // [data-theme='light'] {
 
 //  .custom-background {

@@ -65,10 +65,10 @@ onMounted(() => {
         {{ t('reminder.desc') }}
       </div>
 
-      <div class="max-h-72">
+      <div class="max-h-72 md:max-h-48">
         <!-- Flowbite's Device Mockups https://flowbite.com/docs/components/device-mockups/ -->
         <div
-          class="relative mx-auto border-gray-800 dark:border-gray-800 bg-gray-800 border-[14px] rounded-[2rem] h-[600px] w-[300px]">
+          class="hover-animate relative mx-auto border-gray-800 dark:border-gray-800 bg-gray-800 border-[14px] rounded-[2rem] h-[600px] w-[300px]">
           <div class="h-[32px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -start-[17px] top-[72px] rounded-s-xl">
           </div>
           <div class="h-[46px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -start-[17px] top-[124px] rounded-s-xl">
