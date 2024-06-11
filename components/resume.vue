@@ -5,7 +5,6 @@ const { t, te } = useI18n({
   useScope: 'local'
 })
 
-
 interface Experience {
   tech: Array<string>;
   desc: string;
@@ -39,10 +38,35 @@ let exp: Array<Experience> = [
   },
 ];
 
-const present_span = '<span class="text-primary">';
-const under_start = '<span class="underline decoration-primary decoration-wavy">';
-const under_end = '</span>';
+interface TextReplace {
+  text: string;
+  replace: string;
+}
 
+const replace_array: Array<TextReplace> = [
+  {
+    text: '\n',
+    replace: '<br>'
+  },
+  {
+    text: '\\se',
+    replace: '</span>'
+  },
+  {
+    text: '\\s',
+    replace: '<span class="underline decoration-primary decoration-wavy">'
+  },
+];
+
+function insertHTML(original: string, tr: Array<TextReplace>): string {
+  var new_text = original;
+  for (let item of tr) {
+    new_text = new_text.replaceAll(item.text, item.replace);
+  }
+  return new_text;
+}
+
+const present_span = '<span class="text-primary">';
 </script>
 
 <template>
@@ -54,7 +78,7 @@ const under_end = '</span>';
       <div v-for="xp in exp" class="flex flex-row gap-2">
         <!-- date interval -->
         <div style="min-width: 7rem;">
-          <h5 v-html="xp.time.replace('now', present_span + $t('present') + '</span>')"> </h5>
+          <h5 v-html="xp.time.replace('now', present_span + $t('present') + '</span>')" />
         </div>
         <!-- description -->
         <div class="grow">
@@ -71,8 +95,8 @@ const under_end = '</span>';
     </div>
     <!-- short about  -->
     <div class="col-span-2 fixed-ct md:h-20 md:mb-16 order-2">
-      <p class="mb-2"
-        v-html="t('about').replaceAll('\n', '<br>').replaceAll('\\s', under_start).replaceAll('\\e', under_end)"> </p>
+      <h5 class="text-primary"> {{ t('dev') }} </h5>
+      <p class="mb-2" v-html="insertHTML(t('about'), replace_array)" />
     </div>
   </div>
 
@@ -109,13 +133,14 @@ h6 {
 
 <i18n lang="json">{
   "pt": {
-    "about": "Sou desenvolvedor fullstack com experiência em \\sVue\\e, \\sPHP\\e e \\sMariaDB\\e e bacharel em Ciência da Computação. Gosto de criar projetos e testar novas tecnologias e diferentes áreas de desenvolvimento.",
+    "about": "Sou desenvolvedor fullstack com experiência em \\sVue\\se, \\sPHP\\se e \\sMariaDB\\se e bacharel em Ciência da Computação. Gosto de criar projetos e testar novas tecnologias e diferentes áreas de desenvolvimento.",
     "work": "Experiência",
     "education": "Formação",
     "present": "Atualmente",
     "degree": "Bacharelado em Ciência da Computação",
     "intern": "Estágio Desenvolvedor Fullstack",
     "junior_full": "Desenvolvedor Fullstack Júnior",
+    "dev": "Desenvolvedor Fullstack",
     "job": {
       "spro_internal": "Desenvolvimento e manutenção do sistema interno da empresa - criação de páginas, manutenção de regras de negócio, uso de banco de dados relaiconal.",
       "report": "Criação e automação de relatórios internos.",
@@ -124,13 +149,14 @@ h6 {
     }
   },
   "en": {
-    "about": "I'm a fullstack developer with experience in \\sVue\\e, \\sPHP\\e and \\sMariaDB\\e and Bachelor of Computer Science. I like to create projects and try new technologies and different areas of development.",
+    "about": "I'm a fullstack developer with experience in \\sVue\\se, \\sPHP\\se and \\sMariaDB\\se and Bachelor of Computer Science. I like to create projects and try new technologies and different areas of development.",
     "work": "Experience",
     "education": "Education",
     "present": "Present",
     "degree": "Bachelor's in Computer Science",
     "intern": "Fullstack Developer Intern",
     "junior_full": "Junior Fullstack Developer",
+    "dev": "Fullstack Developer",
     "job": {
       "spro_internal": "Desenvolvimento e manutenção do sistema interno da empresa - criação de páginas, manutenção de regras de negócio, uso de banco de dados relaiconal.",
       "report": "Criação e automação de relatórios internos.",
@@ -139,13 +165,14 @@ h6 {
     }
   },
   "de": {
-    "about": "Ich bin ein Fullstack-Entwickler mit Erfahrung in \\sVue\\e, \\sPHP\\e und \\sMariadb\\e und Bachelor of Information. Ich mag es, Projekte zu erstellen und neue Technologien und verschiedene Entwicklungsbereiche auszuprobieren.",
+    "about": "Ich bin ein Fullstack-Entwickler mit Erfahrung in \\sVue\\se, \\sPHP\\se und \\sMariadb\\se und Bachelor of Information. Ich mag es, Projekte zu erstellen und neue Technologien und verschiedene Entwicklungsbereiche auszuprobieren.",
     "work": "Erfahrung",
     "education": "Ausbildung",
     "present": "Gegenwart",
     "degree": "Bachelor in Informatik",
     "intern": "Fullstack Developer Intern",
     "junior_full": "Junior Fullstack Developer",
+    "dev": "Desenvolvedor Fullstack",
     "job": {
       "spro_internal": "Desenvolvimento e manutenção do sistema interno da empresa - criação de páginas, manutenção de regras de negócio, uso de banco de dados relaiconal.",
       "report": "Criação e automação de relatórios internos.",

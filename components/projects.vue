@@ -98,7 +98,7 @@ onMounted(() => {
         <h3>{{ t('arduino.title') }}</h3>
         {{ t('arduino.desc') }}
         <div class="flex flex-row icons">
-          <a href="https://visualso.vercel.app/">
+          <a href="https://github.com/ViniTVS/IoT">
             <Icon name="cib:github" />
           </a>
         </div>
@@ -111,7 +111,7 @@ onMounted(() => {
       </div>
     </div>
 
-    <div class="col-auto lg:col-span-5 mt-8 p-6 pt-3 grow w-full max-h-96 md:max-h-72">
+    <div class="col-auto lg:col-span-5 mt-8 p-6 pt-3 grow w-full max-h-48 md:max-h-40">
       <div class="flex flex-row">
         <div class="mr-4 my-2 transition"></div>
         <h3>
@@ -211,7 +211,7 @@ img {
     },
     "arduino": {
       "title": "IoT",
-      "desc": "Codewars is a website to train and develop logic and programming language skills with code practice challenges. Here you will find a repository with my solutions."
+      "desc": "Um repositório com projetos feitos nas plataformas Arduino, Raspberry Pi e microcontroladores ESP32."
     },
     "tcc": {
       "title": "ViSO",
@@ -241,7 +241,7 @@ img {
     },
     "arduino": {
       "title": "IoT",
-      "desc": "Codewars is a website to train and develop logic and programming language skills with code practice challenges. Here you will find a repository with my solutions."
+      "desc": "A repository with projects made with Arduino, Raspberry Pi and ESP32 microcontrollers platforms."
     },
     "tcc": {
       "title": "ViSO",
@@ -271,7 +271,7 @@ img {
     },
     "arduino": {
       "title": "IoT",
-      "desc": "Codewars is a website to train and develop logic and programming language skills with code practice challenges. Here you will find a repository with my solutions."
+      "desc": "Ein Repository mit Projekten, die mit Arduino, Raspberry Pi und ESP32 Mikrocontrollerplattformen erstellt wurden."
     },
     "tcc": {
       "title": "ViSO",
