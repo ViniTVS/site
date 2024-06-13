@@ -24,6 +24,7 @@ export default defineI18nConfig(() => ({
       about: "About me",
       uni: "University",
       more: "More",
+      present: "Present",
       footer: {
         title: "Contact me",
         text: "If you are interested in my services or have questions, my email box is always open:"

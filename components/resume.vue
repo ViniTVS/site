@@ -94,7 +94,7 @@ const present_span = '<span class="text-primary">';
       </div>
     </div>
     <!-- short about  -->
-    <div class="col-span-2 fixed-ct md:h-20 md:mb-16 order-2">
+    <div class="col-span-2 fixed-ct md:h-20 md:mb-28 lg:mb-20 order-2">
       <h5 class="text-primary"> {{ t('dev') }} </h5>
       <p class="mb-2" v-html="insertHTML(t('about'), replace_array)" />
     </div>

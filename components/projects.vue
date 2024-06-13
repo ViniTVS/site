@@ -110,8 +110,8 @@ onMounted(() => {
         <img src="/c.svg" class="ml-auto floating" style="animation-delay: -1s;" />
       </div>
     </div>
-
-    <div class="col-auto lg:col-span-5 mt-8 p-6 pt-3 grow w-full max-h-48 md:max-h-40">
+    
+    <div class="col-auto lg:col-span-5 mt-8 p-6 pt-3 grow w-full" style="height: auto;">
       <div class="flex flex-row">
         <div class="mr-4 my-2 transition"></div>
         <h3>

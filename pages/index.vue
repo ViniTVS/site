@@ -1,7 +1,12 @@
 <script setup lang="ts">
+import TypeWriter from "~/components/typewriter.vue";
+
 const { t } = useI18n({
   useScope: "local",
 });
+
+
+
 </script>
 
 <template>
@@ -13,6 +18,11 @@ const { t } = useI18n({
       </p>
       <span class="text-lg md:text-xl font-bold">
         {{ t("text") }}
+        <TypeWriter 
+          :display-text="[t('hobby'), t('xkcd'), t('music'), t('geek')]"
+          :typing-speed="75"
+          :erasing-speed="60"
+          :new-text-delay="3000" />.
       </span>
     </div>
     <div class="divider"></div>
@@ -43,17 +53,29 @@ const { t } = useI18n({
   "pt": {
     "hello": "Olá.",
     "name": "Eu sou Vinícius.",
-    "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas bibendum."
+    "text": "Desenvolvedor, entusiasta e ",
+    "hobby": "hobbista",
+    "xkcd": "leitor de xkcd",
+    "music": "amante de música",
+    "geek": "só um pouco nerd"
   },
   "en": {
     "hello": "Hello.",
     "name": "I'm Vinícius.",
-    "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas bibendum."
+    "text": "Developer, web enthusiast and ",
+    "hobby": "hobbyist",
+    "xkcd": "xkcd reader",
+    "music": "music lover",
+    "geek": "just a little bit of a geek"
   },
   "de": {
     "hello": "Hallo.",
     "name": "Ich bin Vinícius.",
-    "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas bibendum."
+    "text": "Entwickler, Web-Enthusiast und",
+    "hobby": "Bastler",
+    "xkcd": "xkcd-Leser",
+    "music": "Musikliebhaber",
+    "geek": "ein bisschen Geek"
   }
 }</i18n>
 
