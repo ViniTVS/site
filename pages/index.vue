@@ -1,11 +1,7 @@
 <script setup lang="ts">
-import TypeWriter from "~/components/typewriter.vue";
-
 const { t } = useI18n({
   useScope: "local",
 });
-
-
 
 </script>
 
