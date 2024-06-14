@@ -1,12 +1,12 @@
 <script setup lang="ts">
-/* that's just a copy & paste of a Typewriter made by Gayathri R adapted to the new API & ts 
+/* that's just an addaptation of a Typewriter made by Gayathri R 
  original: https://dev.to/gayathri_r/how-to-add-a-typewriter-animation-in-vuejs-43kj 
 */
 import { onMounted } from 'vue';
 
 const props = defineProps({
   displayText: {
-    type: Array<String>,
+    type: Array<string>,
     required: true
   },
   typingSpeed: {
@@ -24,29 +24,25 @@ const props = defineProps({
 });
 
 
-let typeValue: Ref<string> = ref("");
-let typeStatus: boolean = false;
+let typeValue: Ref<string> = ref(props.displayText[0]);
 let arrayIndex: number = 0;
-let charIndex: number = 0;
+let charIndex: number = props.displayText[0].length - 1;
 
 
 function typeText() {
   if (charIndex < props.displayText[arrayIndex].length) {
-    if (!typeStatus) typeStatus = true;
     typeValue.value += props.displayText[arrayIndex].charAt(
       charIndex
     );
     charIndex += 1;
     setTimeout(typeText, props.typingSpeed);
   } else {
-    typeStatus = false;
     setTimeout(eraseText, props.newTextDelay);
   }
 }
 
 function eraseText() {
   if (charIndex > 0) {
-    if (!typeStatus) typeStatus = true;
     typeValue.value = props.displayText[arrayIndex].substring(
       0,
       charIndex - 1
@@ -54,16 +50,13 @@ function eraseText() {
     charIndex -= 1;
     setTimeout(eraseText, props.erasingSpeed);
   } else {
-    typeStatus = false;
-    arrayIndex += 1;
-    if (arrayIndex >= props.displayText.length)
-      arrayIndex = 0;
+    arrayIndex = (arrayIndex + 1) % props.displayText.length;
     setTimeout(typeText, props.typingSpeed + 1000);
   }
 }
 
 onMounted(() => {
-  setTimeout(typeText, props.newTextDelay + 200);
+  setTimeout(eraseText, props.newTextDelay + 200);
 });
 
 </script>
@@ -72,33 +65,15 @@ onMounted(() => {
   <span>
     <span class="typed-text">{{ typeValue }}</span>
     <span class="blinking-cursor">|</span>
-    <span class="cursor" :class="{ typing: typeStatus }"></span>
   </span>
 </template>
 
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
-.container {
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-h1 {
-  font-size: 6rem;
-  font-weight: normal;
-
-  span.typed-text {
-    color: #d2b94b;
-  }
-}
-
 // Cursor blinking CSS Starts...
 .blinking-cursor {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   color: oklch(var(--bc));
   -webkit-animation: 1s blink step-end infinite;
   -moz-animation: 1s blink step-end infinite;

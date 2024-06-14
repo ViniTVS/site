@@ -12,13 +12,13 @@ const { t } = useI18n({
         {{ t("hello") }} &#128075; <br />
         <span class="text-primary"> {{ t("name") }} </span>
       </p>
-      <span class="text-lg md:text-xl font-bold">
+      <span class="text-lg md:text-xl font-bold h-14">
         {{ t("text") }}
         <TypeWriter 
-          :display-text="[t('hobby'), t('xkcd'), t('music'), t('geek')]"
+          :display-text="[t('music'), t('geek'), t('hobby'), t('xkcd')]"
           :typing-speed="75"
           :erasing-speed="60"
-          :new-text-delay="3000" />.
+          :new-text-delay="4000" />.
       </span>
     </div>
     <div class="divider"></div>
