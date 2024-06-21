@@ -30,7 +30,7 @@ onMounted(() => {
         <div class="w-110 ml-8 mx-auto hover-animate">
           <div class="mockup-browser border bg-base-300 text-base-content">
             <div class="mockup-browser-toolbar">
-              <div class="input" style="margin-left: 20px;">https://visualso.vercel.app</div>
+              <div class="input" style="margin-left: 28px; width: 75%;">https://visualso.vercel.app</div>
             </div>
             <div class="bg-base-200 w-full">
               <img alt="ViSO" :src="'/viso-' + theme + '.png'" class="w-full hidden sm:block crop-h" />
@@ -65,7 +65,7 @@ onMounted(() => {
         {{ t('reminder.desc') }}
       </div>
 
-      <div class="max-h-72 md:max-h-48">
+      <div class="max-h-72 md:max-h-48 cursor-pointer">
         <!-- Flowbite's Device Mockups https://flowbite.com/docs/components/device-mockups/ -->
         <div
           class="hover-animate relative mx-auto border-gray-800 dark:border-gray-800 bg-gray-800 border-[14px] rounded-[2rem] h-[600px] w-[300px]">

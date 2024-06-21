@@ -67,37 +67,64 @@ function insertHTML(original: string, tr: Array<TextReplace>): string {
 }
 
 const present_span = '<span class="text-primary">';
+
+let hidden = ref(true);
+
+function browserResized() {
+  console.log(window.innerWidth);
+  if (window.innerWidth > 1536) {
+    hidden.value = false;
+  }
+}
+
+onMounted(() => {
+  browserResized();
+  window.addEventListener('resize', browserResized);
+})
+
 </script>
 
 <template>
   <h2>{{ t('work') }}</h2>
-  <div class="grid grid-cols-1 md:grid-cols-5 gap-4 experience">
-
+  <div class="flex flex-col lg:flex-row gap-4">
+    <!-- short about  -->
+    <div class="col-span-2 transition-all duration-300" :class="hidden ? 'lg:w-7/12' : 'lg:w-3/12'">
+      <h5 class="text-primary"> {{ t('dev') }} </h5>
+      <p class="mb-2" v-html="insertHTML(t('about'), replace_array)" />
+    </div>
+    <!-- divider -->
+    <div class="divider lg:hidden"/>
+    <div class="divider divider-horizontal hidden lg:flex">
+      <button class="btn btn-primary btn-circle btn-sm" @click="() => hidden = !hidden">
+        <Icon :name="hidden ? 'heroicons:chevron-left' : 'heroicons:chevron-right'" class="w-5 h-5" />
+      </button>
+    </div>
     <!-- jobs -->
-    <div class="col-span-3 flex flex-col-reverse gap-4 order-3 md:order-1">
-      <div v-for="xp in exp" class="flex flex-row gap-2">
-        <!-- date interval -->
-        <div style="min-width: 7rem;">
-          <h5 v-html="xp.time.replace('now', present_span + $t('present') + '</span>')" />
+    <div class="col-span-3 flex flex-col-reverse gap-4 transition-all duration-300 teste"
+      :class="hidden ? 'lg:w-4/12' : 'lg:w-8/12'">
+      <div v-for="xp in exp" class="flex flex-col gap-2 overflow-hidden">
+        <div class="flex flex-row gap-2">
+          <!-- date interval -->
+          <div style="min-width: 7rem;">
+            <h5 v-html="xp.time.replace('now', present_span + $t('present') + '</span>')" />
+          </div>
+          <!-- description -->
+          <div class="grow">
+            <h5 class="lg:text-right"> {{ t(xp.desc) }} </h5>
+            <h6 :class="hidden ? 'lg:hidden' : ''"> {{ xp.local }} </h6>
+            <p class="break-words" :class="hidden ? 'lg:hidden' : ''" :id="xp.desc">
+              {{ xp.points.map((x) => t(x)).join(' ') }}
+            </p>
+          </div>
         </div>
-        <!-- description -->
-        <div class="grow">
-          <h5> {{ t(xp.desc) }} </h5>
-          <h6> {{ xp.local }} </h6>
-          <p class="break-words">
-            {{ xp.points.map((x) => t(x)).join(' ') }}
-          </p>
-          <div class="flex flex-row flex-wrap gap-2 mt-2">
-            <div v-for="tech in xp.tech" class="badge badge-primary hover:badge-outline "> {{ tech }} </div>
+        <div class="flex flex-row flex-wrap gap-2 mt-2">
+          <div v-for="tech in xp.tech" class="badge badge-primary hover:badge-outline cursor-pointer"> {{ tech }}
           </div>
         </div>
       </div>
     </div>
-    <!-- short about  -->
-    <div class="col-span-2 fixed-ct md:h-20 md:mb-28 lg:mb-20 order-2">
-      <h5 class="text-primary"> {{ t('dev') }} </h5>
-      <p class="mb-2" v-html="insertHTML(t('about'), replace_array)" />
-    </div>
+
+
   </div>
 
 </template>
