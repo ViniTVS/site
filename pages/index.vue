@@ -14,11 +14,8 @@ const { t } = useI18n({
       </p>
       <span class="text-lg md:text-xl font-bold h-14">
         {{ t("text") }}
-        <TypeWriter 
-          :display-text="[t('music'), t('geek'), t('hobby'), t('xkcd')]"
-          :typing-speed="75"
-          :erasing-speed="60"
-          :new-text-delay="4000" />.
+        <TypeWriter :display-text="[t('music'), t('geek'), t('hobby'), t('xkcd')]" :typing-speed="75"
+          :erasing-speed="60" :new-text-delay="4000" />.
       </span>
     </div>
     <div class="divider"></div>
@@ -26,21 +23,27 @@ const { t } = useI18n({
     <Projects />
   </div>
   <!--  -->
-  <footer class="max-w-full container px-4 md:px-10 footer footer-center text-base-content bg-base-300 bg-opacity-50">
-    <h3 id="contact" class="pt-8 font-bold" style="font-size: 1.75rem">
-      {{ $t("footer.title") }}
-    </h3>
-    {{ $t("footer.text") }}
-    <a href="mailto:vinisantos185@gmail.com" class="btn btn-secondary lowercase">
-      vinisantos185@gmail.com
-    </a>
-    <div class="flex flex-col" style="font-size: 0.75rem">
-      <div class="flex flex-row">
-        <span class="copyleft">&copy;</span> 2024 - Projetado e
-        desenvolvido com
-        <img alt="amor" src="/full_heart.png" id="coracao" class="mx-1" style="height: 1rem" />
-      </div>
-      Vinícius Teixeira Vieira dos Santos
+  <footer class="footer text-base-content bg-base-300 bg-opacity-50 items-center p-4 grid grid-rows-2 grid-cols-1 sm:grid-rows-1 sm:grid-cols-5 justify-between">
+    
+    <div class="flex flex-row col-span-4 place-self-center sm:place-self-start">
+      <span class="copyleft">&copy;</span>Vinícius, 2024 -
+      Projetado e desenvolvido com
+      <img alt="amor" src="/full_heart.png" class="mx-1" style="height: 1rem;" :id="'teste'"/>
+    </div>
+
+    <div class="shrink grid-flow-col md:gap-4 place-self-center justify-self-center sm:justify-self-end">
+      <a href="https://twitter.com/vine_tvs">
+        <Icon name="cib:twitter" size="1rem" />
+      </a>
+      <a href="https://www.linkedin.com/in/vini-tvs">
+        <Icon name="bi:linkedin" />
+      </a>
+      <a href="https://github.com/ViniTVS">
+        <Icon name="akar-icons:github-fill" />
+      </a>
+      <a href="mailto:vinisantos185@gmail.com">
+        <Icon name="fa6-solid:envelope" />
+      </a>
     </div>
   </footer>
 </template>
@@ -89,6 +92,15 @@ const { t } = useI18n({
   margin: auto;
 }
 
+.footer {
+  row-gap: 1rem;
+}
+
+.copyleft {
+  display: inline-block;
+  transform: rotate(180deg);
+}
+
 .transition {
   background: linear-gradient(180deg,
       transparent -50%,
@@ -99,6 +111,7 @@ const { t } = useI18n({
   min-width: 4px;
   width: 4px;
 }
+
 
 @media (min-width: 768px) {
   #about {

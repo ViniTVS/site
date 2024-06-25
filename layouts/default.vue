@@ -16,7 +16,7 @@ let languages = [
 let pages = [
   { option: "home", path: "/" },
   { option: "about", path: "/about" },
-  { option: "uni", path: "/uni" },
+  { option: "uni", path: "https://www.inf.ufpr.br/vtvs18/" },
 ];
 
 watch(locale, (val: string) => {
