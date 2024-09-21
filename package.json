@@ -13,21 +13,20 @@
   },
   "devDependencies": {
     "@nuxtjs/google-fonts": "^3.2.0",
-    "@nuxtjs/i18n": "^8.3.1",
-    "@nuxtjs/tailwindcss": "^6.12.0",
+    "@nuxtjs/i18n": "^8.5.4",
+    "@nuxtjs/tailwindcss": "^6.12.1",
     "@types/chroma-js": "^2.4.4",
-    "daisyui": "^4.11.1",
-    "node-sass": "^9.0.0",
-    "nuxt": "^3.11.2",
+    "daisyui": "^4.12.10",
+    "nuxt": "^3.13.2",
     "nuxt-icon": "^0.6.10",
-    "sass": "^1.77.4",
-    "sass-loader": "^14.2.1",
-    "vue": "^3.4.27",
-    "vue-router": "^4.3.2"
+    "sass": "^1.79.3",
+    "sass-loader": "^16.0.2",
+    "vue": "^3.5.7",
+    "vue-router": "^4.4.5"
   },
   "dependencies": {
     "@lucien144/vue3-parallaxy": "^0.1.2",
-    "date-fns": "^3.6.0",
+    "date-fns": "^4.1.0",
     "theme-change": "^2.5.0"
   }
 }
