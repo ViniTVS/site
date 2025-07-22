@@ -6,7 +6,7 @@
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style scoped>
 .construction {
   display: grid;
   align-items: center;

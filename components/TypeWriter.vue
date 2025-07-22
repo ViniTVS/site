@@ -70,8 +70,8 @@ onMounted(() => {
 
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style lang="scss" scoped>
-// Cursor blinking CSS Starts...
+<style scoped>
+/* // Cursor blinking CSS Starts... */
 .blinking-cursor {
   font-size: 1.25rem;
   color: oklch(var(--bc));

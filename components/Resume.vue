@@ -1,7 +1,7 @@
 <script setup lang="ts">
 
-const { locale } = useI18n();
-const { t, te } = useI18n({
+// const { locale } = useI18n();
+const { t, te, locale } = useI18n({
   useScope: 'local'
 })
 
@@ -130,7 +130,7 @@ onMounted(() => {
 </template>
 
 
-<style lang="scss" scoped>
+<style scoped>
 h5 {
   font-weight: 600;
 }
@@ -139,10 +139,10 @@ h6 {
   font-weight: 500;
 }
 
-#work {
+#work 
   >div {
     height: 70vh;
-  }
+  
 }
 
 @media (min-width: 768px) {

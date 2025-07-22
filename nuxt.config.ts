@@ -1,22 +1,26 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+import tailwindcss from '@tailwindcss/vite';
+
 export default defineNuxtConfig({
-	css: ['~/assets/main.scss'],
+	css: ['~/assets/main.css'],
 	devtools: { enabled: true },
 
 	modules: [
 		'@nuxtjs/i18n',
-		'@nuxtjs/tailwindcss',
-		'nuxt-icon',
+		'@nuxt/content',
 		['@nuxtjs/google-fonts', {
 			download: true
-		}]
-
+		}],
+		'@nuxt/icon'
 	],
-
 	i18n: {
-		vueI18n: './i18n.config.ts' // if you are using custom path, default 
+		defaultLocale: 'pt',
+		locales: [
+			{ code: 'pt', name: 'Português', file: 'pt.json' },
+			{ code: 'en', name: 'English', file: 'en.json' },
+			{ code: 'de', name: 'Deutsch', file: 'de.json' }
+		]
 	},
-
 	app: {
 		head: {
 			charset: 'utf-8',
@@ -26,7 +30,11 @@ export default defineNuxtConfig({
 			}
 		}
 	},
-
+	vite: {
+		plugins: [
+			tailwindcss(),
+		],
+	},
 	compatibilityDate: '2024-09-21'
 }
 )

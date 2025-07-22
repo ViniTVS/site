@@ -1,0 +1,118 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+@plugin "daisyui";
+
+@plugin "daisyui/theme" {
+  name: "light";
+  default: false;
+  prefersdark: false;
+  color-scheme: "light";
+  --color-base-100: oklch(0.9741 0.0034 67.78);
+  --color-base-200: oklch(0.9178 0.0109 76.59);
+  --color-base-300: oklch(0.861 0.0174 76.1);
+  --color-base-content: oklch(0 0 0);
+  --color-primary: oklch(0.5411 0.1008 295.58);
+  --color-primary-content: oklch(1 0 0);
+  --color-secondary: oklch(0.577 0.0696 260.91);
+  --color-secondary-content: oklch(1 0 0);
+  --color-accent: oklch(0.702 0.0568 173.64);
+  --color-accent-content: oklch(0 0 0);
+  --color-neutral: oklch(0.7718 0.1301 85.62);
+  --color-neutral-content: oklch(0 0 0);
+  --color-info: oklch(0.4301 0.2571 264.44);
+  --color-success: oklch(0.7685 0.2501 143.79);
+  --color-warning: oklch(0.7478 0.1526 85.1);
+  --color-error: oklch(0.4322 0.1169 13.56);
+}
+
+@plugin "daisyui/theme" {
+  name: "dark";
+  default: false;
+  prefersdark: false;
+  color-scheme: "dark";
+  --color-base-100: oklch(0.2397 0.0094 234.14);
+  --color-base-200: oklch(0.1968 0.0074 229.3);
+  --color-base-300: oklch(0.1525 0.004 229.14);
+  --color-base-content: oklch(1 0 0);
+  --color-primary: oklch(0.9469 0.0382 196.52);
+  --color-primary-content: oklch(0 0 0);
+  --color-secondary: oklch(0.937 0.0626 145.05);
+  --color-secondary-content: oklch(0 0 0);
+  --color-accent: oklch(0.903 0.0636 326.09);
+  --color-accent-content: oklch(0 0 0);
+  --color-neutral: oklch(0.3222 0.0141 226.46);
+  --color-neutral-content: oklch(1 0 0);
+  --color-info: oklch(0.5975 0.1271 257.04);
+  --color-success: oklch(0.6654 0.0387 183.15);
+  --color-warning: oklch(0.8156 0.0291 62.23);
+  --color-error: oklch(0.5571 0.1497 19.34);
+}
+
+.custom-background {
+  background: radial-gradient(circle at 100% 10vh,
+      oklch(var(--color-primary) / 0.3) 0px,
+      transparent 20%),
+    radial-gradient(circle farthest-side at 10% 150vh,
+      oklch(var(--color-primary) / 0.15) 0px,
+      transparent 80%),
+    radial-gradient(circle at -10% 230vh,
+      oklch(var(--color-primary) / 0.4) 0px,
+      transparent 30%),
+    radial-gradient(circle at 110% 360vh,
+      oklch(var(--color-primary) / 0.25) 0px,
+      transparent 20%),
+    radial-gradient(circle at 110% 530vh,
+      oklch(var(--color-primary) / 0.2) 0px,
+      transparent 10%);
+}
+
+.overlap-container {
+  position: relative;
+
+}
+
+
+.overlap-container>div {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+}
+
+h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+
+h3 {
+  font-weight: bold;
+  font-size: 1.75rem;
+  line-height: 2rem;
+  margin-bottom: 0.5rem;
+  overflow-wrap: break-word;
+}
+
+h4 {
+  font-weight: bold;
+  font-size: 1.25rem;
+}
+
+h5 {
+  font-weight: semibold;
+  font-size: 1.15rem;
+}
+
+/* [data-theme='light'] {
+
+ .custom-background {
+      background: radial-gradient(circle at 100% 0vh, oklch(var(--color-primary) / 0.6) 0px, transparent 7%),
+radial-gradient(circle at 0 180vh, oklch(var(--color-primary) / 0.25) 0px, transparent 10%),
+radial-gradient(circle at 100% 360vh, oklch(var(--color-primary) / 0.6) 0px, transparent 7%),
+radial-gradient(circle at 0 540vh, oklch(var(--color-primary) / 0.6) 0px, transparent 7%);
+  }
+ } */

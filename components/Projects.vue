@@ -1,40 +1,50 @@
 <script setup lang="ts">
-
 const { t, locale } = useI18n({
-  useScope: 'local'
+  useScope: "local",
 });
 
 let theme: Ref<string> = ref("light");
 
 onMounted(() => {
   theme.value = localStorage.getItem("theme") ?? "light";
-  window.addEventListener('theme-changed', (event) => {
+  window.addEventListener("theme-changed", (event) => {
     // @ts-ignore
     theme.value = event.detail.storage;
   });
 });
-
 </script>
 
 <template>
-  <h2>{{ t('projects') }}</h2>
+  <h2>{{ t("projects") }}</h2>
   <div class="w-full grid grid-cols-1 lg:grid-cols-5 gap-8 projects mb-8">
     <!-- ViSO -->
-    <div class="col-auto lg:col-span-3 flex flex-col rounded-2xl bg-primary text-primary-content">
+    <div
+      class="col-auto lg:col-span-3 flex flex-col rounded-2xl bg-primary text-primary-content"
+    >
       <div class="center text-center grow">
-        <h3>{{ t('tcc.title') }}</h3>
-        {{ t('tcc.desc') }}
+        <h3>{{ t("tcc.title") }}</h3>
+        {{ t("tcc.desc") }}
       </div>
       <!-- browser page -->
       <a href="https://visualso.vercel.app" class="h-1/2 md:h-2/6">
         <div class="w-110 ml-8 mx-auto hover-animate">
           <div class="mockup-browser border bg-base-300 text-base-content">
             <div class="mockup-browser-toolbar">
-              <div class="input" style="margin-left: 28px; width: 75%;">https://visualso.vercel.app</div>
+              <div class="input" style="margin-left: 28px; width: 75%">
+                https://visualso.vercel.app
+              </div>
             </div>
             <div class="bg-base-200 w-full">
-              <img alt="ViSO" :src="'/viso-' + theme + '.png'" class="w-full hidden sm:block crop-h" />
-              <img alt="ViSO" :src="'/viso-mobile-' + theme + '.png'" class="w-full block sm:hidden crop-v" />
+              <img
+                alt="ViSO"
+                :src="'/viso-' + theme + '.png'"
+                class="w-full hidden sm:block crop-h"
+              />
+              <img
+                alt="ViSO"
+                :src="'/viso-mobile-' + theme + '.png'"
+                class="w-full block sm:hidden crop-v"
+              />
             </div>
           </div>
         </div>
@@ -42,10 +52,12 @@ onMounted(() => {
     </div>
 
     <!-- VSSS -->
-    <div class="col-auto lg:col-span-2 flex flex-col rounded-2xl bg-accent text-accent-content">
+    <div
+      class="col-auto lg:col-span-2 flex flex-col rounded-2xl bg-accent text-accent-content"
+    >
       <div class="center text-center grow">
-        <h3>{{ t('vsss.title') }}</h3>
-        {{ t('vsss.desc') }}
+        <h3>{{ t("vsss.title") }}</h3>
+        {{ t("vsss.desc") }}
         <div class="flex flex-row icons">
           <a href="https://github.com/ViniTVS/VSSS">
             <Icon name="cib:github" />
@@ -53,50 +65,61 @@ onMounted(() => {
         </div>
       </div>
       <!-- browser page -->
-      <div>
-
-      </div>
+      <div></div>
     </div>
 
     <!-- Reminder -->
-    <div class="col-auto lg:col-span-2 flex flex-col rounded-2xl bg-secondary text-secondary-content">
+    <div
+      class="col-auto lg:col-span-2 flex flex-col rounded-2xl bg-secondary text-secondary-content"
+    >
       <div class="center text-center col-span-5">
-        <h3>{{ t('reminder.title') }}</h3>
-        {{ t('reminder.desc') }}
+        <h3>{{ t("reminder.title") }}</h3>
+        {{ t("reminder.desc") }}
       </div>
 
       <div class="max-h-72 md:max-h-48 cursor-pointer">
         <!-- Flowbite's Device Mockups https://flowbite.com/docs/components/device-mockups/ -->
         <div
-          class="hover-animate relative mx-auto border-gray-800 dark:border-gray-800 bg-gray-800 border-[14px] rounded-[2rem] h-[600px] w-[300px]">
-          <div class="h-[32px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -start-[17px] top-[72px] rounded-s-xl">
-          </div>
-          <div class="h-[46px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -start-[17px] top-[124px] rounded-s-xl">
-          </div>
-          <div class="h-[46px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -start-[17px] top-[178px] rounded-s-xl">
-          </div>
-          <div class="h-[64px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -end-[17px] top-[142px] rounded-e-xl">
-          </div>
-          <div class="rounded-[1.5rem] overflow-hidden w-[272px] h-[572px] bg-white dark:bg-gray-800">
-            <img src="/reminder.jpeg" class="w-[272px] h-[572px]" alt="">
+          class="hover-animate relative mx-auto border-gray-800 dark:border-gray-800 bg-gray-800 border-[14px] rounded-[2rem] h-[600px] w-[300px]"
+        >
+          <div
+            class="h-[32px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -start-[17px] top-[72px] rounded-s-xl"
+          ></div>
+          <div
+            class="h-[46px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -start-[17px] top-[124px] rounded-s-xl"
+          ></div>
+          <div
+            class="h-[46px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -start-[17px] top-[178px] rounded-s-xl"
+          ></div>
+          <div
+            class="h-[64px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -end-[17px] top-[142px] rounded-e-xl"
+          ></div>
+          <div
+            class="rounded-[1.5rem] overflow-hidden w-[272px] h-[572px] bg-white dark:bg-gray-800"
+          >
+            <img src="/reminder.jpeg" class="w-[272px] h-[572px]" alt="" />
           </div>
         </div>
       </div>
-
     </div>
 
     <!-- IoT -->
     <div
-      class="col-auto lg:col-span-3 grid grid-cols-2 grid-rows-5 md:grid-rows-4 gap-10 p-4 rounded-2xl bg-primary text-primary-content">
+      class="col-auto lg:col-span-3 grid grid-cols-2 grid-rows-5 md:grid-rows-4 gap-10 p-4 rounded-2xl bg-primary text-primary-content"
+    >
       <div>
         <img src="/esp32.svg" class="mr-auto floating" />
       </div>
       <div>
-        <img src="/ArduinoUno.svg" class="ml-auto floating" style="animation-delay: -2s;" />
+        <img
+          src="/ArduinoUno.svg"
+          class="ml-auto floating"
+          style="animation-delay: -2s"
+        />
       </div>
       <div class="col-span-2 row-span-3 md:row-span-2 center text-center grow">
-        <h3>{{ t('arduino.title') }}</h3>
-        {{ t('arduino.desc') }}
+        <h3>{{ t("arduino.title") }}</h3>
+        {{ t("arduino.desc") }}
         <div class="flex flex-row icons">
           <a href="https://github.com/ViniTVS/IoT">
             <Icon name="cib:github" />
@@ -104,48 +127,46 @@ onMounted(() => {
         </div>
       </div>
       <div>
-        <img src="/Raspberry_Pi_3.svg" class="mr-auto floating" style="animation-delay: -3s;" />
+        <img
+          src="/Raspberry_Pi_3.svg"
+          class="mr-auto floating"
+          style="animation-delay: -3s"
+        />
       </div>
       <div>
-        <img src="/c.svg" class="ml-auto floating" style="animation-delay: -1s;" />
+        <img src="/c.svg" class="ml-auto floating" style="animation-delay: -1s" />
       </div>
     </div>
-    
-    <div class="col-auto lg:col-span-5 mt-8 p-6 pt-3 grow w-full" style="height: auto;">
+
+    <div class="col-auto lg:col-span-5 mt-8 p-6 pt-3 grow w-full" style="height: auto">
       <div class="flex flex-row">
         <div class="mr-4 my-2 transition"></div>
         <h3>
           <blockquote>
-            Do what you think is interesting, do something that you
-            think is fun and worthwhile, because otherwise you won't
-            do it well anyway.
+            Do what you think is interesting, do something that you think is fun and
+            worthwhile, because otherwise you won't do it well anyway.
           </blockquote>
         </h3>
       </div>
       <span>Brian W. Kernighan</span>
     </div>
   </div>
-
 </template>
 
-<style lang="scss" scoped>
+<style scoped>
 .w-110 {
   width: 110%;
 }
 
-.projects {
-
-  >div {
-    height: 70svh;
-    font-size: 1.25rem;
-    line-height: 1.75rem;
-    overflow: hidden;
-  }
+.projects > div {
+  height: 70svh;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  overflow: hidden;
 }
 
 .icons {
   font-size: 1.25em;
-
 }
 
 .paused {
@@ -168,10 +189,10 @@ img {
 
 .hover-animate {
   transition: transform 250ms;
+}
 
-  &:hover {
-    transform: translate(0px, -10px);
-  }
+.hover-animate &:hover {
+  transform: translate(0px, -10px);
 }
 
 .floating {
@@ -182,7 +203,6 @@ img {
   animation-iteration-count: infinite;
   animation-timing-function: ease-in-out;
 }
-
 
 @keyframes floating {
   0% {
@@ -199,7 +219,8 @@ img {
 }
 </style>
 
-<i18n lang="json">{
+<i18n lang="json">
+{
   "pt": {
     "projects": "Projetos e Trabalhos",
     "education": "Formação",
@@ -290,4 +311,5 @@ img {
       "desc": "Eine Anwendung zum Merken Ihrer Aufgaben nach Zeit oder Ort, basierend auf der Wi-Fi-Verbindung."
     }
   }
-}</i18n>
+}
+</i18n>
