@@ -50,20 +50,8 @@
 
 .custom-background {
   background: radial-gradient(circle at 100% 10vh,
-      oklch(var(--color-primary) / 0.3) 0px,
-      transparent 20%),
-    radial-gradient(circle farthest-side at 10% 150vh,
-      oklch(var(--color-primary) / 0.15) 0px,
-      transparent 80%),
-    radial-gradient(circle at -10% 230vh,
-      oklch(var(--color-primary) / 0.4) 0px,
-      transparent 30%),
-    radial-gradient(circle at 110% 360vh,
-      oklch(var(--color-primary) / 0.25) 0px,
-      transparent 20%),
-    radial-gradient(circle at 110% 530vh,
-      oklch(var(--color-primary) / 0.2) 0px,
-      transparent 10%);
+      oklch(from var(--color-primary) calc(0.7) c h) 0px,
+      transparent 20%);
 }
 
 .overlap-container {

@@ -96,7 +96,7 @@ onMounted(() => {
     <div class="divider lg:hidden"/>
     <div class="divider divider-horizontal hidden lg:flex">
       <button class="btn btn-primary btn-circle btn-sm" @click="() => hidden = !hidden">
-        <Icon :name="hidden ? 'heroicons:chevron-left' : 'heroicons:chevron-right'" class="w-5 h-5" />
+        <Icon :name="hidden ? 'ph:caret-left' : 'ph:caret-right'" class="w-5 h-5" />
       </button>
     </div>
     <!-- jobs -->

@@ -71,7 +71,7 @@ onMounted(() => {
         <!-- theme button -->
         <button class="btn btn-ghost btn-square z-20" v-on:click="isDark = !isDark">
           <Icon
-            color="oklch(var(--color-primary))"
+            
             :name="isDark ? 'ph:sun-duotone' : 'ph:moon-duotone'"
             size="1.5rem"
           ></Icon>
@@ -80,7 +80,6 @@ onMounted(() => {
         <details class="dropdown dropdown-end">
           <summary class="btn btn-ghost btn-square">
             <Icon
-              color="oklch(var(--color-primary))"
               name="ph:translate-duotone"
               size="1.5rem"
             ></Icon>

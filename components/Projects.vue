@@ -60,7 +60,7 @@ onMounted(() => {
         {{ t("vsss.desc") }}
         <div class="flex flex-row icons">
           <a href="https://github.com/ViniTVS/VSSS">
-            <Icon name="cib:github" />
+            <Icon name="ph:github-logo-fill" />
           </a>
         </div>
       </div>
@@ -122,7 +122,7 @@ onMounted(() => {
         {{ t("arduino.desc") }}
         <div class="flex flex-row icons">
           <a href="https://github.com/ViniTVS/IoT">
-            <Icon name="cib:github" />
+            <Icon name="ph:github-logo-fill" />
           </a>
         </div>
       </div>

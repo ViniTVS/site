@@ -48,18 +48,18 @@ const { t } = useI18n({
 		<div class="shrink grid-flow-col md:gap-4 place-self-center justify-self-center sm:justify-self-end">
 			<a href="https://twitter.com/vine_tvs">
 				<Icon
-					name="cib:twitter"
+					name="ph:twitter-logo-fill"
 					size="1rem"
 				/>
 			</a>
 			<a href="https://www.linkedin.com/in/vini-tvs">
-				<Icon name="bi:linkedin" />
+				<Icon name="ph:linkedin-logo-fill" />
 			</a>
 			<a href="https://github.com/ViniTVS">
-				<Icon name="akar-icons:github-fill" />
+				<Icon name="ph:github-logo-fill" />
 			</a>
 			<a href="mailto:vinisantos185@gmail.com">
-				<Icon name="fa6-solid:envelope" />
+				<Icon name="ph:at" />
 			</a>
 		</div>
 	</footer>
