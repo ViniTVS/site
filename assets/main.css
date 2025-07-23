@@ -50,8 +50,11 @@
 
 .custom-background {
   background: radial-gradient(circle at 100% 10vh,
-      oklch(from var(--color-primary) calc(0.7) c h) 0px,
-      transparent 20%);
+      oklch(from var(--color-primary) calc(0.7) c h ) 0px,
+      transparent 20%),
+    radial-gradient(circle at -10% 530vh,
+      oklch(from var(--color-primary) calc(0.8) c h ) 0px,
+      transparent 10%);
 }
 
 .overlap-container {
@@ -98,9 +101,9 @@ h5 {
 /* [data-theme='light'] {
 
  .custom-background {
-      background: radial-gradient(circle at 100% 0vh, oklch(var(--color-primary) / 0.6) 0px, transparent 7%),
-radial-gradient(circle at 0 180vh, oklch(var(--color-primary) / 0.25) 0px, transparent 10%),
-radial-gradient(circle at 100% 360vh, oklch(var(--color-primary) / 0.6) 0px, transparent 7%),
-radial-gradient(circle at 0 540vh, oklch(var(--color-primary) / 0.6) 0px, transparent 7%);
+      background: radial-gradient(circle at 100% 0vh, oklch(from var(--color-primary) calc(0.6) c h ) 0px, transparent 7%),
+radial-gradient(circle at 0 180vh, oklch(from var(--color-primary) calc(0.25) c h ) 0px, transparent 10%),
+radial-gradient(circle at 100% 360vh, oklch(from var(--color-primary) calc(0.6) c h ) 0px, transparent 7%),
+radial-gradient(circle at 0 540vh, oklch(from var(--color-primary) calc(0.6) c h ) 0px, transparent 7%);
   }
  } */

@@ -3,6 +3,7 @@ import { themeChange } from "theme-change";
 import { ref } from "vue";
 
 const { locale, locales, setLocale } = useI18n();
+const switchLocalePath = useSwitchLocalePath();
 
 let isDark = ref(true);
 
@@ -54,7 +55,7 @@ onMounted(() => {
       <NuxtLink
         v-for="page in pages"
         class="btn btn-sm btn-ghost rounded-3xl px-4 text-md font-bold"
-        :to="page.path"
+        :to="$localePath(page.path)"
       >
         {{ $t(page.option) }}
       </NuxtLink>
@@ -67,28 +68,27 @@ onMounted(() => {
       class="h-28 grid place-content-end px-4 md:px-10 md:pt-4 z-20"
       id="option_buttons"
     >
-      <div class="flex">
+      <div class="flex gap-2">
         <!-- theme button -->
-        <button class="btn btn-ghost btn-square z-20" v-on:click="isDark = !isDark">
+        <button class="btn btn-ghost btn-square bg-opacity-80 backdrop-blur shadow-sm shadow-base-300 bg-base-100 z-20" v-on:click="isDark = !isDark">
           <Icon
-            
             :name="isDark ? 'ph:sun-duotone' : 'ph:moon-duotone'"
             size="1.5rem"
           ></Icon>
         </button>
         <!-- lang button -->
         <details class="dropdown dropdown-end">
-          <summary class="btn btn-ghost btn-square">
+          <summary class="btn btn-ghost bg-opacity-80 backdrop-blur shadow-sm shadow-base-300 bg-base-100 btn-square">
             <Icon
               name="ph:translate-duotone"
               size="1.5rem"
             ></Icon>
           </summary>
           <ul
-            class="menu dropdown-content bg-base-100 rounded-box z-[1] w-42 p-2 shadow-lg"
+            class="menu dropdown-content bg-base-100 rounded-box z-[2] w-42 p-2 shadow-lg"
             id="lang_menu"
           >
-            <li class="btn btn-ghost" v-for="l in locales" @click="setLocale(l.code)">
+            <li class="btn btn-ghost" v-for="l in locales" @click="() => {setLocale(l.code); switchLocalePath(l.code);}">
               {{ l.name }}
             </li>
           </ul>
@@ -116,9 +116,6 @@ onMounted(() => {
   border-color: oklch(var(--color-primary));
 }
 
-#lang_menu {
-  background-color: oklch(var(--color-base-100) 0.1);
-}
 </style>
 
 <style>

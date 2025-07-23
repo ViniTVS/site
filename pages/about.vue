@@ -22,7 +22,7 @@ const { t } = useI18n({
 					{{ t('about_text') }}
 				</p>
 				<NuxtLink
-					to="/about"
+					:to="$localePath('/about')"
 					class="btn btn-primary md:btn-sm mt-2"
 				>
 					{{ $t('more') }}
