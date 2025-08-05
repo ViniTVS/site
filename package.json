@@ -10,6 +10,7 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
+    "predeploy": "npm run generate",
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
@@ -24,7 +25,6 @@
     "better-sqlite3": "^12.2.0",
     "daisyui": "^5.0.46",
     "date-fns": "^4.1.0",
-    "gh-pages": "^6.3.0",
     "nuxt": "^4.0.1",
     "tailwindcss": "^4.1.11",
     "theme-change": "^2.5.0",
@@ -32,6 +32,7 @@
     "vue-router": "^4.5.1"
   },
   "devDependencies": {
+    "gh-pages": "^6.3.0",
     "@iconify-json/ph": "^1.2.2",
     "@tailwindcss/typography": "^0.5.16"
   }

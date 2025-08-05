@@ -27,14 +27,15 @@ export default defineNuxtConfig({
 			viewport: 'width=device-width, initial-scale=1',
 			htmlAttrs: {
 				lang: ''
-			}
+			},
 		},
+		baseURL: '/site/', // baseURL: '/<repository>/'
+		buildAssetsDir: 'assets', // don't use "_" at the begining of the folder name
 	},
 	vite: {
 		plugins: [
 			tailwindcss(),
 		],
-
 	},
 	compatibilityDate: '2024-09-21',
 	nitro: {
