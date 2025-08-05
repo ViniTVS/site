@@ -28,7 +28,8 @@ export default defineNuxtConfig({
 			htmlAttrs: {
 				lang: ''
 			}
-		}
+		},
+		baseURL: 'https://vinitvs.github.io/site/'
 	},
 	vite: {
 		plugins: [
