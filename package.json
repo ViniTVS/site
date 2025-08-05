@@ -4,12 +4,13 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "npx nuxt build --preset github_pages",
+    "build": "nuxt build",
     "dev": "nuxt dev",
     "dev:host": "nuxt dev --hostname '0.0.0.0' --port 3000 --host",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@lucien144/vue3-parallaxy": "^0.1.2",
@@ -23,6 +24,7 @@
     "better-sqlite3": "^12.2.0",
     "daisyui": "^5.0.46",
     "date-fns": "^4.1.0",
+    "gh-pages": "^6.3.0",
     "nuxt": "^4.0.1",
     "tailwindcss": "^4.1.11",
     "theme-change": "^2.5.0",
