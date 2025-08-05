@@ -29,13 +29,18 @@ export default defineNuxtConfig({
 				lang: ''
 			}
 		},
-		baseURL: 'https://vinitvs.github.io/site/'
 	},
 	vite: {
 		plugins: [
 			tailwindcss(),
 		],
+
 	},
-	compatibilityDate: '2024-09-21'
+	compatibilityDate: '2024-09-21',
+	nitro: {
+		prerender: {
+			ignore: ['/__nuxt_content/content/sql_dump'],
+		}
+	}
 }
 )

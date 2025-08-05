@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "nuxt build",
+    "build": "npx nuxt build --preset github_pages",
     "dev": "nuxt dev",
     "dev:host": "nuxt dev --hostname '0.0.0.0' --port 3000 --host",
     "generate": "nuxt generate",
