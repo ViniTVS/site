@@ -4,17 +4,7 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineNuxtConfig({
 	css: ['~/assets/main.css'],
 	devtools: { enabled: true },
-	ssr: true,
-  nitro: {
-    preset: 'static',
-		prerender: {
-			ignore: ['/__nuxt_content/content/sql_dump'],
-		}
-  },
-  app: {
-    baseURL: '/site/', // GitHub Pages needs this
-		buildAssetsDir: 'assets'
-  },
+
 	modules: [
 		'@nuxtjs/i18n',
 		'@nuxt/content',
@@ -46,6 +36,11 @@ export default defineNuxtConfig({
 		],
 
 	},
-	compatibilityDate: '2024-09-21'
+	compatibilityDate: '2024-09-21',
+	nitro: {
+		prerender: {
+			ignore: ['/__nuxt_content/content/sql_dump'],
+		}
+	}
 }
 )
