@@ -11,7 +11,7 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "predeploy": "npm run generate",
-    "deploy": "touch ./dist/.nojekyll && gh-pages -d dist -t true"
+    "deploy": "touch ./dist/.nojekyll && gh-pages -d dist"
   },
   "dependencies": {
     "@lucien144/vue3-parallaxy": "^0.1.2",
