@@ -30,11 +30,9 @@ jobs:
 
       - name: Set git identity 🔐
         run: |
-          git config --global user.email "github-actions@github.com"
-          git config --global user.name "github-actions"
-      
+          git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/USER_OR_ORG/REPO.git
+          
       - name: Deploy 🚀
         run: npm run deploy
         env:
-          GIT_USER: github-actions
-          GIT_EMAIL: github-actions@github.com
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
