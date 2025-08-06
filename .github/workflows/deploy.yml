@@ -30,7 +30,7 @@ jobs:
 
       - name: Set git identity 🔐
         run: |
-          git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/USER_OR_ORG/REPO.git
+          git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/ViniTVS/ViniTVS.github.io.git
           
       - name: Deploy 🚀
         run: npm run deploy
