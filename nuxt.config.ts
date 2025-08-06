@@ -29,7 +29,6 @@ export default defineNuxtConfig({
 				lang: ''
 			},
 		},
-		baseURL: '/site/', // baseURL: '/<repository>/'
 		buildAssetsDir: 'assets', // don't use "_" at the begining of the folder name
 	},
 	vite: {

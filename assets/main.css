@@ -72,6 +72,13 @@
   overflow: hidden;
 }
 
+h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
 h2 {
   font-size: 2rem;
   font-weight: 700;

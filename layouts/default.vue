@@ -44,6 +44,7 @@ onMounted(() => {
 </script>
 
 <template>
+
   <Head>
     <Meta :lang="locale" />
   </Head>
@@ -63,14 +64,20 @@ onMounted(() => {
   </header>
 
   <!-- content -->
-  <div class="custom-background" style="min-height: 100vh">
+  <div
+    class="custom-background"
+    style="min-height: 100vh"
+  >
     <div
       class="h-28 grid place-content-end px-4 md:px-10 md:pt-4 z-20"
       id="option_buttons"
     >
       <div class="flex gap-2">
         <!-- theme button -->
-        <button class="btn btn-ghost btn-square bg-opacity-80 backdrop-blur shadow-sm shadow-base-300 bg-base-100 z-20" v-on:click="isDark = !isDark">
+        <button
+          class="btn btn-ghost btn-square bg-opacity-80 backdrop-blur shadow-sm shadow-base-300 bg-base-100 z-20"
+          v-on:click="isDark = !isDark"
+        >
           <Icon
             :name="isDark ? 'ph:sun-duotone' : 'ph:moon-duotone'"
             size="1.5rem"
@@ -88,14 +95,20 @@ onMounted(() => {
             class="menu dropdown-content bg-base-100 rounded-box z-[2] w-42 p-2 shadow-lg"
             id="lang_menu"
           >
-            <li class="btn btn-ghost" v-for="l in locales" @click="() => {setLocale(l.code); switchLocalePath(l.code);}">
+            <li
+              class="btn btn-ghost"
+              v-for="l in locales"
+              @click="() => { setLocale(l.code); switchLocalePath(l.code); }"
+            >
               {{ l.name }}
             </li>
           </ul>
         </details>
       </div>
     </div>
-    <slot> </slot>
+    <div class="max-w-full container px-4 md:px-10">
+      <slot> </slot>
+    </div>
   </div>
 </template>
 
@@ -115,7 +128,6 @@ onMounted(() => {
   background-color: transparent;
   border-color: oklch(var(--color-primary));
 }
-
 </style>
 
 <style>

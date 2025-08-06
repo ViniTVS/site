@@ -6,7 +6,7 @@ const { t } = useI18n({
 </script>
 
 <template>
-	<div class="max-w-full container px-4 md:px-10">
+	<div>
 		<div
 			class="grid content-center"
 			style="height: calc(100vh - 7rem); padding-bottom: 7rem"
