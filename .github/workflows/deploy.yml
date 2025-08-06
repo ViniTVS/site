@@ -3,7 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - v2  # or your default branch
+      - main  # or your default branch
 
 permissions:
   contents: write  # Needed to push to gh-pages
@@ -29,3 +29,6 @@ jobs:
 
       - name: Deploy 🚀
         run: npm run deploy
+        env:
+          GIT_USER: github-actions
+          GIT_EMAIL: github-actions@github.com
