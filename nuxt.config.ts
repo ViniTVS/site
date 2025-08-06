@@ -4,7 +4,7 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineNuxtConfig({
 	css: ['~/assets/main.css'],
 	devtools: { enabled: true },
-
+	ssr: true,
 	modules: [
 		'@nuxtjs/i18n',
 		'@nuxt/content',
@@ -40,7 +40,7 @@ export default defineNuxtConfig({
 	nitro: {
 		prerender: {
 			ignore: ['/__nuxt_content/content/sql_dump'],
-		}
+		},
 	}
 }
 )
