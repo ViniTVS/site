@@ -39,7 +39,7 @@ export default defineNuxtConfig({
 	compatibilityDate: '2024-09-21',
 	nitro: {
 		prerender: {
-			ignore: ['/__nuxt_content/content/sql_dump'],
+			ignore: [],
 		}
 	}
 }
