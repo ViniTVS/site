@@ -40,7 +40,7 @@ export default defineNuxtConfig({
 	nitro: {
 		prerender: {
 			ignore: ['/__nuxt_content/content/sql_dump'],
-		},
+		}
 	}
 }
 )
