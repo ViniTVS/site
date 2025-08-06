@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main  # or your default branch
+      - v2
 
 permissions:
   contents: write  # Needed to push to gh-pages
