@@ -19,7 +19,8 @@ export default defineNuxtConfig({
 			{ code: 'pt', name: 'Português', file: 'pt.json' },
 			{ code: 'en', name: 'English', file: 'en.json' },
 			{ code: 'de', name: 'Deutsch', file: 'de.json' }
-		]
+		],
+    strategy: 'prefix_except_default',
 	},
 	app: {
 		head: {
@@ -29,7 +30,7 @@ export default defineNuxtConfig({
 				lang: ''
 			},
 		},
-		buildAssetsDir: 'assets', // don't use "_" at the begining of the folder name
+		// buildAssetsDir: 'assets', // don't use "_" at the begining of the folder name
 	},
 	vite: {
 		plugins: [
@@ -39,7 +40,7 @@ export default defineNuxtConfig({
 	compatibilityDate: '2024-09-21',
 	nitro: {
 		prerender: {
-			ignore: [],
+			ignore: ['/posts/*'],
 		}
 	}
 }
