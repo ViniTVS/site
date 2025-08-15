@@ -29,40 +29,6 @@ const { t } = useI18n({
 		<Resume />
 		<Projects />
 	</div>
-	<!--  -->
-	<footer
-		class="footer text-base-content bg-base-300 bg-opacity-50 items-center p-4 grid grid-rows-2 grid-cols-1 sm:grid-rows-1 sm:grid-cols-5 justify-between"
-	>
-		<div class="flex flex-row col-span-4 place-self-center sm:place-self-start">
-			<span class="copyleft">&copy;</span>Vinícius, 2024 -
-			Projetado e desenvolvido com
-			<img
-				alt="amor"
-				src="/full_heart.png"
-				class="mx-1"
-				style="height: 1rem;"
-				:id="'teste'"
-			/>
-		</div>
-
-		<div class="shrink grid-flow-col md:gap-4 place-self-center justify-self-center sm:justify-self-end">
-			<a href="https://twitter.com/vine_tvs">
-				<Icon
-					name="ph:twitter-logo-fill"
-					size="1rem"
-				/>
-			</a>
-			<a href="https://www.linkedin.com/in/vini-tvs">
-				<Icon name="ph:linkedin-logo-fill" />
-			</a>
-			<a href="https://github.com/ViniTVS">
-				<Icon name="ph:github-logo-fill" />
-			</a>
-			<a href="mailto:vinisantos185@gmail.com">
-				<Icon name="ph:at" />
-			</a>
-		</div>
-	</footer>
 </template>
 
 <i18n lang="json">{

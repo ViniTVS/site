@@ -71,7 +71,6 @@ const present_span = '<span class="text-primary">';
 let hidden = ref(true);
 
 function browserResized() {
-  console.log(window.innerWidth);
   if (window.innerWidth > 1536) {
     hidden.value = false;
   }
