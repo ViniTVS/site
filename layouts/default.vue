@@ -7,6 +7,24 @@ const switchLocalePath = useSwitchLocalePath();
 
 let isDark = ref(true);
 
+const langDropdown = ref<HTMLDetailsElement | null>(null);
+
+function closeLangDropdown() {
+  if (langDropdown.value) {
+    langDropdown.value.removeAttribute("open");
+  }
+}
+
+function handleClickOutside(event: MouseEvent) {
+  if (
+    langDropdown.value &&
+    langDropdown.value.hasAttribute("open") &&
+    !langDropdown.value.contains(event.target as Node)
+  ) {
+    langDropdown.value.removeAttribute("open");
+  }
+}
+
 let pages = [
   { option: "home", path: "/" },
   { option: "about", path: "/about" },
@@ -32,6 +50,7 @@ watch(isDark, (val: boolean) => {
 });
 
 onMounted(() => {
+  document.addEventListener("click", handleClickOutside);
   // set theme
   themeChange(false);
   let storageTheme = localStorage.getItem("theme");
@@ -40,6 +59,10 @@ onMounted(() => {
   }
   isDark.value = storageTheme == "dark";
   document.documentElement.setAttribute("data-theme", storageTheme);
+});
+
+onUnmounted(() => {
+  document.removeEventListener("click", handleClickOutside);
 });
 </script>
 
@@ -50,12 +73,10 @@ onMounted(() => {
   </Head>
   <!-- navbar -->
   <header class="fixed w-full top-0 grid justify-items-center z-30">
-    <nav
-      class="flex justify-center rounded-3xl mt-4 bg-opacity-80 backdrop-blur shadow-sm shadow-base-300 bg-base-100 p-1"
-    >
+    <nav class="flex justify-center rounded-3xl mt-4 backdrop-blur shadow-sm shadow-base-300 bg-neutral/50 p-1">
       <NuxtLink
         v-for="page in pages"
-        class="btn btn-sm btn-ghost rounded-3xl px-4 text-md font-bold"
+        class="btn btn-sm btn-ghost rounded-3xl px-4 text-md font-bold text-neutral-content"
         :to="$localePath(page.path)"
       >
         {{ $t(page.option) }}
@@ -84,7 +105,10 @@ onMounted(() => {
           ></Icon>
         </button>
         <!-- lang button -->
-        <details class="dropdown dropdown-end">
+        <details
+          class="dropdown dropdown-end"
+          ref="langDropdown"
+        >
           <summary class="btn btn-ghost bg-opacity-80 backdrop-blur shadow-sm shadow-base-300 bg-base-100 btn-square">
             <Icon
               name="ph:translate-duotone"
@@ -92,13 +116,13 @@ onMounted(() => {
             ></Icon>
           </summary>
           <ul
-            class="menu dropdown-content bg-base-100 rounded-box z-[2] w-42 p-2 shadow-lg"
+            class="menu dropdown-content bg-base-100 rounded-box z-2 w-42 p-2 shadow-lg"
             id="lang_menu"
           >
             <li
               class="btn btn-ghost"
               v-for="l in locales"
-              @click="() => { setLocale(l.code); switchLocalePath(l.code); }"
+              @click="() => { setLocale(l.code); switchLocalePath(l.code); closeLangDropdown(); }"
             >
               {{ l.name }}
             </li>
@@ -110,39 +134,39 @@ onMounted(() => {
       <slot> </slot>
     </div>
   </div>
-	<footer
-		class="footer text-base-content bg-base-300 bg-opacity-50 items-center p-4 grid grid-rows-2 grid-cols-1 sm:grid-rows-1 sm:grid-cols-5 justify-between"
-	>
-		<div class="flex flex-row col-span-4 place-self-center sm:place-self-start">
-			<span class="copyleft">&copy;</span>Vinícius, 2024 -
-			Projetado e desenvolvido com
-			<img
-				alt="amor"
-				src="/full_heart.png"
-				class="mx-1"
-				style="height: 1rem;"
-				:id="'teste'"
-			/>
-		</div>
+  <footer
+    class="footer text-base-content bg-base-300 bg-opacity-50 items-center p-4 grid grid-rows-2 grid-cols-1 sm:grid-rows-1 sm:grid-cols-5 justify-between"
+  >
+    <div class="flex flex-row col-span-4 place-self-center sm:place-self-start">
+      <span class="copyleft">&copy;</span>Vinícius, 2024 -
+      Projetado e desenvolvido com
+      <img
+        alt="amor"
+        src="/full_heart.png"
+        class="mx-1"
+        style="height: 1rem;"
+        :id="'teste'"
+      />
+    </div>
 
-		<div class="shrink grid-flow-col md:gap-4 place-self-center justify-self-center sm:justify-self-end">
-			<a href="https://twitter.com/vine_tvs">
-				<Icon
-					name="ph:twitter-logo-fill"
-					size="1rem"
-				/>
-			</a>
-			<a href="https://www.linkedin.com/in/vini-tvs">
-				<Icon name="ph:linkedin-logo-fill" />
-			</a>
-			<a href="https://github.com/ViniTVS">
-				<Icon name="ph:github-logo-fill" />
-			</a>
-			<a href="mailto:vinisantos185@gmail.com">
-				<Icon name="ph:at" />
-			</a>
-		</div>
-	</footer>
+    <div class="shrink grid-flow-col md:gap-4 place-self-center justify-self-center sm:justify-self-end">
+      <a href="https://twitter.com/vine_tvs">
+        <Icon
+          name="ph:twitter-logo-fill"
+          size="1rem"
+        />
+      </a>
+      <a href="https://www.linkedin.com/in/vini-tvs">
+        <Icon name="ph:linkedin-logo-fill" />
+      </a>
+      <a href="https://github.com/ViniTVS">
+        <Icon name="ph:github-logo-fill" />
+      </a>
+      <a href="mailto:vinisantos185@gmail.com">
+        <Icon name="ph:at" />
+      </a>
+    </div>
+  </footer>
 </template>
 
 <style scoped>

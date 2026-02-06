@@ -17,7 +17,7 @@
   --color-secondary-content: oklch(1 0 0);
   --color-accent: oklch(0.702 0.0568 173.64);
   --color-accent-content: oklch(0 0 0);
-  --color-neutral: oklch(0.7718 0.1301 85.62);
+  --color-neutral: oklch(0.9018 0.0194 299.04);
   --color-neutral-content: oklch(0 0 0);
   --color-info: oklch(0.4301 0.2571 264.44);
   --color-success: oklch(0.7685 0.2501 143.79);
@@ -50,10 +50,10 @@
 
 .custom-background {
   background: radial-gradient(circle at 100% 10vh,
-      oklch(from var(--color-primary) calc(0.7) c h ) 0px,
+      oklch(from var(--color-primary) calc(0.7) c h) 0px,
       transparent 20%),
     radial-gradient(circle at -10% 530vh,
-      oklch(from var(--color-primary) calc(0.8) c h ) 0px,
+      oklch(from var(--color-primary) calc(0.8) c h) 0px,
       transparent 10%);
 }
 
